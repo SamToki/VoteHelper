@@ -1,0 +1,219 @@
+/* For SamToki.github.io/VoteHelper */
+
+/* Header */
+header h1 {
+    width: 225px;
+}
+header h1 a {
+    background-image: url(images/Title.png);
+}
+header ul {
+    width: 400px;
+}
+header li {
+    width: calc(100% / 4);
+}
+
+/* Main */
+main h1 {
+    height: 80px;
+    font-size: 32px;
+}
+    /* 投票 */
+    #投票 {
+        height: 100vh;
+    }
+        /* VoteHeader */
+        #Ctnr_VoteHeader {
+            height: 50px; margin: 15px 0;
+        }
+        #Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter .CtrlGroup1 *, #ProgringText_Vote, #Label_VoteElapsed {
+            font-size: 24px;
+        }
+        #Ctnr_VoteHeader .Ctrl {
+            width: 100%; height: 100%;
+        }
+
+        /* VoteMain */
+        #Ctnr_VoteMain {
+            height: calc(100% - 270px); margin: 0 0 calc(15px - 10px) 0;
+        }
+        #Ctnr_VoteMain .CtrlGroup {
+            height: calc(100% / 6);
+            display: flex;
+        }
+        #Ctnr_VoteMain .Ctrl1 {
+            width: 80px; height: calc(100% - 10px); margin: 0 10px 10px 0;
+        }
+        #Ctnr_VoteMain .Ctrl2 {
+            width: 400px; height: calc(100% - 10px); margin: 0 10px 10px 0;
+        }
+        #Ctnr_VoteMain .Ctrl3 {
+            width: calc(100% - 500px); height: calc(100% - 10px); margin: 0 0 10px 0;
+        }
+        #Cmdbtn_VoteCandidate1 {
+            color: #FF0000;
+        }
+        #Cmdbtn_VoteCandidate2 {
+            color: #00A000;
+        }
+        #Cmdbtn_VoteCandidate3 {
+            color: #FF6000;
+        }
+        #Cmdbtn_VoteCandidate4 {
+            color: #00A0A0;
+        }
+        #Cmdbtn_VoteCandidate5 {
+            color: #FF00FF;
+        }
+        #Cmdbtn_VoteCandidate6 {
+            color: #A0A000;
+        }
+        #Ctnr_VoteMain .Progbar {
+            position: relative;
+            width: 100%; height: 100%; border: 1px solid #00000080; border-radius: 10px;
+            background-color: #00000020;
+        }
+        #Ctnr_VoteMain .ProgbarFg {
+            position: absolute;
+            width: calc(20px + (100% - 20px) * 0.50); height: 100%; border-radius: 10px;
+        }
+        #Ctnr_VoteMain .ProgbarText1 {
+            position: absolute;
+            height: 100%; padding: 5px 10px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #Ctnr_VoteMain .ProgbarText2 {
+            position: absolute; right: 0;
+            height: 100%; padding: 5px 10px;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #ProgbarFg_VoteCandidate1 {
+            background-color: #FFA0A0;
+        }
+        #ProgbarFg_VoteCandidate2 {
+            background-color: #A0FFA0;
+        }
+        #ProgbarFg_VoteCandidate3 {
+            background-color: #FFC0A0;
+        }
+        #ProgbarFg_VoteCandidate4 {
+            background-color: #A0FFFF;
+        }
+        #ProgbarFg_VoteCandidate5 {
+            background-color: #FFA0FF;
+        }
+        #ProgbarFg_VoteCandidate6 {
+            background-color: #FFFFA0;
+        }
+
+        /* VoteFooter */
+        #Ctnr_VoteFooter {
+            width: 100%; height: 90px; margin: 0 0 15px 0;
+            display: flex;
+        }
+        #Ctnr_VoteFooter .CtrlGroup1 {
+            width: calc(100% - 295px); height: 100%; margin: 0 15px 0 0;
+            display: flex;
+        }
+        #Ctnr_VoteFooter .CtrlGroup1 .Ctrl {
+            width: 100%; height: 100%;
+        }
+        #Ctnr_VoteFooter .CtrlGroup2 {
+            width: 185px; height: 100%; margin: 0 15px 0 0;
+            display: flex;
+        }
+        #Ctnr_VoteFooter .CtrlGroup2 .Ctrl1 {
+            position: relative;
+            width: 90px; height: 100%; margin: 0 15px 0 0;
+        }
+        #Ctnr_VoteFooter .Progring {
+            width: 100%; height: 100%;
+        }
+        #Ctnr_VoteFooter .ProgringFg {
+            stroke-dasharray: 257.61 257.61;
+            stroke-dashoffset: 128.80;
+            transform: translateY(100%) rotate(-90deg);
+        }
+        #Ctnr_VoteFooter .ProgringText {
+            position: absolute; top: 0;
+            width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+        }
+        #Ctnr_VoteFooter .CtrlGroup2 .Ctrl2 {
+            width: calc(100% - 105px); height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        #Ctnr_VoteFooter .CtrlGroup3 {
+            width: 80px; height: 100%; margin: 0 0 -10px 0;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        #Ctnr_VoteFooter .CtrlGroup3 .Ctrl {
+            position: relative;
+            width: 100%; height: 40px; margin: 0 0 10px 0;
+        }
+        #Ctnr_VoteFooter .CtrlGroup3 .Cmdbtn {
+            width: 100%; height: 40px;
+        }
+        #Ctnr_VoteFooter .DropctrlGroup {
+            position: absolute; bottom: 100%; right: 0;
+            width: 120px; height: 240px;
+        }
+
+    /* 设定 */
+    #设定 .ItemGroup {
+        margin: 0 -10px 0 -10px;
+        display: flex; flex-wrap: wrap; justify-content: left;
+    }
+    #设定 .Item {
+        width: 500px; margin: 0 10px 40px 10px;
+    }
+    #设定 .CtrlGroup {
+        width: 100%; margin: 0 -10px -10px 0;
+        display: flex; flex-wrap: wrap; justify-content: left;
+    }
+    #设定 .Ctrl {
+        height: 40px; margin: 0 10px 10px 0;
+        display: flex; flex-wrap: wrap; justify-content: left; align-items: center;
+    }
+    #Item_SettingsVote .Textbox {
+        width: 100px;
+    }
+    #Item_SettingsAppearance .Combobox {
+        width: 120px;
+    }
+
+/* Responsive Web Design */
+@media (max-width: 860px) {
+    header h1 {
+        width: 40px;
+    }
+    header ul {
+        width: calc(100% - 70px);
+    }
+    main h1 {
+        height: 60px;
+    }
+    #Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter .CtrlGroup1 * {
+        font-size: 16px;
+    }
+    #Ctnr_VoteMain {
+        height: calc(100% - 250px);
+    }
+    #Ctnr_VoteMain .Ctrl1 {
+        width: 40px;
+    }
+    #Ctnr_VoteMain .Ctrl2 {
+        width: 100px;
+    }
+    #Ctnr_VoteMain .Ctrl3 {
+        width: calc(100% - 160px);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion) {
+	#Combobox_SettingsAppearanceAnimSpd {
+		background-color: #C0C0C0C0;
+	}
+}

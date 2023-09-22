@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个 Web App，刚学完 JavaScript 就先拿这个简单的玩具试试水。"/>
+		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, VoteHelper"/>
+		<meta name="version" content="v0.52 2023/09/22. Since 2023/09/16."/>
+		<meta name="author" content="Sam Toki"/>
+		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO"/>
+		<title>VoteHelper</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+		<link rel="stylesheet" href="../common.css"/>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="https://SamToki.github.io/VoteHelper">VoteHelper</a></h1>
+			<nav>
+				<ul>
+					<li><a href="#投票">投票</a></li>
+					<li><a href="#设定">设定</a></li>
+					<li><a href="#帮助">帮助</a></li>
+					<li><a href="https://SamToki.github.io">主页</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section id="投票">
+				<h1>投票</h1>
+				<div id="Ctnr_VoteHeader">
+					<div class="Ctrl"><input class="Textbox Centered" type="text" placeholder="投票主题" /></div>
+				</div>
+
+				<div id="Ctnr_VoteMain">
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="VoteCount(1)">A</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate1">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate1"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate1">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate1">占比</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="VoteCount(2)">B</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate2">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate2"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate2">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate2">占比</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="VoteCount(3)">C</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate3">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate3"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate3">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate3">占比</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="VoteCount(4)">D</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate4">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate4"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate4">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate4">占比</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="VoteCount(5)">E</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate5">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate5"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate5">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate5">占比</p>
+							</div>
+						</li>
+					</ul>
+					<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
+						<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="VoteCount(6)">F</button></li>
+						<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+						<li class="Ctrl3">
+							<div class="Progbar" id="Progbar_VoteCandidate6">
+								<div class="ProgbarFg" id="ProgbarFg_VoteCandidate6"></div>
+								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate6">票数</p>
+								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate6">占比</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div id="Ctnr_VoteFooter">
+					<ul class="CtrlGroup1">
+						<li class="Ctrl"><textarea class="Textbox" placeholder="备注"></textarea></li>
+					</ul>
+					<ul class="CtrlGroup2">
+						<li class="Ctrl1">
+							<svg class="Progring" id="Progring_Vote">
+								<circle class="ProgringBg" id="ProgringBg_Vote" cx="45" cy="45" r="41" stroke="#00000020" stroke-width="8" fill="transparent" />
+								<circle class="ProgringFg" id="ProgringFg_Vote" cx="45" cy="45" r="41" stroke="#8040A0FF" stroke-width="8" fill="transparent" />
+							</svg>
+							<p class="ProgringText" id="ProgringText_Vote">进度</p>
+						</li>
+						<li class="Ctrl2">
+							<p id="Label_VoteElapsed">已投</p>
+							<p id="Label_VoteTotal">/总数</p>
+						</li>
+					</ul>
+					<ul class="CtrlGroup3">
+						<li class="Ctrl">
+							<button class="Cmdbtn" id="Cmdbtn_VoteUndo" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="ChangeShow('DropctrlGroup_VoteUndo')">撤销...</button>
+							<ul class="DropctrlGroup Hidden" id="DropctrlGroup_VoteUndo">
+								<li class="Dropctrl" id="Dropctrl_VoteUndo1"><button class="Dropbtn" id="Dropbtn_VoteUndo1" onclick="VoteUndo(1)">A 减少一票</button></li>
+								<li class="Dropctrl" id="Dropctrl_VoteUndo2"><button class="Dropbtn" id="Dropbtn_VoteUndo2" onclick="VoteUndo(2)">B 减少一票</button></li>
+								<li class="Dropctrl" id="Dropctrl_VoteUndo3"><button class="Dropbtn" id="Dropbtn_VoteUndo3" onclick="VoteUndo(3)">C 减少一票</button></li>
+								<li class="Dropctrl" id="Dropctrl_VoteUndo4"><button class="Dropbtn" id="Dropbtn_VoteUndo4" onclick="VoteUndo(4)">D 减少一票</button></li>
+								<li class="Dropctrl" id="Dropctrl_VoteUndo5"><button class="Dropbtn" id="Dropbtn_VoteUndo5" onclick="VoteUndo(5)">E 减少一票</button></li>
+								<li class="Dropctrl" id="Dropctrl_VoteUndo6"><button class="Dropbtn" id="Dropbtn_VoteUndo6" onclick="VoteUndo(6)">F 减少一票</button></li>
+							</ul>
+						</li>
+						<li class="Ctrl"><button class="Cmdbtn" id="Cmdbtn_VoteReset" onclick="VoteReset()">重置</button></li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="设定">
+				<h1>设定</h1>
+				<ul class="ItemGroup">
+					<li class="Item" id="Item_SettingsVote">
+						<h3>投票</h3>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<label for="Textbox_SettingsVoteCandidateQty">选项个数：</label>
+								<input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onchange="SetVoteCandidateQty()" />
+							</li>
+							<li class="Ctrl">
+								<label for="Textbox_SettingsVoteTotal">总票数：</label>
+								<input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onchange="SetVoteTotal()" />
+							</li>
+						</ul>
+					</li>
+					<li class="Item" id="Item_SettingsAppearance">
+						<h3>外观</h3>
+						<ul class="CtrlGroup">
+							<li class="Ctrl">
+								<label for="Textbox_SettingsAppearanceAnimSpd">动画速度：</label>
+								<select class="Combobox" id="Combobox_SettingsAppearanceAnimSpd" onchange="SetAppearanceAnimSpd()">
+									<option value="0.5s">慢 (0.5s)</option>
+									<option value="0.3s" selected>中 (0.3s)</option>
+									<option value="0.1s">快 (0.1s)</option>
+									<option value="none">关闭动画</option>
+								</select>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="帮助">
+				<h1>帮助</h1>
+				<h3>简介</h3>
+				<p>VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个 Web App，刚学完 JavaScript 就先拿这个简单的玩具试试水。</p>
+				<h3>隐私</h3>
+				<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储配置数据，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
+				<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>，但 SAM TOKI STUDIO 无法访问这些数据。</p>
+				<h3>反馈</h3>
+				<p>您可使用 <a href="https://github.com/SamToki/Web---VoteHelper/issues">GitHub Issues</a> 或<a href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩（B站）私信</a>来向我提供反馈，感谢您的支持！推荐使用前者，我能第一时间收到您的反馈，但注意需要梯子才能访问。</p>
+			</section>
+		</main>
+
+		<footer>
+			<ul>
+				<li>背景主题: <a href="https://bgm.tv/subject/254895">えんどろ～!</a></li>
+				<li>插画来源: Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a></li>
+				<!-- <li>图标来源: <a href="https://icons.getbootstrap.com">Bootstrap Icons</a></li> -->
+				<li>网页版本: v0.52 (<time datetime="2023-09-22" pubdate="pubdate">2023/09/22</time>)</li>
+				<li>开源协议: <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a></li>
+				<li><a href="https://github.com/SamToki/Web---VoteHelper">GitHub 项目</a></li>
+			</ul>
+			<p id="Label_Copyright">© 2015-2023 SAM TOKI STUDIO</p>
+		</footer>
+
+		<script src="../common.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
