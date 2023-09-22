@@ -212,7 +212,7 @@ main h1 {
 }
 
 /* Accessibility */
-@media (prefers-reduced-motion) {
+@media (prefers-reduced-motion: reduce) {
 	#Combobox_SettingsAppearanceAnimSpd {
 		background-color: #C0C0C0C0;
 	}
