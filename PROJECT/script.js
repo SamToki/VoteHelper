@@ -11,9 +11,13 @@ Vote = {
 },
 System = {
     Appearance: {
+        ShowTopbar: true,
         Anim: {
             Spd: "0.3s"
         }
+    },
+    Dev: {
+        ShowAllBorders: false
     }
 };
 
@@ -21,17 +25,17 @@ System = {
 function Refresh() {
     // Vote
     for(Looper = 1; Looper <= Vote.CandidateQty; Looper++) {
-        ChangeEnable("Cmdbtn_VoteCandidate" + Looper);
+        ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
         ChangeShow("CtrlGroup_VoteCandidate" + Looper);
         ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc(100% / " + Vote.CandidateQty + ")");
-        ChangeEnable("Dropbtn_VoteUndo" + Looper);
+        ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
         ChangeShow("Dropctrl_VoteUndo" + Looper);
     }
     for(Looper = 6; Looper > Vote.CandidateQty; Looper--) {
         Vote.Elapsed[Looper] = 0;
-        ChangeDisable("Cmdbtn_VoteCandidate" + Looper);
+        ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
         ChangeHide("CtrlGroup_VoteCandidate" + Looper);
-        ChangeDisable("Dropbtn_VoteUndo" + Looper);
+        ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
         ChangeHide("Dropctrl_VoteUndo" + Looper);
     }
     Vote.ElapsedSum = 0;
@@ -61,7 +65,7 @@ function Refresh() {
     ChangeText("Label_VoteTotal", "/" + Vote.Total);
     for(Looper = 1; Looper <= 6; Looper++) {
         if(Vote.Elapsed[Looper] <= 0) {
-            ChangeDisable("Dropbtn_VoteUndo" + Looper);
+            ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
         }
     }
 
@@ -69,7 +73,7 @@ function Refresh() {
     if(Vote.ElapsedSum >= Vote.Total) {
         Vote.ElapsedSum = Vote.Total;
         for(Looper = 1; Looper <= 6; Looper++) {
-            ChangeDisable("Cmdbtn_VoteCandidate" + Looper);
+            ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
         }
         ChangeText("ProgringText_Vote", "完成");
     }
@@ -80,19 +84,33 @@ function Refresh() {
         ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
 
         // Appearance
+        ChangeChecked("Checkbox_SettingsAppearanceShowTopbar", System.Appearance.ShowTopbar);
+        if(System.Appearance.ShowTopbar == true) {
+            ChangeShow("Topbar");
+            ChangeShowByClass("SectionTitle");
+            ChangeHeightByClass("Viewport", "");
+        } else {
+            ChangeHide("Topbar");
+            ChangeHideByClass("SectionTitle");
+            ChangeHeightByClass("Viewport", "100%");
+        }
         ChangeValue("Combobox_SettingsAppearanceAnimSpd", System.Appearance.Anim.Spd);
         ChangeAnimSpd(System.Appearance.Anim.Spd);
+
+        // Dev
+        ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
+        ChangeShowAllBorders(System.Dev.ShowAllBorders);
     
     // Save Configuration
-    // ???
+    	// ???
 }
 
 // Load
+	// Load Configuration
+    	// ???
+    
     // Refresh
     window.onload = Refresh();
-
-    // Load Configuration
-    // ???
 
 // Commands
     // Vote
@@ -139,8 +157,24 @@ function Refresh() {
         }
         Refresh();
     }
+    function SetAppearanceShowTopbar() {
+        if(document.getElementById("Checkbox_SettingsAppearanceShowTopbar").checked) {
+            System.Appearance.ShowTopbar = true;
+        } else {
+            System.Appearance.ShowTopbar = false;
+        }
+        Refresh();
+    }
     function SetAppearanceAnimSpd() {
         System.Appearance.Anim.Spd = ReadValue("Combobox_SettingsAppearanceAnimSpd");
+        Refresh();
+    }
+    function SetDevShowAllBorders() {
+        if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
+            System.Dev.ShowAllBorders = true;
+        } else {
+            System.Dev.ShowAllBorders = false;
+        }
         Refresh();
     }
 
