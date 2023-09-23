@@ -162,11 +162,11 @@ nav li {
 
     /* 设定 */
     .ItemGroup {
-        margin: 0 -20px -20px -20px;
+        margin: 0 -20px 0 -20px;
         display: flex; flex-wrap: wrap; justify-content: center;
     }
     .Item {
-        width: 380px; margin: 0 20px 40px 20px;
+        width: 380px; margin: 0 20px 20px 20px;
     }
     #设定 .CtrlGroup {
         width: 100%; margin: 0 -10px -10px 0;
@@ -204,10 +204,10 @@ nav li {
         width: calc(100% - 160px);
     }
     .ItemGroup {
-        margin: 0 -10px -20px -10px;
+        margin: 0 -10px 0 -10px;
     }
     .Item {
-        margin: 0 10px 40px 10px;
+        margin: 0 10px 20px 10px;
     }
 }
 
