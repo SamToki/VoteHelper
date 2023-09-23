@@ -1,10 +1,10 @@
 /* For SamToki.github.io/VoteHelper */
 
 /* Header */
-.HeaderTitle {
+.Title {
     width: 225px;
 }
-.HeaderTitle a {
+.Title a {
     background-image: url(images/Title.png);
 }
 nav ul {
@@ -169,11 +169,11 @@ nav li {
         width: 380px; margin: 0 20px 20px 20px;
     }
     #设定 .CtrlGroup {
-        width: 100%; margin: 0 -10px -10px 0;
-        display: flex; flex-wrap: wrap; justify-content: left;
+        width: 100%; height: 40px; margin: 0 -10px 10px 0;
+        display: flex; flex-wrap: wrap; justify-content: left; align-items: center;
     }
     #设定 .Ctrl {
-        width: 100%; height: 40px; margin: 0 10px 10px 0;
+        height: 100%; margin: 0 10px 10px 0;
         display: flex; flex-wrap: wrap; justify-content: left; align-items: center;
     }
     #设定 .Textbox, #设定 .Combobox {
@@ -182,7 +182,7 @@ nav li {
 
 /* Responsive Web Design */
 @media (max-width: 860px) {
-    .HeaderTitle {
+    .Title {
         width: 40px;
     }
     nav ul {

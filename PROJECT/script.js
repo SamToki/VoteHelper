@@ -87,12 +87,12 @@ function Refresh() {
         ChangeChecked("Checkbox_SettingsAppearanceShowTopbar", System.Appearance.ShowTopbar);
         if(System.Appearance.ShowTopbar == true) {
             ChangeShow("Topbar");
-            ChangeShowByClass("SectionTitle");
-            ChangeHeightByClass("Viewport", "");
+            ChangeShow("SectionTitle_Primary");
+            ChangeHeight("Viewport_Primary", "");
         } else {
             ChangeHide("Topbar");
-            ChangeHideByClass("SectionTitle");
-            ChangeHeightByClass("Viewport", "100%");
+            ChangeHide("SectionTitle_Primary");
+            ChangeHeight("Viewport_Primary", "100%");
         }
         ChangeValue("Combobox_SettingsAppearanceAnimSpd", System.Appearance.Anim.Spd);
         ChangeAnimSpd(System.Appearance.Anim.Spd);
