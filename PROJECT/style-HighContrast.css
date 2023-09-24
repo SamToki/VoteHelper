@@ -5,22 +5,22 @@
     /* 投票 */
         /* VoteMain */
         #Cmdbtn_VoteCandidate1 {
-            color: #FFFFFF;
+            color: unset;
         }
         #Cmdbtn_VoteCandidate2 {
-            color: #FFFFFF;
+            color: unset;
         }
         #Cmdbtn_VoteCandidate3 {
-            color: #FFFFFF;
+            color: unset;
         }
         #Cmdbtn_VoteCandidate4 {
-            color: #FFFFFF;
+            color: unset;
         }
         #Cmdbtn_VoteCandidate5 {
-            color: #FFFFFF;
+            color: unset;
         }
         #Cmdbtn_VoteCandidate6 {
-            color: #FFFFFF;
+            color: unset;
         }
         #ProgbarFg_VoteCandidate1 {
             background-color: #0080FF;
