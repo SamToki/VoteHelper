@@ -10,7 +10,8 @@ Vote = {
     ElapsedSum: 0
 },
 System = {
-    Appearance: {
+    Display: {
+        Theme: "Auto",
         ShowTopbar: true,
         Anim: {
             Spd: "0.3s"
@@ -83,9 +84,37 @@ function Refresh() {
         ChangeValue("Textbox_SettingsVoteCandidateQty", Vote.CandidateQty);
         ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
 
-        // Appearance
-        ChangeChecked("Checkbox_SettingsAppearanceShowTopbar", System.Appearance.ShowTopbar);
-        if(System.Appearance.ShowTopbar == true) {
+        // Display
+        ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
+        switch(System.Display.Theme) {
+            case "Auto":
+            default:
+                document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
+                document.getElementById("ThemeVariant_Common").media = "(prefers-color-scheme: dark)";
+                document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+                document.getElementById("ThemeVariant_Style").media = "(prefers-color-scheme: dark)";
+                break;
+            case "Default":
+                document.getElementById("ThemeVariant_Common").href = "";
+                document.getElementById("ThemeVariant_Common").media = "";
+                document.getElementById("ThemeVariant_Style").href = "";
+                document.getElementById("ThemeVariant_Style").media = "";
+                break;
+            case "Dark":
+                document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
+                document.getElementById("ThemeVariant_Common").media = "";
+                document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+                document.getElementById("ThemeVariant_Style").media = "";
+                break;
+            case "HighContrast":
+                document.getElementById("ThemeVariant_Common").href = "../common-HighContrast.css";
+                document.getElementById("ThemeVariant_Common").media = "";
+                document.getElementById("ThemeVariant_Style").href = "style-HighContrast.css";
+                document.getElementById("ThemeVariant_Style").media = "";
+                break;
+        }
+        ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
+        if(System.Display.ShowTopbar == true) {
             ChangeShow("Topbar");
             ChangeShow("SectionTitle_Primary");
             ChangeHeight("Viewport_Primary", "");
@@ -94,8 +123,8 @@ function Refresh() {
             ChangeHide("SectionTitle_Primary");
             ChangeHeight("Viewport_Primary", "100%");
         }
-        ChangeValue("Combobox_SettingsAppearanceAnimSpd", System.Appearance.Anim.Spd);
-        ChangeAnimSpd(System.Appearance.Anim.Spd);
+        ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
+        ChangeAnimSpd(System.Display.Anim.Spd);
 
         // Dev
         ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
@@ -157,16 +186,20 @@ function Refresh() {
         }
         Refresh();
     }
-    function SetAppearanceShowTopbar() {
-        if(document.getElementById("Checkbox_SettingsAppearanceShowTopbar").checked) {
-            System.Appearance.ShowTopbar = true;
+    function SetDisplayTheme() {
+        System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
+        Refresh();
+    }
+    function SetDisplayShowTopbar() {
+        if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
+            System.Display.ShowTopbar = true;
         } else {
-            System.Appearance.ShowTopbar = false;
+            System.Display.ShowTopbar = false;
         }
         Refresh();
     }
-    function SetAppearanceAnimSpd() {
-        System.Appearance.Anim.Spd = ReadValue("Combobox_SettingsAppearanceAnimSpd");
+    function SetDisplayAnimSpd() {
+        System.Display.Anim.Spd = ReadValue("Combobox_SettingsDisplayAnimSpd");
         Refresh();
     }
     function SetDevShowAllBorders() {

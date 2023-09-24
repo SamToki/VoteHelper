@@ -6,15 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用（web app），刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, VoteHelper" />
-		<meta name="version" content="v0.55 (2023/09/24) Beta Test. Since 2023/09/16." />
+		<meta name="version" content="v0.56 (2023/09/24) Beta Test. Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>VoteHelper</title>
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
 		<link rel="stylesheet" href="../common.css" />
-		<!-- <link id="Theme1" rel="stylesheet" href="../common-Dark.css" media="(prefers-color-scheme: dark)" /> -->
+		<link id="ThemeVariant_Common" rel="stylesheet" href="../common-Dark.css" media="(prefers-color-scheme: dark)" />
+		<link id="ThemeVariant_Common_HighContrast" rel="stylesheet" href="../common-HighContrast.css" media="(prefers-contrast: more)" />
 		<link rel="stylesheet" href="style.css" />
-		<!-- <link id="Theme2" rel="stylesheet" href="style-Dark.css" media="(prefers-color-scheme: dark)" /> -->
+		<link id="ThemeVariant_Style" rel="stylesheet" href="style-Dark.css" media="(prefers-color-scheme: dark)" />
+		<link id="ThemeVariant_Style_HighContrast" rel="stylesheet" href="style-HighContrast.css" media="(prefers-contrast: more)" />
 	</head>
 
 	<body>
@@ -114,8 +116,8 @@
 						<ul class="CtrlGroup2">
 							<li class="Ctrl1">
 								<svg class="Progring" id="Progring_Vote">
-									<circle class="ProgringBg" id="ProgringBg_Vote" cx="45" cy="45" r="41" stroke="#00000020" stroke-width="8" fill="transparent" />
-									<circle class="ProgringFg" id="ProgringFg_Vote" cx="45" cy="45" r="41" stroke="#8040A0FF" stroke-width="8" fill="transparent" />
+									<circle class="ProgringBg" id="ProgringBg_Vote" cx="45" cy="45" r="41" />
+									<circle class="ProgringFg" id="ProgringFg_Vote" cx="45" cy="45" r="41" />
 								</svg>
 								<p class="ProgringText" id="ProgringText_Vote">进度</p>
 							</li>
@@ -156,20 +158,32 @@
 							</ul>
 						</fieldset>
 					</li>
-					<li class="Item" id="Item_SettingsAppearance">
+					<li class="Item" id="Item_SettingsDisplay">
 						<fieldset>
-							<legend>外观</legend>
+							<legend>显示</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Checkbox_SettingsAppearanceShowTopbar"><input class="Checkbox" id="Checkbox_SettingsAppearanceShowTopbar" type="checkbox" checked="true" onchange="SetAppearanceShowTopbar()" /><span>显示顶栏</span></label></li>
+								<li class="Ctrl">
+									<label for="Combobox_SettingsDisplayTheme"><span>主题：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayTheme" onchange="SetDisplayTheme()">
+											<option value="Auto" selected>自动</option>
+											<option value="Default">默认</option>
+											<option value="Dark">深色</option>
+											<option value="HighContrast">高对比度 (无障碍)</option>
+										</select>
+									</label>
+								</li>
+							</ul>
+							<ul class="CtrlGroup">
+								<li class="Ctrl"><label for="Checkbox_SettingsDisplayShowTopbar"><input class="Checkbox" id="Checkbox_SettingsDisplayShowTopbar" type="checkbox" checked="true" onchange="SetDisplayShowTopbar()" /><span>显示顶栏</span></label></li>
 							</ul>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
-									<label for="Textbox_SettingsAppearanceAnimSpd"><span>动画速度：</span>
-										<select class="Combobox" id="Combobox_SettingsAppearanceAnimSpd" onchange="SetAppearanceAnimSpd()">
+									<label for="Combobox_SettingsDisplayAnimSpd"><span>动画速度：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpd" onchange="SetDisplayAnimSpd()">
 											<option value="0.5s">慢 (0.5s)</option>
 											<option value="0.3s" selected>中 (0.3s)</option>
 											<option value="0.1s">快 (0.1s)</option>
-											<option value="none">关闭动画</option>
+											<option value="none">关闭动画 (无障碍)</option>
 										</select>
 									</label>
 								</li>
@@ -204,7 +218,7 @@
 				<li>背景主题: <a href="https://bgm.tv/subject/254895">えんどろ～!</a></li>
 				<li>插画来源: Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a></li>
 				<!-- <li>图标来源: <a href="https://icons.getbootstrap.com">Bootstrap Icons</a></li> -->
-				<li>网页版本: v0.55 (<time datetime="2023-09-24" pubdate="pubdate">2023/09/24</time>) Beta Test</li>
+				<li>网页版本: v0.56 (<time datetime="2023-09-24" pubdate="pubdate">2023/09/24</time>) Beta Test</li>
 				<li>开源协议: <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a></li>
 				<li><a href="https://github.com/SamToki/Web---VoteHelper">GitHub 项目</a></li>
 			</ul>

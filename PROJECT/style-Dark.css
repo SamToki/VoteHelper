@@ -1,0 +1,54 @@
+/* For SamToki.github.io/VoteHelper */
+    /* This is a theme variant, so only colors along with few things are configured. */
+
+/* Main */
+    /* 投票 */
+        /* VoteMain */
+        #Cmdbtn_VoteCandidate1 {
+            color: #E08080;
+        }
+        #Cmdbtn_VoteCandidate2 {
+            color: #80E080;
+        }
+        #Cmdbtn_VoteCandidate3 {
+            color: #E0A080;
+        }
+        #Cmdbtn_VoteCandidate4 {
+            color: #80E0E0;
+        }
+        #Cmdbtn_VoteCandidate5 {
+            color: #E080E0;
+        }
+        #Cmdbtn_VoteCandidate6 {
+            color: #E0E080;
+        }
+        #ProgbarFg_VoteCandidate1 {
+            background-color: #E00000;
+        }
+        #ProgbarFg_VoteCandidate2 {
+            background-color: #008000;
+        }
+        #ProgbarFg_VoteCandidate3 {
+            background-color: #E04000;
+        }
+        #ProgbarFg_VoteCandidate4 {
+            background-color: #008080;
+        }
+        #ProgbarFg_VoteCandidate5 {
+            background-color: #E000E0;
+        }
+        #ProgbarFg_VoteCandidate6 {
+            background-color: #808000;
+        }
+
+/* Accessibility */
+@media (prefers-contrast: more) {
+	#Combobox_SettingsDisplayTheme {
+		background-color: #404040C0;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	#Combobox_SettingsDisplayAnimSpd {
+		background-color: #404040C0;
+	}
+}
