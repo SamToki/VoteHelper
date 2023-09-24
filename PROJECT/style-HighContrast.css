@@ -4,40 +4,13 @@
 /* Main */
     /* 投票 */
         /* VoteMain */
-        #Cmdbtn_VoteCandidate1 {
-            color: unset;
+        #Ctnr_VoteMain .Cmdbtn {
+            color: #FFFFFF;
         }
-        #Cmdbtn_VoteCandidate2 {
-            color: unset;
+        #Ctnr_VoteMain .Cmdbtn:hover {
+            color: #00FF00;
         }
-        #Cmdbtn_VoteCandidate3 {
-            color: unset;
-        }
-        #Cmdbtn_VoteCandidate4 {
-            color: unset;
-        }
-        #Cmdbtn_VoteCandidate5 {
-            color: unset;
-        }
-        #Cmdbtn_VoteCandidate6 {
-            color: unset;
-        }
-        #ProgbarFg_VoteCandidate1 {
-            background-color: #0080FF;
-        }
-        #ProgbarFg_VoteCandidate2 {
-            background-color: #0080FF;
-        }
-        #ProgbarFg_VoteCandidate3 {
-            background-color: #0080FF;
-        }
-        #ProgbarFg_VoteCandidate4 {
-            background-color: #0080FF;
-        }
-        #ProgbarFg_VoteCandidate5 {
-            background-color: #0080FF;
-        }
-        #ProgbarFg_VoteCandidate6 {
+        #Ctnr_VoteMain .ProgbarFg {
             background-color: #0080FF;
         }
 

@@ -44,11 +44,11 @@
 /* Accessibility */
 @media (prefers-contrast: more) {
 	#Combobox_SettingsDisplayTheme {
-		background-color: #404040C0;
+		background-color: #404040A0;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
 	#Combobox_SettingsDisplayAnimSpd {
-		background-color: #404040C0;
+		background-color: #404040A0;
 	}
 }
