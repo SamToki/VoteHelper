@@ -39,8 +39,7 @@ nav li {
             height: calc(100% - 190px); margin: 0 0 calc(15px - 10px) 0;
         }
         #Ctnr_VoteMain .CtrlGroup {
-            height: calc(100% / 6);
-            display: flex;
+            height: calc(100% / 6); margin: 0;
         }
         #Ctnr_VoteMain .Ctrl1 {
             width: 80px; height: calc(100% - 10px); margin: 0 10px 10px 0;
@@ -150,10 +149,7 @@ nav li {
         }
         #Ctnr_VoteFooter .CtrlGroup3 .Ctrl {
             position: relative;
-            width: 100%; height: 40px; margin: 0 0 10px 0;
-        }
-        #Ctnr_VoteFooter .CtrlGroup3 .Cmdbtn {
-            width: 100%; height: 40px;
+            width: 100%; margin: 0 0 10px 0;
         }
         #Ctnr_VoteFooter .DropctrlGroup {
             position: absolute; bottom: 100%; right: 0;
@@ -169,12 +165,10 @@ nav li {
         width: 380px; margin: 0 20px 20px 20px;
     }
     #设定 .CtrlGroup {
-        width: 100%; height: 40px; margin: 0 -10px 10px 0;
-        display: flex; flex-wrap: wrap; justify-content: left; align-items: center;
+        width: 100%; margin: 0 0 10px 0;
     }
     #设定 .Ctrl {
-        height: 100%; margin: 0 10px 10px 0;
-        display: flex; flex-wrap: wrap; justify-content: left; align-items: center;
+        width: 100%; margin: 0;
     }
     #设定 .Textbox, #设定 .Combobox {
         width: 120px;

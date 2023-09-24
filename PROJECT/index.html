@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用（web app），刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, VoteHelper" />
-		<meta name="version" content="v0.54 (2023/09/23) Beta Test. Since 2023/09/16." />
+		<meta name="version" content="v0.55 (2023/09/24) Beta Test. Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>VoteHelper</title>
@@ -149,12 +149,10 @@
 						<fieldset>
 							<legend>投票</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Textbox_SettingsVoteCandidateQty">选项个数：</label></li>
-								<li class="Ctrl"><input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onchange="SetVoteCandidateQty()" /></li>
+								<li class="Ctrl"><label for="Textbox_SettingsVoteCandidateQty"><span>选项个数：</span><input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onchange="SetVoteCandidateQty()" /></label></li>
 							</ul>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Textbox_SettingsVoteTotal">总票数：</label></li>
-								<li class="Ctrl"><input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onchange="SetVoteTotal()" /></li>
+								<li class="Ctrl"><label for="Textbox_SettingsVoteTotal"><span>总票数：</span><input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onchange="SetVoteTotal()" /></label></li>
 							</ul>
 						</fieldset>
 					</li>
@@ -162,18 +160,18 @@
 						<fieldset>
 							<legend>外观</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><input class="Checkbox" id="Checkbox_SettingsAppearanceShowTopbar" type="checkbox" checked onchange="SetAppearanceShowTopbar()" /></li>
-								<li class="Ctrl"><label for="Checkbox_SettingsAppearanceShowTopbar">显示顶栏</label></li>
+								<li class="Ctrl"><label for="Checkbox_SettingsAppearanceShowTopbar"><input class="Checkbox" id="Checkbox_SettingsAppearanceShowTopbar" type="checkbox" checked="true" onchange="SetAppearanceShowTopbar()" /><span>显示顶栏</span></label></li>
 							</ul>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Textbox_SettingsAppearanceAnimSpd">动画速度：</label></li>
 								<li class="Ctrl">
-									<select class="Combobox" id="Combobox_SettingsAppearanceAnimSpd" onchange="SetAppearanceAnimSpd()">
-										<option value="0.5s">慢 (0.5s)</option>
-										<option value="0.3s" selected>中 (0.3s)</option>
-										<option value="0.1s">快 (0.1s)</option>
-										<option value="none">关闭动画</option>
-									</select>
+									<label for="Textbox_SettingsAppearanceAnimSpd"><span>动画速度：</span>
+										<select class="Combobox" id="Combobox_SettingsAppearanceAnimSpd" onchange="SetAppearanceAnimSpd()">
+											<option value="0.5s">慢 (0.5s)</option>
+											<option value="0.3s" selected>中 (0.3s)</option>
+											<option value="0.1s">快 (0.1s)</option>
+											<option value="none">关闭动画</option>
+										</select>
+									</label>
 								</li>
 							</ul>
 						</fieldset>
@@ -182,8 +180,7 @@
 						<fieldset>
 							<legend>开发者选项</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" onchange="SetDevShowAllBorders()" /></li>
-								<li class="Ctrl"><label for="Checkbox_SettingsDevShowAllBorders">显示所有元素的边框</label></li>
+								<li class="Ctrl"><label for="Checkbox_SettingsDevShowAllBorders"><input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" /><span>显示所有元素的边框</span></label></li>
 							</ul>
 						</fieldset>
 					</li>
@@ -207,7 +204,7 @@
 				<li>背景主题: <a href="https://bgm.tv/subject/254895">えんどろ～!</a></li>
 				<li>插画来源: Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a></li>
 				<!-- <li>图标来源: <a href="https://icons.getbootstrap.com">Bootstrap Icons</a></li> -->
-				<li>网页版本: v0.54 (<time datetime="2023-09-23" pubdate="pubdate">2023/09/23</time>) Beta Test</li>
+				<li>网页版本: v0.55 (<time datetime="2023-09-24" pubdate="pubdate">2023/09/24</time>) Beta Test</li>
 				<li>开源协议: <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a></li>
 				<li><a href="https://github.com/SamToki/Web---VoteHelper">GitHub 项目</a></li>
 			</ul>
