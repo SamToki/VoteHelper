@@ -8,7 +8,7 @@
     background-image: url(images/Title.png);
 }
 nav ul {
-    width: 400px;
+    width: 480px;
 }
 nav li {
     width: calc(100% / 4);
@@ -49,24 +49,6 @@ nav li {
         }
         #Ctnr_VoteMain .Ctrl3 {
             width: calc(100% - 500px); height: calc(100% - 10px); margin: 0 0 10px 0;
-        }
-        #Cmdbtn_VoteCandidate1 {
-            color: #FF0000;
-        }
-        #Cmdbtn_VoteCandidate2 {
-            color: #00A000;
-        }
-        #Cmdbtn_VoteCandidate3 {
-            color: #FF6000;
-        }
-        #Cmdbtn_VoteCandidate4 {
-            color: #00A0A0;
-        }
-        #Cmdbtn_VoteCandidate5 {
-            color: #FF00FF;
-        }
-        #Cmdbtn_VoteCandidate6 {
-            color: #A0A000;
         }
         #Ctnr_VoteMain .ProgbarText1 {
             position: absolute;
@@ -127,11 +109,11 @@ nav li {
         }
         #Ctnr_VoteFooter .CtrlGroup2 .Ctrl2 {
             width: calc(100% - 105px); height: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; /* Avoid column direction of flexboxes when possible. */
         }
         #Ctnr_VoteFooter .CtrlGroup3 {
             width: 80px; height: 100%; margin: 0 0 -10px 0;
-            display: flex; flex-direction: column; align-items: center;
+            display: flex; flex-wrap: wrap;
         }
         #Ctnr_VoteFooter .CtrlGroup3 .Ctrl {
             position: relative;
@@ -164,7 +146,7 @@ nav li {
     }
 
 /* Responsive Web Design */
-@media (max-width: 860px) {
+@media (max-width: 1150px) {
     .Title {
         width: 40px;
     }

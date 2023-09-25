@@ -1,26 +1,25 @@
 // For SamToki.github.io/VoteHelper
 
 // Initialization
-"use strict";
-var Looper = 0, Percentage = 0, Percentage2 = 0,
-Vote = {
-    CandidateQty: 6,
-    Total: 50,
-    Elapsed: [0,0,0,0,0,0,0],
-    ElapsedSum: 0
-},
-System = {
-    Display: {
-        Theme: "Auto",
-        ShowTopbar: true,
-        Anim: {
-            Spd: "0.3s"
-        }
-    },
-    Dev: {
-        ShowAllBorders: false
-    }
-};
+    // Variables Declaration
+    "use strict";
+    var Looper = 0, Percentage = 0, Percentage2 = 0,
+    Vote = {
+        CandidateQty: 6,
+        Total: 50,
+        Elapsed: [0,0,0,0,0,0,0],
+        ElapsedSum: 0
+    };
+
+    // Load
+    window.onload = function() {
+        // Load Configuration
+        if(localStorage.VoteHelper_Vote) {Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));}
+        if(localStorage.System) {System = JSON.parse(localStorage.getItem("System"));}
+        
+        // Refresh
+        Refresh();
+    };
 
 // Refresh
 function Refresh() {
@@ -131,15 +130,9 @@ function Refresh() {
         ChangeShowAllBorders(System.Dev.ShowAllBorders);
     
     // Save Configuration
-    	// ???
+    localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
+    localStorage.setItem("System", JSON.stringify(System));
 }
-
-// Load
-	// Load Configuration
-    	// ???
-    
-    // Refresh
-    window.onload = Refresh();
 
 // Commands
     // Vote
@@ -163,53 +156,59 @@ function Refresh() {
     }
 
     // Settings
-    function SetVoteCandidateQty() {
-        Vote.CandidateQty = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQty"))); // Use parseInt(Number()) to force convert value to integer.
-        if(Vote.CandidateQty < 1) {
-            Vote.CandidateQty = 1;
+        // Vote
+        function SetVoteCandidateQty() {
+            Vote.CandidateQty = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQty"))); // Use parseInt(Number()) to force convert value to integer.
+            if(Vote.CandidateQty < 1) {
+                Vote.CandidateQty = 1;
+            }
+            if(Vote.CandidateQty > 6) {
+                Vote.CandidateQty = 6;
+            }
+            Refresh();
         }
-        if(Vote.CandidateQty > 6) {
-            Vote.CandidateQty = 6;
+        function SetVoteTotal() {
+            Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsVoteTotal")));
+            if(Vote.Total < 5) {
+                Vote.Total = 5;
+            }
+            if(Vote.Total > 9999) {
+                Vote.Total = 9999;
+            }
+            if(Vote.ElapsedSum > Vote.Total) {
+                Vote.Total = Vote.ElapsedSum;
+            }
+            Refresh();
         }
-        Refresh();
-    }
-    function SetVoteTotal() {
-        Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsVoteTotal")));
-        if(Vote.Total < 5) {
-            Vote.Total = 5;
-        }
-        if(Vote.Total > 9999) {
-            Vote.Total = 9999;
-        }
-        if(Vote.ElapsedSum > Vote.Total) {
-            Vote.Total = Vote.ElapsedSum;
-        }
-        Refresh();
-    }
-    function SetDisplayTheme() {
-        System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
-        Refresh();
-    }
-    function SetDisplayShowTopbar() {
-        if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
-            System.Display.ShowTopbar = true;
-        } else {
-            System.Display.ShowTopbar = false;
-        }
-        Refresh();
-    }
-    function SetDisplayAnimSpd() {
-        System.Display.Anim.Spd = ReadValue("Combobox_SettingsDisplayAnimSpd");
-        Refresh();
-    }
-    function SetDevShowAllBorders() {
-        if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
-            System.Dev.ShowAllBorders = true;
-        } else {
-            System.Dev.ShowAllBorders = false;
-        }
-        Refresh();
-    }
+
+        // System
+            // Display
+            function SetDisplayTheme() {
+                System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
+                Refresh();
+            }
+            function SetDisplayShowTopbar() {
+                if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
+                    System.Display.ShowTopbar = true;
+                } else {
+                    System.Display.ShowTopbar = false;
+                }
+                Refresh();
+            }
+            function SetDisplayAnimSpd() {
+                System.Display.Anim.Spd = ReadValue("Combobox_SettingsDisplayAnimSpd");
+                Refresh();
+            }
+
+            // Dev
+            function SetDevShowAllBorders() {
+                if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
+                    System.Dev.ShowAllBorders = true;
+                } else {
+                    System.Dev.ShowAllBorders = false;
+                }
+                Refresh();
+            }
 
 // Automations
     // Nothing here.

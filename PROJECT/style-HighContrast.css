@@ -4,12 +4,6 @@
 /* Main */
     /* 投票 */
         /* VoteMain */
-        #Ctnr_VoteMain .Cmdbtn {
-            color: #FFFFFF;
-        }
-        #Ctnr_VoteMain .Cmdbtn:hover {
-            color: #00FF00;
-        }
         #Ctnr_VoteMain .ProgbarFg {
             background-color: #0080FF;
         }
