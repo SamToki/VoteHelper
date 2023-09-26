@@ -48,10 +48,11 @@ nav li {
             width: 400px; height: calc(100% - 10px); margin: 0 10px 10px 0;
         }
         #Ctnr_VoteMain .Ctrl3 {
+            position: relative;
             width: calc(100% - 500px); height: calc(100% - 10px); margin: 0 0 10px 0;
         }
         #Ctnr_VoteMain .ProgbarText1, #Ctnr_VoteMain .ProgbarText2 {
-            position: absolute;
+            position: absolute; top: 0;
             height: 100%; padding: 5px 10px;
             display: flex; justify-content: center; align-items: center;
         }
