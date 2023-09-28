@@ -124,10 +124,10 @@ nav li {
         width: 380px; margin: 0 20px 20px 20px;
     }
     #设定 .CtrlGroup {
-        width: 100%; margin: 0 0 10px 0;
+        width: 100%; margin: 0;
     }
     #设定 .Ctrl {
-        width: 100%; margin: 0;
+        width: 100%; margin: 0 0 10px 0;
     }
     #设定 .Textbox {
         width: 120px;
