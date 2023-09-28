@@ -179,10 +179,20 @@
 						<fieldset>
 							<legend>投票</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Textbox_SettingsVoteCandidateQty"><span>选项个数：</span><input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsVoteCandidateQty').select()" onchange="SetVoteCandidateQty()" /></label></li>
+								<li class="Ctrl">
+									<label for="Textbox_SettingsVoteCandidateQty">
+										<span>选项个数：</span>
+										<input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsVoteCandidateQty').select()" onchange="SetVoteCandidateQty()" />
+									</label>
+								</li>
 							</ul>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Textbox_SettingsVoteTotal"><span>总票数：</span><input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsVoteTotal').select()" onchange="SetVoteTotal()" /></label></li>
+								<li class="Ctrl">
+									<label for="Textbox_SettingsVoteTotal">
+										<span>总票数：</span>
+										<input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsVoteTotal').select()" onchange="SetVoteTotal()" />
+									</label>
+								</li>
 							</ul>
 						</fieldset>
 					</li>
@@ -202,7 +212,12 @@
 								</li>
 							</ul>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Checkbox_SettingsDisplayShowTopbar"><input class="Checkbox" id="Checkbox_SettingsDisplayShowTopbar" type="checkbox" checked="true" onchange="SetDisplayShowTopbar()" /><span>显示顶栏</span></label></li>
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDisplayShowTopbar">
+										<input class="Checkbox" id="Checkbox_SettingsDisplayShowTopbar" type="checkbox" checked="true" onchange="SetDisplayShowTopbar()" />
+										<span>显示顶栏</span>
+									</label>
+								</li>
 							</ul>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
@@ -222,7 +237,12 @@
 						<fieldset>
 							<legend>开发者选项</legend>
 							<ul class="CtrlGroup">
-								<li class="Ctrl"><label for="Checkbox_SettingsDevShowAllBorders"><input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" /><span>显示所有元素的边框</span></label></li>
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDevShowAllBorders">
+										<input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" />
+										<span>显示所有元素的边框</span>
+									</label>
+								</li>
 							</ul>
 						</fieldset>
 					</li>
