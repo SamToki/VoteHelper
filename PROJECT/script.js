@@ -8,10 +8,20 @@
         CandidateQty: 6,
         Total: 50,
         Elapsed: [0,0,0,0,0,0,0],
-        ElapsedSum: 0
+        ElapsedSum: 0,
+        Text: {
+            Title: "",
+            Candidate1Name: "",
+            Candidate2Name: "",
+            Candidate3Name: "",
+            Candidate4Name: "",
+            Candidate5Name: "",
+            Candidate6Name: "",
+            Note: ""
+        }
     };
 
-    // Load
+    // Load Configuration
     window.onload = function() {
         if(localStorage.System) {System = JSON.parse(localStorage.getItem("System"));}
         RefreshSystem();
@@ -20,6 +30,80 @@
     };
 
 // Refresh
+    // System
+    function RefreshSystem() {
+        // Settings
+            // Display
+            ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
+            switch(System.Display.Theme) {
+                case "Auto":
+                default:
+                    document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
+                    document.getElementById("ThemeVariant_Common").media = "(prefers-color-scheme: dark)";
+                    document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+                    document.getElementById("ThemeVariant_Style").media = "(prefers-color-scheme: dark)";
+                    break;
+                case "Default":
+                    document.getElementById("ThemeVariant_Common").href = "";
+                    document.getElementById("ThemeVariant_Common").media = "";
+                    document.getElementById("ThemeVariant_Style").href = "";
+                    document.getElementById("ThemeVariant_Style").media = "";
+                    break;
+                case "Dark":
+                    document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
+                    document.getElementById("ThemeVariant_Common").media = "";
+                    document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
+                    document.getElementById("ThemeVariant_Style").media = "";
+                    break;
+                case "Genshin":
+                    document.getElementById("ThemeVariant_Common").href = "../common-Genshin.css";
+                    document.getElementById("ThemeVariant_Common").media = "";
+                    document.getElementById("ThemeVariant_Style").href = "style-Genshin.css";
+                    document.getElementById("ThemeVariant_Style").media = "";
+                    break;
+                case "HighContrast":
+                    document.getElementById("ThemeVariant_Common").href = "../common-HighContrast.css";
+                    document.getElementById("ThemeVariant_Common").media = "";
+                    document.getElementById("ThemeVariant_Style").href = "style-HighContrast.css";
+                    document.getElementById("ThemeVariant_Style").media = "";
+                    break;
+            }
+            ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
+            switch(System.Display.Cursor) {
+                case "Default":
+                default:
+                    ChangeOverallCursor("");
+                    break;
+                case "BTRAhoge":
+                    ChangeOverallCursor("url(../cursors/BTRAhoge.cur), auto");
+                    break;
+                case "Genshin":
+                    ChangeOverallCursor("url(../cursors/Genshin.cur), auto");
+                    break;
+                case "GenshinNahida":
+                    ChangeOverallCursor("url(../cursors/GenshinNahida.cur), auto");
+                    break;
+                case "GenshinFurina":
+                    ChangeOverallCursor("url(../cursors/GenshinFurina.cur), auto");
+                    break;
+            }
+            ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
+            if(System.Display.ShowTopbar == true) {
+                ChangeShow("Topbar");
+            } else {
+                ChangeHide("Topbar");
+            }
+            ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
+            ChangeAnimSpd(System.Display.Anim.Spd);
+
+            // Dev
+            ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
+            ChangeShowAllBorders(System.Dev.ShowAllBorders);
+
+        // Save Configuration
+        localStorage.setItem("System", JSON.stringify(System));
+    }
+
     // Vote
     function RefreshVote() {
         // Main
@@ -77,6 +161,16 @@
             ChangeText("ProgringText_Vote", "完成");
         }
 
+        // Text
+        ChangeValue("Textbox_VoteTitle", Vote.Text.Title);
+        ChangeValue("Textbox_VoteCandidate1Name", Vote.Text.Candidate1Name);
+        ChangeValue("Textbox_VoteCandidate2Name", Vote.Text.Candidate2Name);
+        ChangeValue("Textbox_VoteCandidate3Name", Vote.Text.Candidate3Name);
+        ChangeValue("Textbox_VoteCandidate4Name", Vote.Text.Candidate4Name);
+        ChangeValue("Textbox_VoteCandidate5Name", Vote.Text.Candidate5Name);
+        ChangeValue("Textbox_VoteCandidate6Name", Vote.Text.Candidate6Name);
+        ChangeValue("Textbox_VoteNote", Vote.Text.Note);
+
         // Settings
             // Vote
             ChangeValue("Textbox_SettingsVoteCandidateQty", Vote.CandidateQty);
@@ -106,6 +200,17 @@
         }
         RefreshVote();
     }
+    function VoteTextSave() {
+        Vote.Text.Title = ReadValue("Textbox_VoteTitle");
+        Vote.Text.Candidate1Name = ReadValue("Textbox_VoteCandidate1Name");
+        Vote.Text.Candidate2Name = ReadValue("Textbox_VoteCandidate2Name");
+        Vote.Text.Candidate3Name = ReadValue("Textbox_VoteCandidate3Name");
+        Vote.Text.Candidate4Name = ReadValue("Textbox_VoteCandidate4Name");
+        Vote.Text.Candidate5Name = ReadValue("Textbox_VoteCandidate5Name");
+        Vote.Text.Candidate6Name = ReadValue("Textbox_VoteCandidate6Name");
+        Vote.Text.Note = ReadValue("Textbox_VoteNote");
+        RefreshVote();
+    }
 
     // Settings
         // Vote
@@ -131,6 +236,38 @@
                 Vote.Total = Vote.ElapsedSum;
             }
             RefreshVote();
+        }
+
+        // Display
+        function SetDisplayTheme() {
+            System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
+            RefreshSystem();
+        }
+        function SetDisplayCursor() {
+            System.Display.Cursor = ReadValue("Combobox_SettingsDisplayCursor");
+            RefreshSystem();
+        }
+        function SetDisplayShowTopbar() {
+            if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
+                System.Display.ShowTopbar = true;
+            } else {
+                System.Display.ShowTopbar = false;
+            }
+            RefreshSystem();
+        }
+        function SetDisplayAnimSpd() {
+            System.Display.Anim.Spd = ReadValue("Combobox_SettingsDisplayAnimSpd");
+            RefreshSystem();
+        }
+
+        // Dev
+        function SetDevShowAllBorders() {
+            if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
+                System.Dev.ShowAllBorders = true;
+            } else {
+                System.Dev.ShowAllBorders = false;
+            }
+            RefreshSystem();
         }
 
 // Automations

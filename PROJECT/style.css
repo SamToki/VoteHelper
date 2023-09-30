@@ -166,15 +166,3 @@ nav li {
         margin: 0 10px 20px 10px;
     }
 }
-
-/* Accessibility */
-@media (prefers-contrast: more) {
-	#Combobox_SettingsDisplayTheme {
-		background-color: #C0C0C0C0;
-	}
-}
-@media (prefers-reduced-motion: reduce) {
-	#Combobox_SettingsDisplayAnimSpd {
-		background-color: #C0C0C0C0;
-	}
-}

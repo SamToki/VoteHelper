@@ -7,15 +7,3 @@
         #Ctnr_VoteMain .ProgbarFg {
             background-color: #0080FF;
         }
-
-/* Accessibility */
-@media (prefers-contrast: more) {
-	#Combobox_SettingsDisplayTheme {
-		background-color: #404040;
-	}
-}
-@media (prefers-reduced-motion: reduce) {
-	#Combobox_SettingsDisplayAnimSpd {
-		background-color: #404040;
-	}
-}

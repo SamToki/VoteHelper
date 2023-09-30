@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用（web app），刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 计数器, 计票器, Counter, VoteHelper" />
-		<meta name="version" content="v1.02 (2023/09/30). Since 2023/09/16." />
+		<meta name="version" content="v1.03 (2023/09/30). Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>VoteHelper</title>
@@ -65,13 +65,13 @@
 				<h1 class="SectionTitle" id="SectionTitle_Primary">投票</h1>
 				<div class="Viewport" id="Viewport_Primary">
 					<div id="Ctnr_VoteHeader">
-						<div class="Ctrl"><input class="Textbox Centered" type="text" placeholder="投票主题" /></div>
+						<div class="Ctrl"><input class="Textbox Centered" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="VoteTextSave()" /></div>
 					</div>
 
 					<div id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="VoteCount(1)">A</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate1Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate1">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate1"></div>
@@ -82,7 +82,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="VoteCount(2)">B</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate2Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate2">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate2"></div>
@@ -93,7 +93,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="VoteCount(3)">C</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate3Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate3">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate3"></div>
@@ -104,7 +104,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="VoteCount(4)">D</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate4Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate4">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate4"></div>
@@ -115,7 +115,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="VoteCount(5)">E</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate5Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate5">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate5"></div>
@@ -126,7 +126,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
 							<li class="Ctrl1"><button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="VoteCount(6)">F</button></li>
-							<li class="Ctrl2"><input class="Textbox" type="text" placeholder="选项名称" /></li>
+							<li class="Ctrl2"><input class="Textbox" id="Textbox_VoteCandidate6Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" /></li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate6">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate6"></div>
@@ -139,7 +139,7 @@
 
 					<div id="Ctnr_VoteFooter">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter1">
-							<li class="Ctrl"><textarea class="Textbox" placeholder="备注"></textarea></li>
+							<li class="Ctrl"><textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="VoteTextSave()"></textarea></li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter2">
 							<li class="Ctrl1">
@@ -204,6 +204,7 @@
 											<option value="Auto" selected>自动</option>
 											<option value="Default">默认</option>
 											<option value="Dark">深色</option>
+											<option value="Genshin">原神</option>
 											<option value="HighContrast">高对比度 (无障碍)</option>
 										</select>
 									</label>
@@ -271,7 +272,7 @@
 				<li>背景主题: <a href="https://bgm.tv/subject/254895">えんどろ～!</a></li>
 				<li>插画来源: Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a></li>
 				<li>图标来源: <a href="https://icons.getbootstrap.com">Bootstrap Icons</a></li>
-				<li>网页版本: v1.02 (<time datetime="2023-09-30" pubdate="pubdate">2023/09/30</time>)</li>
+				<li>网页版本: v1.03 (<time datetime="2023-09-30" pubdate="pubdate">2023/09/30</time>)</li>
 				<li>开源协议: <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a></li>
 				<li><a href="https://github.com/SamToki/Web---VoteHelper">GitHub 项目</a></li>
 			</ul>
