@@ -90,8 +90,12 @@
             ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
             if(System.Display.ShowTopbar == true) {
                 ChangeShow("Topbar");
+                ChangeShow("SectionTitle_Primary");
+                ChangeHeight("Viewport_Primary", "");
             } else {
                 ChangeHide("Topbar");
+                ChangeHide("SectionTitle_Primary");
+                ChangeHeight("Viewport_Primary", "100%");
             }
             ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
             ChangeAnimSpd(System.Display.Anim.Spd);
