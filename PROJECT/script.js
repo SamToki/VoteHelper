@@ -147,7 +147,7 @@
             Percentage = Vote.ElapsedSum / Vote.Total * 100;
         }
         ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
-        ChangeProgring("ProgringFg_Vote", 257.61 * (100 - Percentage) / 100);
+        ChangeProgring("ProgringFg_Vote", 289.03 * (100 - Percentage) / 100);
         ChangeText("Label_VoteElapsed", Vote.ElapsedSum);
         ChangeText("Label_VoteTotal", "/" + Vote.Total);
         for(Looper = 1; Looper <= 6; Looper++) {
