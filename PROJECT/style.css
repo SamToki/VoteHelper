@@ -116,24 +116,8 @@ nav li {
         }
 
     /* 设定 */
-    #设定 .ItemGroup {
-        margin: 0 -20px 0 -20px;
-        display: flex; flex-wrap: wrap; justify-content: center;
-    }
-    #设定 .Item {
-        width: 380px; margin: 0 20px 20px 20px;
-    }
-    #设定 .CtrlGroup {
-        width: 100%; margin: 0;
-    }
-    #设定 .Ctrl {
-        width: 100%; margin: 0 0 10px 0;
-    }
     #设定 .Textbox {
         width: 120px;
-    }
-    #设定 .Combobox {
-        width: 160px;
     }
 
 /* Responsive Web Design */
@@ -158,11 +142,5 @@ nav li {
     }
     #Ctnr_VoteMain .Ctrl3 {
         width: calc(100% - 160px);
-    }
-    #设定 .ItemGroup {
-        margin: 0 -10px 0 -10px;
-    }
-    #设定 .Item {
-        margin: 0 10px 20px 10px;
     }
 }
