@@ -16,8 +16,7 @@ nav li {
 
 /* Main */
 .SectionTitle {
-    height: 80px;
-    font-size: 32px;
+    padding: calc(80px + 40px) 0 40px 0;
 }
     /* 投票 */
     #投票 {
@@ -129,7 +128,7 @@ nav li {
         width: calc(100% - 70px);
     }
     .SectionTitle {
-        height: 60px;
+        padding: calc(60px + 40px) 0 40px 0;
     }
     #Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
         font-size: 16px;
