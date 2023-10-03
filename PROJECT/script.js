@@ -72,19 +72,19 @@
             switch(System.Display.Cursor) {
                 case "Default":
                 default:
-                    ChangeOverallCursor("");
+                    ChangeCursorOverall("");
                     break;
                 case "BTRAhoge":
-                    ChangeOverallCursor("url(../cursors/BTRAhoge.cur), auto");
+                    ChangeCursorOverall("url(../cursors/BTRAhoge.cur), auto");
                     break;
                 case "Genshin":
-                    ChangeOverallCursor("url(../cursors/Genshin.cur), auto");
+                    ChangeCursorOverall("url(../cursors/Genshin.cur), auto");
                     break;
                 case "GenshinNahida":
-                    ChangeOverallCursor("url(../cursors/GenshinNahida.cur), auto");
+                    ChangeCursorOverall("url(../cursors/GenshinNahida.cur), auto");
                     break;
                 case "GenshinFurina":
-                    ChangeOverallCursor("url(../cursors/GenshinFurina.cur), auto");
+                    ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
                     break;
             }
             ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
@@ -98,7 +98,7 @@
                 ChangeHeight("ViewportBelowTopbar", "100%");
             }
             ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
-            ChangeAnimSpd(System.Display.Anim.Spd);
+            ChangeAnimSpdOverall(System.Display.Anim.Spd);
 
             // Dev
             ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
