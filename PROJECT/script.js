@@ -1,25 +1,22 @@
 // For SamToki.github.io/VoteHelper
 
 // Initialization
-    // Variables Declaration
+    // Declare Variables
     "use strict";
-    var Looper = 0, Percentage = 0, Percentage2 = 0,
-    Vote = {
-        CandidateQty: 6,
-        Total: 50,
-        Elapsed: [0,0,0,0,0,0,0],
-        ElapsedSum: 0,
-        Text: {
-            Title: "",
-            Candidate1Name: "",
-            Candidate2Name: "",
-            Candidate3Name: "",
-            Candidate4Name: "",
-            Candidate5Name: "",
-            Candidate6Name: "",
-            Note: ""
-        }
-    };
+        // Unsaved
+        var Looper = 0, Percentage = 0, Percentage2 = 0;
+        
+        // Saved
+        var Vote = {
+            CandidateQty: 6,
+            Total: 50,
+            Elapsed: [0, 0, 0, 0, 0, 0, 0], ElapsedSum: 0,
+            Text: {
+                Title: "",
+                Candidate1Name: "", Candidate2Name: "", Candidate3Name: "", Candidate4Name: "", Candidate5Name: "", Candidate6Name: "",
+                Note: ""
+            }
+        };
 
     // Load Configuration
     window.onload = function() {
@@ -37,7 +34,6 @@
             ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
             switch(System.Display.Theme) {
                 case "Auto":
-                default:
                     document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
                     document.getElementById("ThemeVariant_Common").media = "(prefers-color-scheme: dark)";
                     document.getElementById("ThemeVariant_Style").href = "style-Dark.css";
@@ -67,11 +63,13 @@
                     document.getElementById("ThemeVariant_Style").href = "style-HighContrast.css";
                     document.getElementById("ThemeVariant_Style").media = "";
                     break;
+                default:
+                    alert("【系统错误】\n参数「System.Display.Theme」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+                    break;
             }
             ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
             switch(System.Display.Cursor) {
                 case "Default":
-                default:
                     ChangeCursorOverall("");
                     break;
                 case "BTRAhoge":
@@ -85,6 +83,9 @@
                     break;
                 case "GenshinFurina":
                     ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
+                    break;
+                default:
+                    alert("【系统错误】\n参数「System.Display.Cursor」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
                     break;
             }
             ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
@@ -100,9 +101,14 @@
             ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
             ChangeAnimSpdOverall(System.Display.Anim.Spd);
 
+            // Sound
+            ChangeChecked("Checkbox_SettingsSoundPlaySound", System.Sound.PlaySound);
+
             // Dev
             ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
             ChangeShowAllBorders(System.Dev.ShowAllBorders);
+            ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
+            ChangeUseOldTypeface(System.Dev.UseOldTypeface);
 
         // Save Configuration
         localStorage.setItem("System", JSON.stringify(System));
@@ -184,16 +190,16 @@
         localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
     }
 
-// Commands
+// Cmds
     // Vote
     function VoteCount(Selector) {
-        if((Vote.CandidateQty >= Selector) && (Vote.ElapsedSum < Vote.Total)) {
+        if(Vote.CandidateQty >= Selector && Vote.ElapsedSum < Vote.Total) {
             Vote.Elapsed[Selector]++;
         }
         RefreshVote();
     }
     function VoteUndo(Selector) {
-        if((Vote.CandidateQty >= Selector) && (Vote.Elapsed[Selector] >= 1)) {
+        if(Vote.CandidateQty >= Selector && Vote.Elapsed[Selector] >= 1) {
             Vote.Elapsed[Selector]--;
         }
         RefreshVote();
@@ -264,12 +270,30 @@
             RefreshSystem();
         }
 
+        // Sound
+        function SetSoundPlaySound() {
+            if(document.getElementById("Checkbox_SettingsSoundPlaySound").checked) {
+                System.Sound.PlaySound = true;
+            } else {
+                System.Sound.PlaySound = false;
+            }
+            RefreshSystem();
+        }
+
         // Dev
         function SetDevShowAllBorders() {
             if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
                 System.Dev.ShowAllBorders = true;
             } else {
                 System.Dev.ShowAllBorders = false;
+            }
+            RefreshSystem();
+        }
+        function SetDevUseOldTypeface() {
+            if(document.getElementById("Checkbox_SettingsDevUseOldTypeface").checked) {
+                System.Dev.UseOldTypeface = true;
+            } else {
+                System.Dev.UseOldTypeface = false;
             }
             RefreshSystem();
         }

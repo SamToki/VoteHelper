@@ -241,6 +241,19 @@
 							</ul>
 						</fieldset>
 					</li>
+					<li class="Item" id="Item_SettingsSound">
+						<fieldset>
+							<legend>声音</legend>
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsSoundPlaySound">
+										<input class="Checkbox" id="Checkbox_SettingsSoundPlaySound" type="checkbox" checked="true" onchange="SetSoundPlaySound()" />
+										<span>播放声音</span>
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
 					<li class="Item" id="Item_SettingsDev">
 						<fieldset>
 							<legend>开发者选项</legend>
@@ -249,6 +262,12 @@
 									<label for="Checkbox_SettingsDevShowAllBorders">
 										<input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" />
 										<span>显示所有元素的边框</span>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Checkbox_SettingsDevUseOldTypeface">
+										<input class="Checkbox" id="Checkbox_SettingsDevUseOldTypeface" type="checkbox" checked="false" onchange="SetDevUseOldTypeface()" />
+										<span>使用 ja-JP 旧字形</span>
 									</label>
 								</li>
 							</ul>
@@ -270,15 +289,13 @@
 					<li class="Item">
 						<fieldset>
 							<legend>参与进来</legend>
-							<h4>反馈</h4>
 							<p>您可使用 <a href="https://github.com/SamToki/Web---VoteHelper/issues">GitHub Issues</a> 或<a href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩（B站）私信</a>来向我提供反馈，感谢您的支持！推荐使用前者，我能第一时间收到您的反馈，但注意需要梯子才能访问。</p>
-							<h4>翻译</h4>
 							<p>Help me translate the webpage into your language! Please <a href="https://github.com/SamToki/Web---VoteHelper/issues">contact me on GitHub</a> if you are interested.</p>
 						</fieldset>
 					</li>
 					<li class="Item">
 						<fieldset>
-							<legend>隐私声明</legend>
+							<legend>隐私权声明</legend>
 							<p>本站为 <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub Pages</a> 静态网站，只使用浏览器的 Local Storage 功能在本地存储配置数据，您可随时手动删除。本站不使用 <a href="https://zh.wikipedia.org/wiki/Cookie">Cookies</a>，不收集任何个人信息。</p>
 							<p>出于安全考虑，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection">GitHub 的服务器可能会记录您的 IP 地址</a>，但我无法访问这些数据。</p>
 						</fieldset>
@@ -293,11 +310,12 @@
 					<li class="Item">
 						<fieldset>
 							<legend>Credits</legend>
-							<h4>背景插画</h4>
-							<p>主题：<a href="https://bgm.tv/subject/254895">えんどろ～!</a><br />来源：Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a></p>
-							<p>背景插画会不定期更换。</p>
+							<h4>图像</h4>
+							<p>背景插画：Pixiv ID <a href="https://pixiv.net/en/artworks/73949179">73949179</a>, <a href="https://pixiv.net/en/artworks/73452902">73452902</a><br />
+							背景插画主题：<a href="https://bgm.tv/subject/254895">えんどろ～!</a><br />
+							背景插画会不定期更换。</p>
 							<h4>图标</h4>
-							<p>来源：<a href="https://icons.getbootstrap.com">Bootstrap Icons</a></p>
+							<p>UI图标：<a href="https://icons.getbootstrap.com">Bootstrap Icons</a></p>
 						</fieldset>
 					</li>
 					<li class="Item">
