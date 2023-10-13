@@ -22,6 +22,9 @@
     window.onload = function() {
         if(localStorage.System) {System = JSON.parse(localStorage.getItem("System"));}
         switch(System.I18n.Language) {
+            case "zh-CN":
+                // window.location.href = "index.html";
+                break;
             case "en-US":
                 PopupDialogAppear("System_LanguageUnsupported",
                     "Termination",
@@ -39,6 +42,9 @@
                     "Termination",
                     "<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
                     "<span lang='zh-TW'>確定</span>", "", "");
+                break;
+            default:
+                alert("【系统错误】\n函数「SetI18nLanguage」的参数「System.I18n.Language」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
                 break;
         }
         RefreshSystem();
@@ -308,7 +314,7 @@
             System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
             switch(System.I18n.Language) {
                 case "zh-CN":
-                    window.location.href = "index.html";
+                    // window.location.href = "index.html";
                     break;
                 case "en-US":
                     PopupDialogAppear("System_LanguageUnsupported",
