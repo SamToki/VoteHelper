@@ -8,7 +8,7 @@
         
         // Saved
         var Vote = {
-            CandidateQty: 6,
+            CandidateQuantity: 6,
             Total: 50,
             Elapsed: [0, 0, 0, 0, 0, 0, 0], ElapsedSum: 0,
             Text: {
@@ -98,11 +98,14 @@
                 ChangeHide("SectionTitleBelowTopbar");
                 ChangeHeight("ViewportBelowTopbar", "100%");
             }
-            ChangeValue("Combobox_SettingsDisplayAnimSpd", System.Display.Anim.Spd);
-            ChangeAnimSpdOverall(System.Display.Anim.Spd);
+            ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
+            ChangeAnimSpeedOverall(System.Display.Anim.Speed);
 
             // Sound
             ChangeChecked("Checkbox_SettingsSoundPlaySound", System.Sound.PlaySound);
+            
+            // I18n
+            ChangeValue("Combobox_SettingsI18nLanguage", System.I18n.Language);
 
             // Dev
             ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
@@ -117,14 +120,14 @@
     // Vote
     function RefreshVote() {
         // Main
-        for(Looper = 1; Looper <= Vote.CandidateQty; Looper++) {
+        for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
             ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
             ChangeShow("CtrlGroup_VoteCandidate" + Looper);
-            ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc(100% / " + Vote.CandidateQty + ")");
+            ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc(100% / " + Vote.CandidateQuantity + ")");
             ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
             ChangeShow("Dropctrl_VoteUndo" + Looper);
         }
-        for(Looper = 6; Looper > Vote.CandidateQty; Looper--) {
+        for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
             Vote.Elapsed[Looper] = 0;
             ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
             ChangeHide("CtrlGroup_VoteCandidate" + Looper);
@@ -162,7 +165,7 @@
             }
         }
 
-        // Check vote completion.
+        // Finish Voting
         if(Vote.ElapsedSum >= Vote.Total) {
             Vote.ElapsedSum = Vote.Total;
             for(Looper = 1; Looper <= 6; Looper++) {
@@ -183,7 +186,7 @@
 
         // Settings
             // Vote
-            ChangeValue("Textbox_SettingsVoteCandidateQty", Vote.CandidateQty);
+            ChangeValue("Textbox_SettingsVoteCandidateQuantity", Vote.CandidateQuantity);
             ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
         
         // Save Configuration
@@ -193,13 +196,13 @@
 // Cmds
     // Vote
     function VoteCount(Selector) {
-        if(Vote.CandidateQty >= Selector && Vote.ElapsedSum < Vote.Total) {
+        if(Vote.CandidateQuantity >= Selector && Vote.ElapsedSum < Vote.Total) {
             Vote.Elapsed[Selector]++;
         }
         RefreshVote();
     }
     function VoteUndo(Selector) {
-        if(Vote.CandidateQty >= Selector && Vote.Elapsed[Selector] >= 1) {
+        if(Vote.CandidateQuantity >= Selector && Vote.Elapsed[Selector] >= 1) {
             Vote.Elapsed[Selector]--;
         }
         RefreshVote();
@@ -224,13 +227,13 @@
 
     // Settings
         // Vote
-        function SetVoteCandidateQty() {
-            Vote.CandidateQty = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQty"))); // Use parseInt(Number()) to force convert value to integer.
-            if(Vote.CandidateQty < 1) {
-                Vote.CandidateQty = 1;
+        function SetVoteCandidateQuantity() {
+            Vote.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
+            if(Vote.CandidateQuantity < 1) {
+                Vote.CandidateQuantity = 1;
             }
-            if(Vote.CandidateQty > 6) {
-                Vote.CandidateQty = 6;
+            if(Vote.CandidateQuantity > 6) {
+                Vote.CandidateQuantity = 6;
             }
             RefreshVote();
         }
@@ -265,8 +268,8 @@
             }
             RefreshSystem();
         }
-        function SetDisplayAnimSpd() {
-            System.Display.Anim.Spd = ReadValue("Combobox_SettingsDisplayAnimSpd");
+        function SetDisplayAnimSpeed() {
+            System.Display.Anim.Speed = ReadValue("Combobox_SettingsDisplayAnimSpeed");
             RefreshSystem();
         }
 
@@ -276,6 +279,38 @@
                 System.Sound.PlaySound = true;
             } else {
                 System.Sound.PlaySound = false;
+            }
+            RefreshSystem();
+        }
+
+        // I18n
+        function SetI18nLanguage() {
+            System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
+            switch(System.I18n.Language) {
+                case "zh-CN":
+                    window.location.href = "index.html";
+                    break;
+                case "en-US":
+                    PopupDialogAppear("System_LanguageUnsupported",
+                        "Termination",
+                        "Sorry, this page currently does not support English (US).",
+                        "OK", "", "");
+                    break;
+                case "ja-JP":
+                    PopupDialogAppear("System_LanguageUnsupported",
+                        "Termination",
+                        "すみません。このページは日本語にまだサポートしていません。",
+                        "OK", "", "");
+                    break;
+                case "zh-TW":
+                    PopupDialogAppear("System_LanguageUnsupported",
+                        "Termination",
+                        "抱歉，本頁面暫不支援繁體中文。",
+                        "確定", "", "");
+                    break;
+                default:
+                    alert("【系统错误】\n参数「System.Display.Theme」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+                    break;
             }
             RefreshSystem();
         }
@@ -297,6 +332,25 @@
             }
             RefreshSystem();
         }
+    
+    // Popup Dialog Answer
+    function PopupDialogAnswer(Selector) {
+        switch(Interaction.PopupDialogEvent) {
+            case "System_LanguageUnsupported":
+                switch(Selector) {
+                    case 1:
+                        break;
+                    default:
+                        alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Selector」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+                        break;
+                }
+                break;
+            default:
+                alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Interaction.PopupDialogEvent」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+                break;
+        }
+        PopupDialogDisappear();
+    }
 
 // Automations
     // Nothing here.

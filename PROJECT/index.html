@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用（web app），刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
+		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用 (web app)，刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 计数器, 计票器, Counter, VoteHelper" />
 		<meta name="version" content="v1.06 (2023/10/02). Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
@@ -182,9 +182,9 @@
 							<legend>投票</legend>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
-									<label for="Textbox_SettingsVoteCandidateQty">
+									<label for="Textbox_SettingsVoteCandidateQuantity">
 										<span>选项个数：</span>
-										<input class="Textbox" id="Textbox_SettingsVoteCandidateQty" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsVoteCandidateQty').select()" onchange="SetVoteCandidateQty()" />
+										<input class="Textbox" id="Textbox_SettingsVoteCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsVoteCandidateQuantity').select()" onchange="SetVoteCandidateQuantity()" />
 									</label>
 								</li>
 								<li class="Ctrl">
@@ -229,8 +229,8 @@
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Combobox_SettingsDisplayAnimSpd"><span>动画速度：</span>
-										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpd" onchange="SetDisplayAnimSpd()">
+									<label for="Combobox_SettingsDisplayAnimSpeed"><span>动画速度：</span>
+										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpeed" onchange="SetDisplayAnimSpeed()">
 											<option value="0.5s">慢 (0.5s)</option>
 											<option value="0.3s" selected>中 (0.3s)</option>
 											<option value="0.1s">快 (0.1s)</option>
@@ -249,6 +249,23 @@
 									<label for="Checkbox_SettingsSoundPlaySound">
 										<input class="Checkbox" id="Checkbox_SettingsSoundPlaySound" type="checkbox" checked="true" onchange="SetSoundPlaySound()" />
 										<span>播放声音</span>
+									</label>
+								</li>
+							</ul>
+						</fieldset>
+					</li>
+					<li class="Item" id="Item_SettingsI18n">
+						<fieldset>
+							<legend>国际化</legend>
+							<ul class="CtrlGroup">
+								<li class="Ctrl">
+									<label for="Combobox_SettingsI18nLanguage"><span>语言 (Language)：</span>
+										<select class="Combobox" id="Combobox_SettingsI18nLanguage" onchange="SetI18nLanguage()">
+											<option value="zh-CN" selected>中文 (简体)</option>
+											<option value="en-US">English (US) [Not yet supported]</option>
+											<option value="ja-JP">日本語 [まだサポートされていません]</option>
+											<option value="zh-TW">中文 (繁體) [暫不支援]</option>
+										</select>
 									</label>
 								</li>
 							</ul>
@@ -283,13 +300,13 @@
 						<fieldset>
 							<legend>简介</legend>
 							<p>VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。</p>
-							<p>这是我的第一个网页应用（web app），刚学完 JavaScript 就先拿这个简单的玩具试试水。</p>
+							<p>这是我的第一个网页应用 (web app)，刚学完 JavaScript 就先拿这个简单的玩具试试水。</p>
 						</fieldset>
 					</li>
 					<li class="Item">
 						<fieldset>
 							<legend>参与进来</legend>
-							<p>您可使用 <a href="https://github.com/SamToki/Web---VoteHelper/issues">GitHub Issues</a> 或<a href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩（B站）私信</a>来向我提供反馈，感谢您的支持！推荐使用前者，我能第一时间收到您的反馈，但注意需要梯子才能访问。</p>
+							<p>您可使用 <a href="https://github.com/SamToki/Web---VoteHelper/issues">GitHub Issues</a> 或<a href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>来向我提供反馈，感谢您的支持！推荐使用前者，我能第一时间收到您的反馈，但注意需要梯子才能访问。</p>
 							<p>Help me translate the webpage into your language! Please contact me on GitHub if you are interested.</p>
 						</fieldset>
 					</li>
@@ -333,5 +350,42 @@
 		<footer>
 			<p id="Copyright">© 2015-2023 SAM TOKI STUDIO</p>
 		</footer>
+
+		<div class="ScreenFilter Faded" id="Ctnr_PopupDialog">
+			<div class="Window Hidden" id="Window_PopupDialog">
+				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogPrompt">
+					<li class="Ctrl" id="Ctrl_PopupDialogIconCompletion">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Completion" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconQuestion">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Question" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconCaution">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Caution" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+						</svg>
+					</li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconTermination">
+						<svg class="PopupDialogIcon" id="PopupDialogIcon_Termination" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+							<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+						</svg>
+					</li>
+					<li class="Ctrl" id="Ctrl_PopupDialogText">提示文字</li>
+				</ul>
+				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
+					<li class="Ctrl" id="Ctrl_PopupDialogOption1"><button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" onclick="PopupDialogAnswer(1)">选项1</button></li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogOption2"><button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" onclick="PopupDialogAnswer(2)">选项2</button></li>
+					<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogOption3"><button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" onclick="PopupDialogAnswer(3)">选项3</button></li>
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>
