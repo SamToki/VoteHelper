@@ -21,6 +21,26 @@
     // Load Configuration
     window.onload = function() {
         if(localStorage.System) {System = JSON.parse(localStorage.getItem("System"));}
+        switch(System.I18n.Language) {
+            case "en-US":
+                PopupDialogAppear("System_LanguageUnsupported",
+                    "Termination",
+                    "<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
+                    "<span lang='en-US'>OK</span>", "", "");
+                break;
+            case "ja-JP":
+                PopupDialogAppear("System_LanguageUnsupported",
+                    "Termination",
+                    "<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
+                    "<span lang='ja-JP'>OK</span>", "", "");
+                break;
+            case "zh-TW":
+                PopupDialogAppear("System_LanguageUnsupported",
+                    "Termination",
+                    "<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
+                    "<span lang='zh-TW'>確定</span>", "", "");
+                break;
+        }
         RefreshSystem();
         if(localStorage.VoteHelper_Vote) {Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));}
         RefreshVote();
@@ -293,23 +313,23 @@
                 case "en-US":
                     PopupDialogAppear("System_LanguageUnsupported",
                         "Termination",
-                        "Sorry, this page currently does not support English (US).",
-                        "OK", "", "");
+                        "<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
+                        "<span lang='en-US'>OK</span>", "", "");
                     break;
                 case "ja-JP":
                     PopupDialogAppear("System_LanguageUnsupported",
                         "Termination",
-                        "すみません。このページは日本語にまだサポートしていません。",
-                        "OK", "", "");
+                        "<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
+                        "<span lang='ja-JP'>OK</span>", "", "");
                     break;
                 case "zh-TW":
                     PopupDialogAppear("System_LanguageUnsupported",
                         "Termination",
-                        "抱歉，本頁面暫不支援繁體中文。",
-                        "確定", "", "");
+                        "<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
+                        "<span lang='zh-TW'>確定</span>", "", "");
                     break;
                 default:
-                    alert("【系统错误】\n参数「System.Display.Theme」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+                    alert("【系统错误】\n函数「SetI18nLanguage」的参数「System.I18n.Language」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
                     break;
             }
             RefreshSystem();
