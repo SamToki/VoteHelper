@@ -23,7 +23,7 @@
         if(localStorage.System) {System = JSON.parse(localStorage.getItem("System"));}
         switch(System.I18n.Language) {
             case "zh-CN":
-                // window.location.href = "index.html";
+                // window.location.replace("index.html");
                 break;
             case "en-US":
                 PopupDialogAppear("System_LanguageUnsupported",
@@ -314,7 +314,7 @@
             System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
             switch(System.I18n.Language) {
                 case "zh-CN":
-                    // window.location.href = "index.html";
+                    // window.location.replace("index.html");
                     break;
                 case "en-US":
                     PopupDialogAppear("System_LanguageUnsupported",
