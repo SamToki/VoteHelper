@@ -18,8 +18,8 @@ nav li {
 .SectionTitle {
     padding: calc(80px + 40px) 0 40px 0;
 }
-    /* 投票 */
-    #投票 {
+    /* Vote */
+    #Vote {
         height: 100vh;
     }
         /* VoteHeader */
@@ -114,8 +114,8 @@ nav li {
             width: 120px; height: 240px;
         }
 
-    /* 设定 */
-    #设定 .Textbox {
+    /* Settings */
+    #Settings .Textbox {
         width: 120px;
     }
 
