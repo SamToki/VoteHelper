@@ -1,9 +1,9 @@
 /* For SamToki.github.io/VoteHelper */
-    /* This is a theme variant, so only colors along with few things are configured. */
+	/* This is a theme variant, so only colors along with few things are configured. */
 
 /* Main */
-    /* Vote */
-        /* VoteMain */
-        #Ctnr_VoteMain .ProgbarFg {
-            background-color: #00A000;
-        }
+	/* Vote */
+		/* VoteMain */
+		#Ctnr_VoteMain .ProgbarFg {
+			background-color: #00A000;
+		}

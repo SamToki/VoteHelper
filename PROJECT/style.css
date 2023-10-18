@@ -2,144 +2,144 @@
 
 /* Header */
 .Title {
-    width: 225px;
+	width: 225px;
 }
 .Title a {
-    background-image: url(images/Title.png);
+	background-image: url(images/Title.png);
 }
 nav ul {
-    width: 480px;
+	width: 480px;
 }
 nav li {
-    width: calc(100% / 4);
+	width: calc(100% / 4);
 }
 
 /* Main */
 .SectionTitle {
-    padding: calc(80px + 40px) 0 40px 0;
+	padding: calc(80px + 40px) 0 40px 0;
 }
-    /* Vote */
-    #Vote {
-        height: 100vh;
-    }
-        /* VoteHeader */
-        #Ctnr_VoteHeader {
-            height: 50px; margin: 15px 0;
-        }
-        #Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
-            font-size: 24px;
-        }
-        #Ctnr_VoteHeader .Ctrl {
-            width: 100%; height: 100%;
-        }
+	/* Vote */
+	#Vote {
+		height: 100vh;
+	}
+		/* VoteHeader */
+		#Ctnr_VoteHeader {
+			height: 50px; margin: 15px 0;
+		}
+		#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
+			font-size: 24px;
+		}
+		#Ctnr_VoteHeader .Ctrl {
+			width: 100%; height: 100%;
+		}
 
-        /* VoteMain */
-        #Ctnr_VoteMain {
-            height: calc(100% - 190px); margin: 0 0 calc(15px - 10px) 0;
-        }
-        #Ctnr_VoteMain .CtrlGroup {
-            height: calc(100% / 6); margin: 0;
-        }
-        #Ctnr_VoteMain .Ctrl1 {
-            width: 80px; height: calc(100% - 10px); margin: 0 10px 10px 0;
-        }
-        #Ctnr_VoteMain .Ctrl2 {
-            width: 400px; height: calc(100% - 10px); margin: 0 10px 10px 0;
-        }
-        #Ctnr_VoteMain .Ctrl3 {
-            position: relative;
-            width: calc(100% - 500px); height: calc(100% - 10px); margin: 0 0 10px 0;
-        }
-        #Ctnr_VoteMain .ProgbarText1, #Ctnr_VoteMain .ProgbarText2 {
-            position: absolute; top: 0;
-            height: 100%; padding: 5px 10px;
-            display: flex; justify-content: center; align-items: center;
-        }
-        #Ctnr_VoteMain .ProgbarText2 {
-            right: 0;
-        }
-        #ProgbarFg_VoteCandidate1 {
-            background-color: #FFA0A0;
-        }
-        #ProgbarFg_VoteCandidate2 {
-            background-color: #A0FFA0;
-        }
-        #ProgbarFg_VoteCandidate3 {
-            background-color: #FFC0A0;
-        }
-        #ProgbarFg_VoteCandidate4 {
-            background-color: #A0FFFF;
-        }
-        #ProgbarFg_VoteCandidate5 {
-            background-color: #FFA0FF;
-        }
-        #ProgbarFg_VoteCandidate6 {
-            background-color: #FFFFA0;
-        }
+		/* VoteMain */
+		#Ctnr_VoteMain {
+			height: calc(100% - 190px); margin: 0 0 calc(15px - 10px) 0;
+		}
+		#Ctnr_VoteMain .CtrlGroup {
+			height: calc(100% / 6); margin: 0;
+		}
+		#Ctnr_VoteMain .Ctrl1 {
+			width: 80px; height: calc(100% - 10px); margin: 0 10px 10px 0;
+		}
+		#Ctnr_VoteMain .Ctrl2 {
+			width: 400px; height: calc(100% - 10px); margin: 0 10px 10px 0;
+		}
+		#Ctnr_VoteMain .Ctrl3 {
+			position: relative;
+			width: calc(100% - 500px); height: calc(100% - 10px); margin: 0 0 10px 0;
+		}
+		#Ctnr_VoteMain .ProgbarText1, #Ctnr_VoteMain .ProgbarText2 {
+			position: absolute; top: 0;
+			height: 100%; padding: 5px 10px;
+			display: flex; justify-content: center; align-items: center;
+		}
+		#Ctnr_VoteMain .ProgbarText2 {
+			right: 0;
+		}
+		#ProgbarFg_VoteCandidate1 {
+			background-color: #FFA0A0;
+		}
+		#ProgbarFg_VoteCandidate2 {
+			background-color: #A0FFA0;
+		}
+		#ProgbarFg_VoteCandidate3 {
+			background-color: #FFC0A0;
+		}
+		#ProgbarFg_VoteCandidate4 {
+			background-color: #A0FFFF;
+		}
+		#ProgbarFg_VoteCandidate5 {
+			background-color: #FFA0FF;
+		}
+		#ProgbarFg_VoteCandidate6 {
+			background-color: #FFFFA0;
+		}
 
-        /* VoteFooter */
-        #Ctnr_VoteFooter {
-            width: 100%; height: 90px; margin: 0 0 15px 0;
-            display: flex;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 {
-            width: calc(100% - 295px); height: 100%; margin: 0 15px 0 0;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 .Ctrl {
-            width: 100%; height: 100%; margin: 0;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter2 {
-            width: 185px; height: 100%; margin: 0 15px 0 0;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl1 {
-            position: relative;
-            width: 90px; height: 100%; margin: 0 15px 0 0;
-        }
-        #Ctnr_VoteFooter .ProgringFg {
-            stroke-dasharray: 289.03 289.03; stroke-dashoffset: 144.51;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl2 {
-            width: calc(100% - 105px); height: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; /* Avoid column direction of flexboxes when possible. */
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter3 {
-            width: 80px; height: 100%; margin: 0 0 -10px 0;
-        }
-        #Ctnr_VoteFooter #CtrlGroup_VoteFooter3 .Ctrl {
-            position: relative;
-            width: 100%; margin: 0 0 10px 0;
-        }
-        #Ctnr_VoteFooter .DropctrlGroup {
-            position: absolute; bottom: 100%; right: 0;
-            width: 120px; height: 240px;
-        }
+		/* VoteFooter */
+		#Ctnr_VoteFooter {
+			width: 100%; height: 90px; margin: 0 0 15px 0;
+			display: flex;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter1 {
+			width: calc(100% - 295px); height: 100%; margin: 0 15px 0 0;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter1 .Ctrl {
+			width: 100%; height: 100%; margin: 0;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 {
+			width: 185px; height: 100%; margin: 0 15px 0 0;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl1 {
+			position: relative;
+			width: 90px; height: 100%; margin: 0 15px 0 0;
+		}
+		#Ctnr_VoteFooter .ProgringFg {
+			stroke-dasharray: 289.03 289.03; stroke-dashoffset: 144.51;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl2 {
+			width: calc(100% - 105px); height: 100%;
+			display: flex; flex-direction: column; justify-content: center; align-items: center; /* Avoid column direction of flexboxes when possible. */
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter3 {
+			width: 80px; height: 100%; margin: 0 0 -10px 0;
+		}
+		#Ctnr_VoteFooter #CtrlGroup_VoteFooter3 .Ctrl {
+			position: relative;
+			width: 100%; margin: 0 0 10px 0;
+		}
+		#Ctnr_VoteFooter .DropctrlGroup {
+			position: absolute; bottom: 100%; right: 0;
+			width: 120px; height: 240px;
+		}
 
-    /* Settings */
-    #Settings .Textbox {
-        width: 120px;
-    }
+	/* Settings */
+	#Settings .Textbox {
+		width: 120px;
+	}
 
 /* Responsive Web Design */
 @media (max-width: 1150px) {
-    .Title {
-        width: 40px;
-    }
-    nav ul {
-        width: calc(100% - 70px);
-    }
-    .SectionTitle {
-        padding: calc(60px + 40px) 0 40px 0;
-    }
-    #Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
-        font-size: 16px;
-    }
-    #Ctnr_VoteMain .Ctrl1 {
-        width: 40px;
-    }
-    #Ctnr_VoteMain .Ctrl2 {
-        width: 100px;
-    }
-    #Ctnr_VoteMain .Ctrl3 {
-        width: calc(100% - 160px);
-    }
+	.Title {
+		width: 40px;
+	}
+	nav ul {
+		width: calc(100% - 70px);
+	}
+	.SectionTitle {
+		padding: calc(60px + 40px) 0 40px 0;
+	}
+	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
+		font-size: 16px;
+	}
+	#Ctnr_VoteMain .Ctrl1 {
+		width: 40px;
+	}
+	#Ctnr_VoteMain .Ctrl2 {
+		width: 100px;
+	}
+	#Ctnr_VoteMain .Ctrl3 {
+		width: calc(100% - 160px);
+	}
 }
