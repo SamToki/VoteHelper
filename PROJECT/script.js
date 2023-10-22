@@ -145,6 +145,9 @@
 			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
 			ChangeUseOldTypeface(System.Dev.UseOldTypeface);
 
+			// User Data
+			ChangeValue("Textbox_SettingsUserDataImport", "");
+
 		// Save Configuration
 		localStorage.setItem("System", JSON.stringify(System));
 	}
@@ -364,10 +367,31 @@
 			}
 			RefreshSystem();
 		}
-		function SetDevClearLocalStorage() {
-			PopupDialogAppear("System_ConfirmClearLocalStorage",
+
+		// User Data
+		function SetUserDataImport() {
+			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
+				Elements = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
+				Object.keys(Elements).forEach(function(Looper) {
+					localStorage.setItem(Looper, JSON.stringify(Elements[Looper]));
+				});
+				window.location.reload();
+			}
+		}
+		function SetUserDataExport() {
+			navigator.clipboard.writeText("{" +
+				"\"System\":" + JSON.stringify(System) + "," +
+				"\"VoteHelper_Vote\":" + JSON.stringify(Vote) +
+				"}");
+			PopupDialogAppear("System_UserDataExported",
+				"Completion",
+				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
+				"确定", "", "");
+		}
+		function SetUserDataClear() {
+			PopupDialogAppear("System_ConfirmClearUserData",
 				"Caution",
-				"您确认要清空 Local Storage？",
+				"您确认要清空用户数据？",
 				"清空", "取消", "");
 		}
 	
@@ -383,10 +407,20 @@
 						break;
 				}
 				break;
-			case "System_ConfirmClearLocalStorage":
+			case "System_UserDataExported":
 				switch(Selector) {
 					case 1:
-						ClearLocalStorage();
+						break;
+					default:
+						alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Selector」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+						break;
+				}
+				break;
+			case "System_ConfirmClearUserData":
+				switch(Selector) {
+					case 1:
+						localStorage.clear();
+						window.location.reload();
 						break;
 					case 2:
 						break;
