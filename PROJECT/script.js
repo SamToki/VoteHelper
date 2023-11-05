@@ -144,6 +144,8 @@
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
 			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
 			ChangeUseOldTypeface(System.Dev.UseOldTypeface);
+			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
+			ChangeFontOverall(System.Dev.Font);
 
 			// User Data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
@@ -367,15 +369,27 @@
 			}
 			RefreshSystem();
 		}
+		function SetDevFont() {
+			System.Dev.Font = ReadValue("Textbox_SettingsDevFont");
+			RefreshSystem();
+		}
 
 		// User Data
 		function SetUserDataImport() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
-				Elements = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
-				Object.keys(Elements).forEach(function(Looper) {
-					localStorage.setItem(Looper, JSON.stringify(Elements[Looper]));
-				});
-				window.location.reload();
+				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
+					Elements = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
+					Object.keys(Elements).forEach(function(Looper) {
+						localStorage.setItem(Looper, JSON.stringify(Elements[Looper]));
+					});
+					window.location.reload();
+				} else {
+					PopupDialogAppear("System_JSONStringFormatMismatch",
+						"Termination",
+						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
+						"确定", "", "");
+					ChangeValue("Textbox_SettingsUserDataImport", "");
+				}
 			}
 		}
 		function SetUserDataExport() {
@@ -399,15 +413,8 @@
 	function PopupDialogAnswer(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
-				switch(Selector) {
-					case 1:
-						break;
-					default:
-						alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Selector」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
-						break;
-				}
-				break;
 			case "System_UserDataExported":
+			case "System_JSONStringFormatMismatch":
 				switch(Selector) {
 					case 1:
 						break;

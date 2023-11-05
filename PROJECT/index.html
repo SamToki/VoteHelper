@@ -274,7 +274,7 @@
 					<li class="Item" id="Item_SettingsDev">
 						<fieldset>
 							<legend>开发者选项</legend>
-							<ul class="CtrlGroup">
+							<ul class="CtrlGroup" id="CtrlGroup_SettingsDev">
 								<li class="Ctrl">
 									<label for="Checkbox_SettingsDevShowAllBorders">
 										<input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" />
@@ -287,6 +287,12 @@
 										<span>使用 ja-JP 旧字形</span>
 									</label>
 								</li>
+								<li class="Ctrl">
+									<label for="Textbox_SettingsDevFont">
+										<span>字体：</span>
+										<input class="Textbox" id="Textbox_SettingsDevFont" type="text" placeholder="" onchange="SetDevFont()" />
+									</label>
+								</li>
 							</ul>
 						</fieldset>
 					</li>
@@ -297,10 +303,10 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
-										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴格式正确的 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="SetUserDataImport()" />
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="SetUserDataImport()" />
 									</label>
 								</li>
-								<li class="Ctrl" id="Ctrl_SettingsUserDataExport"><button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="SetUserDataExport()">导出至剪贴板</button></li>
+								<li class="Ctrl" id="Ctrl_SettingsUserDataExport"><button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="SetUserDataExport()">导出</button></li>
 								<li class="Ctrl" id="Ctrl_SettingsUserDataClear"><button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="SetUserDataClear()">清空</button></li>
 							</ul>
 						</fieldset>
