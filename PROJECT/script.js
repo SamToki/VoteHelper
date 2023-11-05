@@ -141,16 +141,7 @@
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
-			Elements = document.getElementsByTagName("*");
-			if(System.Dev.ShowAllBorders == true) {
-				for(Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].style.border = "1px solid #FF0000";
-				}
-			} else {
-				for(Looper = 0; Looper < Elements.length; Looper++) {
-					Elements[Looper].style.border = "";
-				}
-			}
+			ChangeShowAllBorders(System.Dev.ShowAllBorders);
 			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
 			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {
@@ -159,8 +150,7 @@
 				Elements[0].lang = "zh-CN";
 			}
 			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
-			Elements = document.getElementsByTagName("html");
-			Elements[0].style.fontFamily = System.Dev.Font;
+			ChangeFontOverall(System.Dev.Font);
 
 			// User Data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
@@ -349,7 +339,7 @@
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"确定", "", "");
-					ChangeValue("Textbox_SettingsUserDataImport", "");
+					RefreshSystem();
 				}
 			}
 		}
