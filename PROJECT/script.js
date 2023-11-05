@@ -18,7 +18,7 @@
 			}
 		};
 
-	// Load Configuration
+	// Load User Data
 	window.onload = function() {
 		if(localStorage.System) {
 			System = JSON.parse(localStorage.getItem("System"));
@@ -48,7 +48,7 @@
 					"<span lang='zh-TW'>確定</span>", "", "");
 				break;
 			default:
-				alert("【系统错误】\n函数「SetI18nLanguage」的参数「System.I18n.Language」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+				alert("Error: The value of System.I18n.Language in function window.onload is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -96,7 +96,7 @@
 					document.getElementById("ThemeVariant_Style").media = "";
 					break;
 				default:
-					alert("【系统错误】\n参数「System.Display.Theme」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
@@ -117,7 +117,7 @@
 					ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
 					break;
 				default:
-					alert("【系统错误】\n参数「System.Display.Cursor」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+					alert("Error: The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
@@ -141,16 +141,31 @@
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
-			ChangeShowAllBorders(System.Dev.ShowAllBorders);
+			Elements = document.getElementsByTagName("*");
+			if(System.Dev.ShowAllBorders == true) {
+				for(Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].style.border = "1px solid #FF0000";
+				}
+			} else {
+				for(Looper = 0; Looper < Elements.length; Looper++) {
+					Elements[Looper].style.border = "";
+				}
+			}
 			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
-			ChangeUseOldTypeface(System.Dev.UseOldTypeface);
+			Elements = document.getElementsByTagName("html");
+			if(System.Dev.UseOldTypeface == true) {
+				Elements[0].lang = "ja-JP";
+			} else {
+				Elements[0].lang = "zh-CN";
+			}
 			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
-			ChangeFontOverall(System.Dev.Font);
+			Elements = document.getElementsByTagName("html");
+			Elements[0].style.fontFamily = System.Dev.Font;
 
 			// User Data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
-		// Save Configuration
+		// Save User Data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
@@ -226,7 +241,7 @@
 			ChangeValue("Textbox_SettingsVoteCandidateQuantity", Vote.CandidateQuantity);
 			ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
 		
-		// Save Configuration
+		// Save User Data
 		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
 	}
 
@@ -288,38 +303,6 @@
 			RefreshVote();
 		}
 
-		// Display
-		function SetDisplayTheme() {
-			System.Display.Theme = ReadValue("Combobox_SettingsDisplayTheme");
-			RefreshSystem();
-		}
-		function SetDisplayCursor() {
-			System.Display.Cursor = ReadValue("Combobox_SettingsDisplayCursor");
-			RefreshSystem();
-		}
-		function SetDisplayShowTopbar() {
-			if(document.getElementById("Checkbox_SettingsDisplayShowTopbar").checked) {
-				System.Display.ShowTopbar = true;
-			} else {
-				System.Display.ShowTopbar = false;
-			}
-			RefreshSystem();
-		}
-		function SetDisplayAnimSpeed() {
-			System.Display.Anim.Speed = ReadValue("Combobox_SettingsDisplayAnimSpeed");
-			RefreshSystem();
-		}
-
-		// Sound
-		function SetSoundPlaySound() {
-			if(document.getElementById("Checkbox_SettingsSoundPlaySound").checked) {
-				System.Sound.PlaySound = true;
-			} else {
-				System.Sound.PlaySound = false;
-			}
-			RefreshSystem();
-		}
-
 		// I18n
 		function SetI18nLanguage() {
 			System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
@@ -346,31 +329,9 @@
 						"<span lang='zh-TW'>確定</span>", "", "");
 					break;
 				default:
-					alert("【系统错误】\n函数「SetI18nLanguage」的参数「System.I18n.Language」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+					alert("Error: The value of System.I18n.Language in function SetI18nLanguage is out of expectation.");
 					break;
 			}
-			RefreshSystem();
-		}
-
-		// Dev
-		function SetDevShowAllBorders() {
-			if(document.getElementById("Checkbox_SettingsDevShowAllBorders").checked) {
-				System.Dev.ShowAllBorders = true;
-			} else {
-				System.Dev.ShowAllBorders = false;
-			}
-			RefreshSystem();
-		}
-		function SetDevUseOldTypeface() {
-			if(document.getElementById("Checkbox_SettingsDevUseOldTypeface").checked) {
-				System.Dev.UseOldTypeface = true;
-			} else {
-				System.Dev.UseOldTypeface = false;
-			}
-			RefreshSystem();
-		}
-		function SetDevFont() {
-			System.Dev.Font = ReadValue("Textbox_SettingsDevFont");
 			RefreshSystem();
 		}
 
@@ -413,13 +374,13 @@
 	function PopupDialogAnswer(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
-			case "System_UserDataExported":
 			case "System_JSONStringFormatMismatch":
+			case "System_UserDataExported":
 				switch(Selector) {
 					case 1:
 						break;
 					default:
-						alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Selector」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
 						break;
 				}
 				break;
@@ -432,12 +393,12 @@
 					case 2:
 						break;
 					default:
-						alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Selector」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
 						break;
 				}
 				break;
 			default:
-				alert("【系统错误】\n函数「PopupDialogAnswer」的参数「Interaction.PopupDialogEvent」为意料之外的值。\n请通过「帮助」版块中的链接向我提供反馈以帮助解决此问题，谢谢！");
+				alert("Error: The value of Interaction.PopupDialogEvent in function PopupDialogAnswer is out of expectation.");
 				break;
 		}
 		PopupDialogDisappear();

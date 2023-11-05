@@ -15,9 +15,6 @@ nav li {
 }
 
 /* Main */
-.SectionTitle {
-	padding: calc(80px + 40px) 0 40px 0;
-}
 	/* Vote */
 	#Vote {
 		height: 100vh;
@@ -126,9 +123,6 @@ nav li {
 	}
 	nav ul {
 		width: calc(100% - 70px);
-	}
-	.SectionTitle {
-		padding: calc(60px + 40px) 0 40px 0;
 	}
 	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
 		font-size: 16px;
