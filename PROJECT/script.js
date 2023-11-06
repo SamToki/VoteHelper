@@ -34,18 +34,21 @@
 					"Termination",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"<span lang='en-US'>OK</span>", "", "");
+				Focus("Cmdbtn_PopupDialogOption1");
 				break;
 			case "ja-JP":
 				PopupDialogAppear("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"<span lang='ja-JP'>OK</span>", "", "");
+				Focus("Cmdbtn_PopupDialogOption1");
 				break;
 			case "zh-TW":
 				PopupDialogAppear("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"<span lang='zh-TW'>確定</span>", "", "");
+				Focus("Cmdbtn_PopupDialogOption1");
 				break;
 			default:
 				alert("Error: The value of System.I18n.Language in function window.onload is out of expectation.");
@@ -305,18 +308,21 @@
 						"Termination",
 						"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 						"<span lang='en-US'>OK</span>", "", "");
+					Focus("Cmdbtn_PopupDialogOption1");
 					break;
 				case "ja-JP":
 					PopupDialogAppear("System_LanguageUnsupported",
 						"Termination",
 						"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 						"<span lang='ja-JP'>OK</span>", "", "");
+					Focus("Cmdbtn_PopupDialogOption1");
 					break;
 				case "zh-TW":
 					PopupDialogAppear("System_LanguageUnsupported",
 						"Termination",
 						"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 						"<span lang='zh-TW'>確定</span>", "", "");
+					Focus("Cmdbtn_PopupDialogOption1");
 					break;
 				default:
 					alert("Error: The value of System.I18n.Language in function SetI18nLanguage is out of expectation.");
@@ -339,6 +345,7 @@
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"确定", "", "");
+					Focus("Cmdbtn_PopupDialogOption1");
 					RefreshSystem();
 				}
 			}
@@ -352,12 +359,14 @@
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"确定", "", "");
+			Focus("Cmdbtn_PopupDialogOption1");
 		}
 		function SetUserDataClear() {
 			PopupDialogAppear("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
 				"清空", "取消", "");
+			Focus("Cmdbtn_PopupDialogOption2");
 		}
 	
 	// Popup Dialog Answer
