@@ -103,11 +103,10 @@ nav li {
 			width: 80px; height: 100%; margin: 0 0 -10px 0;
 		}
 		#Ctnr_VoteFooter #CtrlGroup_VoteFooter3 .Ctrl {
-			position: relative;
 			width: 100%; margin: 0 0 10px 0;
 		}
 		#Ctnr_VoteFooter .DropctrlGroup {
-			position: absolute; bottom: 100%; right: 0;
+			bottom: 100%; right: 0;
 			width: 120px; height: 240px;
 		}
 
