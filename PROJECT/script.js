@@ -159,7 +159,7 @@
 		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
 			ChangeShow("CtrlGroup_VoteCandidate" + Looper);
-			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc(100% / " + Vote.CandidateQuantity + ")");
+			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * (Vote.CandidateQuantity - 1) + "px) / " + Vote.CandidateQuantity + ")");
 			ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
 			ChangeShow("Dropctrl_VoteUndo" + Looper);
 		}
