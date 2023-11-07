@@ -7,7 +7,7 @@
 .Title a {
 	background-image: url(images/Title.png);
 }
-nav ul {
+nav {
 	width: 480px;
 }
 nav li {
@@ -120,7 +120,7 @@ nav li {
 	.Title {
 		width: 40px;
 	}
-	nav ul {
+	nav {
 		width: calc(100% - 70px);
 	}
 	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
