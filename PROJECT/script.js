@@ -133,12 +133,6 @@
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
 			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
 
-			// Sound
-			ChangeChecked("Checkbox_SettingsSoundPlaySound", System.Sound.PlaySound);
-			
-			// I18n
-			ChangeValue("Combobox_SettingsI18nLanguage", System.I18n.Language);
-
 			// Dev
 			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
@@ -293,38 +287,6 @@
 			RefreshVote();
 		}
 
-		// I18n
-		function SetI18nLanguage() {
-			System.I18n.Language = ReadValue("Combobox_SettingsI18nLanguage");
-			switch(System.I18n.Language) {
-				case "zh-CN":
-					// window.location.replace("index.html");
-					break;
-				case "en-US":
-					PopupDialogAppear("System_LanguageUnsupported",
-						"Termination",
-						"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
-						"", "", "<span lang='en-US'>OK</span>");
-					break;
-				case "ja-JP":
-					PopupDialogAppear("System_LanguageUnsupported",
-						"Termination",
-						"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
-						"", "", "<span lang='ja-JP'>OK</span>");
-					break;
-				case "zh-TW":
-					PopupDialogAppear("System_LanguageUnsupported",
-						"Termination",
-						"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
-						"", "", "<span lang='zh-TW'>確定</span>");
-					break;
-				default:
-					alert("Error: The value of System.I18n.Language in function SetI18nLanguage is out of expectation.");
-					break;
-			}
-			RefreshSystem();
-		}
-
 		// User Data
 		function SetUserDataImport() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
@@ -395,6 +357,3 @@
 		}
 		PopupDialogDisappear();
 	}
-
-// Automations
-	// Nothing here.
