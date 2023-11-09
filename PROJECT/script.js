@@ -129,7 +129,7 @@
 			} else {
 				ChangeHide("Topbar");
 				ChangeHide("SectionTitleBelowTopbar");
-				ChangeHeight("ViewportBelowTopbar", "100%");
+				ChangeHeight("ViewportBelowTopbar", "calc(100% - 30px)");
 			}
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
 			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
