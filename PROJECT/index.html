@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用 (web app)，刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 计数器, 计票器, Counter, VoteHelper" />
-		<meta name="version" content="v1.06 (2023/10/02). Since 2023/09/16." />
+		<meta name="version" content="v1.07 (2023/11/09). Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>VoteHelper</title>
@@ -276,10 +276,10 @@
 									<label for="Combobox_SettingsDisplayAnimSpeed">
 										<span>动画速度：</span>
 										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpeed" onchange="SetDisplayAnimSpeed()">
-											<option value="0.5s">慢 (0.5s)</option>
-											<option value="0.3s" selected>中 (0.3s)</option>
-											<option value="0.1s">快 (0.1s)</option>
-											<option value="none">关闭动画 (无障碍)</option>
+											<option value="500">慢 (500ms)</option>
+											<option value="300" selected>中 (300ms)</option>
+											<option value="100">快 (100ms)</option>
+											<option value="0">关闭动画 (无障碍)</option>
 										</select>
 									</label>
 								</li>
@@ -379,7 +379,7 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>VoteHelper</p>
-							<p>版本 v1.06 (<time datetime="2023-10-02" pubdate="pubdate">2023/10/02</time>)<br />
+							<p>版本 v1.07 (<time datetime="2023-11-09" pubdate="pubdate">2023/11/09</time>)<br />
 								始于 2023/09/16</p>
 							<p><a href="https://github.com/SamToki/Web---VoteHelper">查看 GitHub 项目</a></p>
 						</fieldset>

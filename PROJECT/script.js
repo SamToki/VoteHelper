@@ -19,8 +19,9 @@
 		};
 
 	// Load User Data
-	window.onload = function() {
-		if(localStorage.System) {
+	window.onload = Load();
+	function Load() {
+		if(typeof(localStorage.System) != "undefined") {
 			System = JSON.parse(localStorage.getItem("System"));
 		} else {
 			System.I18n.Language = "zh-CN";
@@ -52,11 +53,11 @@
 				break;
 		}
 		RefreshSystem();
-		if(localStorage.VoteHelper_Vote) {
+		if(typeof(localStorage.VoteHelper_Vote) != "undefined") {
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
 		RefreshVote();
-	};
+	}
 
 // Refresh
 	// System
@@ -159,7 +160,7 @@
 		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
 			ChangeShow("CtrlGroup_VoteCandidate" + Looper);
-			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * (Vote.CandidateQuantity - 1) + "px) / " + Vote.CandidateQuantity + ")");
+			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
 			ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
 			ChangeShow("Dropctrl_VoteUndo" + Looper);
 		}
@@ -170,6 +171,7 @@
 			ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			ChangeHide("Dropctrl_VoteUndo" + Looper);
 		}
+		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
 		Vote.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
 			Vote.ElapsedSum = Vote.ElapsedSum + Vote.Elapsed[Looper];
