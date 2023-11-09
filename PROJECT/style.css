@@ -116,7 +116,7 @@ nav .Ctrl {
 		}
 
 	/* Settings */
-	#Settings .Textbox {
+	#CtrlGroup_SettingsVote .Textbox {
 		width: 120px;
 	}
 
