@@ -4,8 +4,8 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		var Looper = 0, Percentage = 0, Percentage2 = 0;
-		
+		var Percentage2 = 0;
+
 		// Saved
 		var Vote = {
 			CandidateQuantity: 6,
