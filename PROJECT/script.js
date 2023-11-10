@@ -4,13 +4,16 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		var Percentage2 = 0;
+		var Percentage2 = 0,
+		Vote0 = {
+			ElapsedSum: 0
+		};
 
 		// Saved
 		var Vote = {
 			CandidateQuantity: 6,
 			Total: 50,
-			Elapsed: [0, 0, 0, 0, 0, 0, 0], ElapsedSum: 0,
+			Elapsed: [0, 0, 0, 0, 0, 0, 0],
 			Text: {
 				Title: "",
 				Candidate1Name: "", Candidate2Name: "", Candidate3Name: "", Candidate4Name: "", Candidate5Name: "", Candidate6Name: "",
@@ -172,30 +175,30 @@
 			ChangeHide("Dropctrl_VoteUndo" + Looper);
 		}
 		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
-		Vote.ElapsedSum = 0;
+		Vote0.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
-			Vote.ElapsedSum = Vote.ElapsedSum + Vote.Elapsed[Looper];
+			Vote0.ElapsedSum = Vote0.ElapsedSum + Vote.Elapsed[Looper];
 		}
 		for(Looper = 1; Looper <= 6; Looper++) {
-			if(Vote.ElapsedSum == 0) {
+			if(Vote0.ElapsedSum == 0) {
 				Percentage = 0;
 				Percentage2 = 0;
 			} else {
-				Percentage = Vote.Elapsed[Looper] / Vote.ElapsedSum * 100;
+				Percentage = Vote.Elapsed[Looper] / Vote0.ElapsedSum * 100;
 				Percentage2 = Vote.Elapsed[Looper] / Math.max(...Vote.Elapsed) * 100;
 			}
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Percentage2 / 100) + ")");
 		}
-		if(Vote.ElapsedSum == 0) {
+		if(Vote0.ElapsedSum == 0) {
 			Percentage = 0;
 		} else {
-			Percentage = Vote.ElapsedSum / Vote.Total * 100;
+			Percentage = Vote0.ElapsedSum / Vote.Total * 100;
 		}
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeProgring("ProgringFg_Vote", 289.03 * (100 - Percentage) / 100);
-		ChangeText("Label_VoteElapsed", Vote.ElapsedSum);
+		ChangeText("Label_VoteElapsed", Vote0.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Total);
 		for(Looper = 1; Looper <= 6; Looper++) {
 			if(Vote.Elapsed[Looper] <= 0) {
@@ -204,8 +207,8 @@
 		}
 
 		// Finish Voting
-		if(Vote.ElapsedSum >= Vote.Total) {
-			Vote.ElapsedSum = Vote.Total;
+		if(Vote0.ElapsedSum >= Vote.Total) {
+			Vote0.ElapsedSum = Vote.Total;
 			for(Looper = 1; Looper <= 6; Looper++) {
 				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			}
@@ -234,7 +237,7 @@
 // Cmds
 	// Vote
 	function VoteCount(Selector) {
-		if(Vote.CandidateQuantity >= Selector && Vote.ElapsedSum < Vote.Total) {
+		if(Vote.CandidateQuantity >= Selector && Vote0.ElapsedSum < Vote.Total) {
 			Vote.Elapsed[Selector]++;
 		}
 		RefreshVote();
@@ -283,8 +286,8 @@
 			if(Vote.Total > 9999) {
 				Vote.Total = 9999;
 			}
-			if(Vote.ElapsedSum > Vote.Total) {
-				Vote.Total = Vote.ElapsedSum;
+			if(Vote0.ElapsedSum > Vote.Total) {
+				Vote.Total = Vote0.ElapsedSum;
 			}
 			RefreshVote();
 		}
