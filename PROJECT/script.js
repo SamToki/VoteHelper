@@ -249,9 +249,7 @@
 		RefreshVote();
 	}
 	function VoteReset() {
-		for(Looper = 1; Looper <= 6; Looper++) {
-			Vote.Elapsed[Looper] = 0;
-		}
+		Vote.Elapsed = [0, 0, 0, 0, 0, 0, 0];
 		RefreshVote();
 	}
 	function VoteTextSave() {
