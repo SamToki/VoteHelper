@@ -327,7 +327,7 @@
 				"", "清空", "取消");
 		}
 	
-	// Popup Dialog Answer
+	// Popup Dialog
 	function PopupDialogAnswer(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
