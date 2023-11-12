@@ -174,7 +174,6 @@
 			ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			ChangeHide("Dropctrl_VoteUndo" + Looper);
 		}
-		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
 		Vote0.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
 			Vote0.ElapsedSum = Vote0.ElapsedSum + Vote.Elapsed[Looper];
@@ -196,10 +195,11 @@
 		} else {
 			Percentage = Vote0.ElapsedSum / Vote.Total * 100;
 		}
-		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeProgring("ProgringFg_Vote", 289.03 * (100 - Percentage) / 100);
+		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeText("Label_VoteElapsed", Vote0.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Total);
+		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
 		for(Looper = 1; Looper <= 6; Looper++) {
 			if(Vote.Elapsed[Looper] <= 0) {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
