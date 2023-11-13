@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="VoteHelper，投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。这是我的第一个网页应用 (web app)，刚学完 JavaScript 就先拿这个简单的玩具试试水。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, 计数器, 计票器, Counter, VoteHelper" />
-		<meta name="version" content="v1.07 (2023/11/09). Since 2023/09/16." />
+		<meta name="version" content="v1.08 (2023/11/13). Since 2023/09/16." />
 		<meta name="author" content="Sam Toki" />
 		<meta name="copyright" content="(C) 2015-2023 SAM TOKI STUDIO" />
 		<title>VoteHelper</title>
@@ -84,8 +84,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate1">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate1"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate1">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate1">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate1">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate1">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
@@ -99,8 +99,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate2">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate2"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate2">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate2">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate2">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate2">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
@@ -114,8 +114,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate3">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate3"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate3">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate3">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate3">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate3">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
@@ -129,8 +129,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate4">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate4"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate4">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate4">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate4">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate4">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
@@ -144,8 +144,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate5">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate5"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate5">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate5">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate5">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate5">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
@@ -159,8 +159,8 @@
 								<div class="Progbar" id="Progbar_VoteCandidate6">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate6"></div>
 								</div>
-								<p class="ProgbarText1" id="ProgbarText1_VoteCandidate6">票数</p>
-								<p class="ProgbarText2" id="ProgbarText2_VoteCandidate6">占比</p>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate6">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate6">占比</span>
 							</li>
 						</ul>
 					</div>
@@ -177,11 +177,11 @@
 									<circle class="ProgringBg" id="ProgringBg_Vote" cx="50" cy="50" r="46" />
 									<circle class="ProgringFg" id="ProgringFg_Vote" cx="50" cy="50" r="46" />
 								</svg>
-								<p class="ProgringText" id="ProgringText_Vote">进度</p>
+								<span class="ProgringText" id="ProgringText_Vote">进度</span>
 							</li>
 							<li class="Ctrl2">
-								<p id="Label_VoteElapsed">已投</p>
-								<p id="Label_VoteTotal">/总数</p>
+								<span id="Label_VoteElapsed">已投</span>
+								<span id="Label_VoteTotal">/总数</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter3">
@@ -379,7 +379,7 @@
 						<fieldset>
 							<legend>关于</legend>
 							<p>VoteHelper</p>
-							<p>版本 v1.07 (<time datetime="2023-11-09" pubdate="pubdate">2023/11/09</time>)<br />
+							<p>版本 v1.08 (<time datetime="2023-11-13" pubdate="pubdate">2023/11/13</time>)<br />
 								始于 2023/09/16</p>
 							<p><a href="https://github.com/SamToki/Web---VoteHelper">查看 GitHub 项目</a></p>
 						</fieldset>
