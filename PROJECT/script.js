@@ -164,7 +164,11 @@
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
 			ChangeShow("CtrlGroup_VoteCandidate" + Looper);
 			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
-			ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
+			if(Vote.Elapsed[Looper] > 0) {
+				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
+			} else {
+				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
+			}
 			ChangeShow("Dropctrl_VoteUndo" + Looper);
 		}
 		for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
@@ -200,11 +204,6 @@
 		ChangeText("Label_VoteElapsed", Vote0.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Total);
 		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
-		for(Looper = 1; Looper <= 6; Looper++) {
-			if(Vote.Elapsed[Looper] <= 0) {
-				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
-			}
-		}
 
 		// Finish Voting
 		if(Vote0.ElapsedSum >= Vote.Total) {
