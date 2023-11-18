@@ -31,8 +31,8 @@
 		}
 		switch(System.I18n.Language) {
 			case "zh-CN":
-				// ChangeCursorOverall("wait");
-				// window.location.replace("index.html");
+				/* ChangeCursorOverall("wait");
+				window.location.replace("index.html"); */
 				break;
 			case "en-US":
 				PopupDialogAppear("System_LanguageUnsupported",
