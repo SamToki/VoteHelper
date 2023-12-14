@@ -69,17 +69,17 @@
 				<div class="Viewport">
 					<div id="Ctnr_VoteHeader">
 						<div class="Ctrl">
-							<input class="Textbox Centered" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="VoteTextSave()" />
+							<input class="Textbox Centered" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="SaveVoteText()" />
 						</div>
 					</div>
 
 					<div id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="VoteCount(1)">A</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="CountVote(1)">A</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate1Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate1">
@@ -91,10 +91,10 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="VoteCount(2)">B</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="CountVote(2)">B</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate2Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate2">
@@ -106,10 +106,10 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="VoteCount(3)">C</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="CountVote(3)">C</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate3Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate3">
@@ -121,10 +121,10 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="VoteCount(4)">D</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="CountVote(4)">D</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate4Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate4">
@@ -136,10 +136,10 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="VoteCount(5)">E</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="CountVote(5)">E</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate5Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate5">
@@ -151,10 +151,10 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="VoteCount(6)">F</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="CountVote(6)">F</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6Name" type="text" placeholder="选项名称" onchange="VoteTextSave()" />
+								<input class="Textbox" id="Textbox_VoteCandidate6Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate6">
@@ -169,7 +169,7 @@
 					<div id="Ctnr_VoteFooter">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter1">
 							<li class="Ctrl">
-								<textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="VoteTextSave()"></textarea>
+								<textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="SaveVoteText()"></textarea>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter2">
@@ -187,30 +187,30 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter3">
 							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteUndo" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="ChangeShow('DropctrlGroup_VoteUndo')">撤销...</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteUndo" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="Show('DropctrlGroup_VoteUndo')">撤销...</button>
 								<ul class="DropctrlGroup Hidden" id="DropctrlGroup_VoteUndo">
 									<li class="Dropctrl" id="Dropctrl_VoteUndo1">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo1" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(1)">A 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo1" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(1)">A 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo2">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo2" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(2)">B 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo2" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(2)">B 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo3">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo3" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(3)">C 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo3" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(3)">C 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo4">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo4" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(4)">D 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo4" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(4)">D 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo5">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo5" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(5)">E 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo5" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(5)">E 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo6">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo6" onfocus="ChangeShow('DropctrlGroup_VoteUndo')" onclick="VoteUndo(6)">F 减少一票</button>
+										<button class="Dropbtn" id="Dropbtn_VoteUndo6" onfocus="Show('DropctrlGroup_VoteUndo')" onclick="UndoVote(6)">F 减少一票</button>
 									</li>
 								</ul>
 							</li>
 							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteReset" onclick="VoteReset()">重置</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteReset" onclick="ResetVote()">重置</button>
 							</li>
 						</ul>
 					</div>
@@ -323,10 +323,10 @@
 									</label>
 								</li>
 								<li class="Ctrl" id="Ctrl_SettingsUserDataExport">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="SetUserDataExport()">导出</button>
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl" id="Ctrl_SettingsUserDataClear">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="SetUserDataClear()">清空</button>
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ClearUserData()">清空</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -435,13 +435,13 @@
 				</ul>
 				<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
 					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption1">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" disabled="true" onclick="PopupDialogAnswer(1)">选项1</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption1" disabled="true" onclick="AnswerPopupDialog(1)">选项1</button>
 					</li>
 					<li class="Ctrl Faded" id="Ctrl_PopupDialogOption2">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" disabled="true" onclick="PopupDialogAnswer(2)">选项2</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption2" disabled="true" onclick="AnswerPopupDialog(2)">选项2</button>
 					</li>
 					<li class="Ctrl" id="Ctrl_PopupDialogOption3">
-						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" disabled="true" onclick="PopupDialogAnswer(3)">选项3</button>
+						<button class="Cmdbtn" id="Cmdbtn_PopupDialogOption3" disabled="true" onclick="AnswerPopupDialog(3)">选项3</button>
 					</li>
 				</ul>
 			</div>

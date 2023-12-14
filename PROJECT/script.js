@@ -35,25 +35,25 @@
 				window.location.replace("index.html"); */
 				break;
 			case "en-US":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"", "", "<span lang='en-US'>OK</span>");
 				break;
 			case "ja-JP":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
 				break;
 			case "zh-TW":
-				PopupDialogAppear("System_LanguageUnsupported",
+				ShowPopupDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				alert("Error: The value of System.I18n.Language in function window.onload is out of expectation.");
+				alert("Error: The value of System.I18n.Language in function Load is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -127,12 +127,12 @@
 			}
 			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
-				ChangeShow("Topbar");
-				ChangeShow("SectionTitleAboveViewport");
+				Show("Topbar");
+				Show("SectionTitleAboveViewport");
 				ChangeHeightByClass("Viewport", "");
 			} else {
-				ChangeHide("Topbar");
-				ChangeHide("SectionTitleAboveViewport");
+				Hide("Topbar");
+				Hide("SectionTitleAboveViewport");
 				ChangeHeightByClass("Viewport", "calc(100% - 30px)");
 			}
 			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
@@ -163,21 +163,21 @@
 		// Main
 		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
-			ChangeShow("CtrlGroup_VoteCandidate" + Looper);
+			Show("CtrlGroup_VoteCandidate" + Looper);
 			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
 			if(Vote.Elapsed[Looper] > 0) {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
 			} else {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			}
-			ChangeShow("Dropctrl_VoteUndo" + Looper);
+			Show("Dropctrl_VoteUndo" + Looper);
 		}
 		for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
 			Vote.Elapsed[Looper] = 0;
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
-			ChangeHide("CtrlGroup_VoteCandidate" + Looper);
+			Hide("CtrlGroup_VoteCandidate" + Looper);
 			ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
-			ChangeHide("Dropctrl_VoteUndo" + Looper);
+			Hide("Dropctrl_VoteUndo" + Looper);
 		}
 		Vote0.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
@@ -236,23 +236,23 @@
 
 // Cmds
 	// Vote
-	function VoteCount(Selector) {
+	function CountVote(Selector) {
 		if(Vote.CandidateQuantity >= Selector && Vote0.ElapsedSum < Vote.Total) {
 			Vote.Elapsed[Selector]++;
 		}
 		RefreshVote();
 	}
-	function VoteUndo(Selector) {
+	function UndoVote(Selector) {
 		if(Vote.CandidateQuantity >= Selector && Vote.Elapsed[Selector] >= 1) {
 			Vote.Elapsed[Selector]--;
 		}
 		RefreshVote();
 	}
-	function VoteReset() {
+	function ResetVote() {
 		Vote.Elapsed = [0, 0, 0, 0, 0, 0, 0];
 		RefreshVote();
 	}
-	function VoteTextSave() {
+	function SaveVoteText() {
 		Vote.Text.Title = ReadValue("Textbox_VoteTitle");
 		Vote.Text.Candidate1Name = ReadValue("Textbox_VoteCandidate1Name");
 		Vote.Text.Candidate2Name = ReadValue("Textbox_VoteCandidate2Name");
@@ -291,7 +291,7 @@
 		}
 
 		// User Data
-		function SetUserDataImport() {
+		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
 					ChangeCursorOverall("wait");
@@ -301,7 +301,7 @@
 					});
 					window.location.reload();
 				} else {
-					PopupDialogAppear("System_JSONStringFormatMismatch",
+					ShowPopupDialog("System_JSONStringFormatMismatch",
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"", "", "确定");
@@ -309,25 +309,25 @@
 				}
 			}
 		}
-		function SetUserDataExport() {
+		function ExportUserData() {
 			navigator.clipboard.writeText("{" +
 				"\"System\":" + JSON.stringify(System) + "," +
 				"\"VoteHelper_Vote\":" + JSON.stringify(Vote) +
 				"}");
-			PopupDialogAppear("System_UserDataExported",
+			ShowPopupDialog("System_UserDataExported",
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
 		}
-		function SetUserDataClear() {
-			PopupDialogAppear("System_ConfirmClearUserData",
+		function ClearUserData() {
+			ShowPopupDialog("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
 				"", "清空", "取消");
 		}
 	
 	// Popup Dialog
-	function PopupDialogAnswer(Selector) {
+	function AnswerPopupDialog(Selector) {
 		switch(Interaction.PopupDialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_JSONStringFormatMismatch":
@@ -336,7 +336,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -350,15 +350,15 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function PopupDialogAnswer is out of expectation.");
+						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
 						break;
 				}
 				break;
 			case "":
 				break;
 			default:
-				alert("Error: The value of Interaction.PopupDialogEvent in function PopupDialogAnswer is out of expectation.");
+				alert("Error: The value of Interaction.PopupDialogEvent in function AnswerPopupDialog is out of expectation.");
 				break;
 		}
-		PopupDialogDisappear();
+		HidePopupDialog();
 	}
