@@ -31,7 +31,7 @@ nav .Ctrl {
 		#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
 			font-size: 24px;
 		}
-		#Ctnr_VoteHeader .Ctrl {
+		#Ctnr_VoteHeader .CtrlGroup, #Ctnr_VoteHeader .Ctrl {
 			width: 100%; height: 100%;
 		}
 
