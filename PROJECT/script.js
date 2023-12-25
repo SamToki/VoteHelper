@@ -18,7 +18,7 @@
 			Elapsed: [0, 0, 0, 0, 0, 0, 0],
 			Text: {
 				Title: "",
-				Candidate1Name: "", Candidate2Name: "", Candidate3Name: "", Candidate4Name: "", Candidate5Name: "", Candidate6Name: "",
+				Candidate1: "", Candidate2: "", Candidate3: "", Candidate4: "", Candidate5: "", Candidate6: "",
 				Note: ""
 			}
 		};
@@ -70,7 +70,7 @@
 	function RefreshSystem() {
 		// Settings
 			// Display
-			ChangeValue("Combobox_SettingsDisplayTheme", System.Display.Theme);
+			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
 					document.getElementById("ThemeVariant_Common").href = "../common-Dark.css";
@@ -106,7 +106,7 @@
 					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeValue("Combobox_SettingsDisplayCursor", System.Display.Cursor);
+			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
 				case "Default":
 					ChangeCursorOverall("");
@@ -127,7 +127,7 @@
 					alert("Error: The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
 					break;
 			}
-			ChangeChecked("Checkbox_SettingsDisplayShowTopbar", System.Display.ShowTopbar);
+			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
 				Show("SectionTitleAboveViewport");
@@ -137,20 +137,20 @@
 				Hide("SectionTitleAboveViewport");
 				ChangeHeightByClass("Viewport", "calc(100% - 30px)");
 			}
-			ChangeValue("Combobox_SettingsDisplayAnimSpeed", System.Display.Anim.Speed);
-			ChangeAnimSpeedOverall(System.Display.Anim.Speed);
+			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
+			ChangeAnimOverall(System.Display.Anim);
 
 			// Dev
-			ChangeChecked("Checkbox_SettingsDevShowAllBorders", System.Dev.ShowAllBorders);
+			ChangeChecked("Checkbox_SettingsShowAllBorders", System.Dev.ShowAllBorders);
 			ChangeShowAllBorders(System.Dev.ShowAllBorders);
-			ChangeChecked("Checkbox_SettingsDevUseOldTypeface", System.Dev.UseOldTypeface);
+			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
 			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {
 				Elements[0].lang = "ja-JP";
 			} else {
 				Elements[0].lang = "zh-CN";
 			}
-			ChangeValue("Textbox_SettingsDevFont", System.Dev.Font);
+			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFontOverall(System.Dev.Font);
 
 			// User Data
@@ -219,18 +219,18 @@
 
 		// Text
 		ChangeValue("Textbox_VoteTitle", Vote.Text.Title);
-		ChangeValue("Textbox_VoteCandidate1Name", Vote.Text.Candidate1Name);
-		ChangeValue("Textbox_VoteCandidate2Name", Vote.Text.Candidate2Name);
-		ChangeValue("Textbox_VoteCandidate3Name", Vote.Text.Candidate3Name);
-		ChangeValue("Textbox_VoteCandidate4Name", Vote.Text.Candidate4Name);
-		ChangeValue("Textbox_VoteCandidate5Name", Vote.Text.Candidate5Name);
-		ChangeValue("Textbox_VoteCandidate6Name", Vote.Text.Candidate6Name);
+		ChangeValue("Textbox_VoteCandidate1", Vote.Text.Candidate1);
+		ChangeValue("Textbox_VoteCandidate2", Vote.Text.Candidate2);
+		ChangeValue("Textbox_VoteCandidate3", Vote.Text.Candidate3);
+		ChangeValue("Textbox_VoteCandidate4", Vote.Text.Candidate4);
+		ChangeValue("Textbox_VoteCandidate5", Vote.Text.Candidate5);
+		ChangeValue("Textbox_VoteCandidate6", Vote.Text.Candidate6);
 		ChangeValue("Textbox_VoteNote", Vote.Text.Note);
 
 		// Settings
 			// Vote
-			ChangeValue("Textbox_SettingsVoteCandidateQuantity", Vote.CandidateQuantity);
-			ChangeValue("Textbox_SettingsVoteTotal", Vote.Total);
+			ChangeValue("Textbox_SettingsCandidateQuantity", Vote.CandidateQuantity);
+			ChangeValue("Textbox_SettingsTotalVotes", Vote.Total);
 		
 		// Save User Data
 		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
@@ -256,20 +256,20 @@
 	}
 	function SaveVoteText() {
 		Vote.Text.Title = ReadValue("Textbox_VoteTitle");
-		Vote.Text.Candidate1Name = ReadValue("Textbox_VoteCandidate1Name");
-		Vote.Text.Candidate2Name = ReadValue("Textbox_VoteCandidate2Name");
-		Vote.Text.Candidate3Name = ReadValue("Textbox_VoteCandidate3Name");
-		Vote.Text.Candidate4Name = ReadValue("Textbox_VoteCandidate4Name");
-		Vote.Text.Candidate5Name = ReadValue("Textbox_VoteCandidate5Name");
-		Vote.Text.Candidate6Name = ReadValue("Textbox_VoteCandidate6Name");
+		Vote.Text.Candidate1 = ReadValue("Textbox_VoteCandidate1");
+		Vote.Text.Candidate2 = ReadValue("Textbox_VoteCandidate2");
+		Vote.Text.Candidate3 = ReadValue("Textbox_VoteCandidate3");
+		Vote.Text.Candidate4 = ReadValue("Textbox_VoteCandidate4");
+		Vote.Text.Candidate5 = ReadValue("Textbox_VoteCandidate5");
+		Vote.Text.Candidate6 = ReadValue("Textbox_VoteCandidate6");
 		Vote.Text.Note = ReadValue("Textbox_VoteNote");
 		RefreshVote();
 	}
 
 	// Settings
 		// Vote
-		function SetVoteCandidateQuantity() {
-			Vote.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsVoteCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
+		function SetCandidateQuantity() {
+			Vote.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
 			if(Vote.CandidateQuantity < 1) {
 				Vote.CandidateQuantity = 1;
 			}
@@ -278,8 +278,8 @@
 			}
 			RefreshVote();
 		}
-		function SetVoteTotal() {
-			Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsVoteTotal")));
+		function SetTotalVotes() {
+			Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsTotalVotes")));
 			if(Vote.Total < 5) {
 				Vote.Total = 5;
 			}
@@ -320,12 +320,6 @@
 				"Completion",
 				"已将用户数据以 JSON 字符串的形式导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
-		}
-		function ClearUserData() {
-			ShowPopupDialog("System_ConfirmClearUserData",
-				"Caution",
-				"您确认要清空用户数据？",
-				"", "清空", "取消");
 		}
 	
 	// Popup Dialog

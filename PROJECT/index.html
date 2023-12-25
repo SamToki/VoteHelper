@@ -85,7 +85,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="CountVote(1)">A</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate1">
@@ -100,7 +100,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="CountVote(2)">B</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate2">
@@ -115,7 +115,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="CountVote(3)">C</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate3">
@@ -130,7 +130,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="CountVote(4)">D</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate4">
@@ -145,7 +145,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="CountVote(5)">E</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate5">
@@ -160,7 +160,7 @@
 								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="CountVote(6)">F</button>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6Name" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar" id="Progbar_VoteCandidate6">
@@ -231,15 +231,15 @@
 							<legend>投票</legend>
 							<ul class="CtrlGroup" id="CtrlGroup_SettingsVote">
 								<li class="Ctrl">
-									<label for="Textbox_SettingsVoteCandidateQuantity">
+									<label for="Textbox_SettingsCandidateQuantity">
 										<span>选项个数：</span>
-										<input class="Textbox" id="Textbox_SettingsVoteCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsVoteCandidateQuantity').select()" onchange="SetVoteCandidateQuantity()" />
+										<input class="Textbox" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsCandidateQuantity').select()" onchange="SetCandidateQuantity()" />
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Textbox_SettingsVoteTotal">
+									<label for="Textbox_SettingsTotalVotes">
 										<span>总票数：</span>
-										<input class="Textbox" id="Textbox_SettingsVoteTotal" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsVoteTotal').select()" onchange="SetVoteTotal()" />
+										<input class="Textbox" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsTotalVotes').select()" onchange="SetTotalVotes()" />
 									</label>
 								</li>
 							</ul>
@@ -250,9 +250,9 @@
 							<legend>显示</legend>
 							<ul class="CtrlGroup" id="CtrlGroup_SettingsDisplay">
 								<li class="Ctrl">
-									<label for="Combobox_SettingsDisplayTheme">
+									<label for="Combobox_SettingsTheme">
 										<span>主题：</span>
-										<select class="Combobox" id="Combobox_SettingsDisplayTheme" onchange="SetDisplayTheme()">
+										<select class="Combobox" id="Combobox_SettingsTheme" onchange="SetTheme()">
 											<option value="Auto" selected>自动</option>
 											<option value="Default">默认</option>
 											<option value="Dark">深色</option>
@@ -262,9 +262,9 @@
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Combobox_SettingsDisplayCursor">
+									<label for="Combobox_SettingsCursor">
 										<span>鼠标指针：</span>
-										<select class="Combobox" id="Combobox_SettingsDisplayCursor" onchange="SetDisplayCursor()">
+										<select class="Combobox" id="Combobox_SettingsCursor" onchange="SetCursor()">
 											<option value="Default" selected>默认</option>
 											<option value="BTRAhoge">孤独摇滚！</option>
 											<option value="Genshin">原神</option>
@@ -274,19 +274,19 @@
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Checkbox_SettingsDisplayShowTopbar">
-										<input class="Checkbox" id="Checkbox_SettingsDisplayShowTopbar" type="checkbox" checked="true" onchange="SetDisplayShowTopbar()" />
+									<label for="Checkbox_SettingsShowTopbar">
+										<input class="Checkbox" id="Checkbox_SettingsShowTopbar" type="checkbox" checked="true" onchange="SetShowTopbar()" />
 										<span>显示顶栏</span>
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Combobox_SettingsDisplayAnimSpeed">
-										<span>动画速度：</span>
-										<select class="Combobox" id="Combobox_SettingsDisplayAnimSpeed" onchange="SetDisplayAnimSpeed()">
-											<option value="500">慢 (500ms)</option>
-											<option value="250" selected>中 (250ms)</option>
-											<option value="100">快 (100ms)</option>
-											<option value="0">关闭动画 (无障碍)</option>
+									<label for="Combobox_SettingsAnim">
+										<span>动画：</span>
+										<select class="Combobox" id="Combobox_SettingsAnim" onchange="SetAnim()">
+											<option value="500">慢速 (500ms)</option>
+											<option value="250" selected>中速 (250ms)</option>
+											<option value="100">快速 (100ms)</option>
+											<option value="0">关闭 (无障碍)</option>
 										</select>
 									</label>
 								</li>
@@ -298,21 +298,21 @@
 							<legend>开发者选项</legend>
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
-									<label for="Checkbox_SettingsDevShowAllBorders">
-										<input class="Checkbox" id="Checkbox_SettingsDevShowAllBorders" type="checkbox" checked="false" onchange="SetDevShowAllBorders()" />
+									<label for="Checkbox_SettingsShowAllBorders">
+										<input class="Checkbox" id="Checkbox_SettingsShowAllBorders" type="checkbox" checked="false" onchange="SetShowAllBorders()" />
 										<span>显示所有元素的边框</span>
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Checkbox_SettingsDevUseOldTypeface">
-										<input class="Checkbox" id="Checkbox_SettingsDevUseOldTypeface" type="checkbox" checked="false" onchange="SetDevUseOldTypeface()" />
+									<label for="Checkbox_SettingsUseOldTypeface">
+										<input class="Checkbox" id="Checkbox_SettingsUseOldTypeface" type="checkbox" checked="false" onchange="SetUseOldTypeface()" />
 										<span>使用 ja-JP 旧字形</span>
 									</label>
 								</li>
 								<li class="Ctrl">
-									<label for="Textbox_SettingsDevFont">
+									<label for="Textbox_SettingsFont">
 										<span>字体：</span>
-										<input class="Textbox" id="Textbox_SettingsDevFont" type="text" placeholder="" onchange="SetDevFont()" />
+										<input class="Textbox" id="Textbox_SettingsFont" type="text" placeholder="" onchange="SetFont()" />
 									</label>
 								</li>
 							</ul>
@@ -325,14 +325,14 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
-										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="SetUserDataImport()" />
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="ImportUserData()" />
 									</label>
 								</li>
 								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataExport">
 									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl WidthDivideBy2" id="Ctrl_SettingsUserDataClear">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ClearUserData()">清空...</button>
+									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -353,7 +353,7 @@
 						<fieldset>
 							<legend>参与进来</legend>
 							<p>您可通过以下渠道向我提供反馈：</p>
-							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpGetInvolvedFeedback">
+							<ul class="CtrlGroup BelowParagraph" id="CtrlGroup_HelpFeedback">
 								<li class="Ctrl WidthDivideBy2">
 									<a class="Linkbtn" href="https://github.com/SamToki/Web---VoteHelper/issues">GitHub Issues</a>
 								</li>
@@ -413,31 +413,31 @@
 		<div class="ScreenFilter Faded" id="ScreenFilter_PopupDialog" onclick="AnswerPopupDialog(3)"></div>
 		<div class="Window Hidden Faded" id="Window_PopupDialog" tabindex="-1">
 			<ul class="CtrlGroup" id="CtrlGroup_PopupDialogPrompt">
-				<li class="Ctrl" id="Ctrl_PopupDialogPromptIconCompletion">
-					<svg class="PopupDialogPromptIcon" id="PopupDialogPromptIcon_Completion" viewBox="0 0 16 16">
+				<li class="Ctrl" id="Ctrl_PopupDialogIconCompletion">
+					<svg class="PopupDialogIcon" id="PopupDialogIcon_Completion" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogPromptIconQuestion">
-					<svg class="PopupDialogPromptIcon" id="PopupDialogPromptIcon_Question" viewBox="0 0 16 16">
+				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconQuestion">
+					<svg class="PopupDialogIcon" id="PopupDialogIcon_Question" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogPromptIconCaution">
-					<svg class="PopupDialogPromptIcon" id="PopupDialogPromptIcon_Caution" viewBox="0 0 16 16">
+				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconCaution">
+					<svg class="PopupDialogIcon" id="PopupDialogIcon_Caution" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogPromptIconTermination">
-					<svg class="PopupDialogPromptIcon" id="PopupDialogPromptIcon_Termination" viewBox="0 0 16 16">
+				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconTermination">
+					<svg class="PopupDialogIcon" id="PopupDialogIcon_Termination" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 					</svg>
 				</li>
-				<li class="Ctrl" id="Ctrl_PopupDialogPromptText">对话框文字</li>
+				<li class="Ctrl" id="Ctrl_PopupDialogText">对话框文字</li>
 			</ul>
 			<ul class="CtrlGroup" id="CtrlGroup_PopupDialogOptions">
 				<li class="Ctrl Faded" id="Ctrl_PopupDialogOption1">
