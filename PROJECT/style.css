@@ -18,12 +18,6 @@ nav .Ctrl {
 
 /* Main */
 	/* Vote */
-	#Vote {
-		height: 100vh;
-	}
-	#ViewportBelowTopbar {
-		display: flex; flex-direction: column;
-	}
 		/* VoteHeader */
 		#Ctnr_VoteHeader {
 			height: 50px; margin: 0 0 15px 0;
