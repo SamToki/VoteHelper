@@ -130,12 +130,14 @@
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
-				Show("SectionTitleAboveViewport");
-				ChangeHeightByClass("Viewport", "");
+				Elements = document.getElementsByTagName("main");
+				Elements[0].style.padding = "";
+				ChangeHeightByClass("SectionWithViewport", "");
 			} else {
 				Hide("Topbar");
-				Hide("SectionTitleAboveViewport");
-				ChangeHeightByClass("Viewport", "calc(100% - 30px)");
+				Elements = document.getElementsByTagName("main");
+				Elements[0].style.padding = "0 0 15px 0";
+				ChangeHeightByClass("SectionWithViewport", "100vh");
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
