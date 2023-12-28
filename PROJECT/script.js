@@ -63,6 +63,7 @@
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
 		RefreshVote();
+		HideToastMessage();
 	}
 
 // Refresh
@@ -217,6 +218,7 @@
 				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			}
 			ChangeText("ProgringText_Vote", "完成");
+			ShowToastMessage("投票完成");
 		}
 
 		// Text
