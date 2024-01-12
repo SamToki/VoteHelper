@@ -3,10 +3,10 @@
 /* (C) 2015-2023 SAM TOKI STUDIO */
 
 /* Header */
-.Title {
+#Title {
 	width: 180px;
 }
-.Title a {
+#Title a {
 	background-image: url(images/Title.png);
 }
 nav {
@@ -22,7 +22,7 @@ nav .Ctrl {
 		#Ctnr_VoteHeader {
 			height: 50px; margin: 0 0 15px 0;
 		}
-		#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
+		#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
 			font-size: 24px;
 		}
 		#Ctnr_VoteHeader .CtrlGroup, #Ctnr_VoteHeader .Ctrl {
@@ -47,12 +47,12 @@ nav .Ctrl {
 			position: relative;
 			width: calc(100% - 500px); height: 100%;
 		}
-		#Ctnr_VoteMain .ProgbarText1, #Ctnr_VoteMain .ProgbarText2 {
+		.ProgbarText1, .ProgbarText2 {
 			position: absolute; top: 0; left: 0;
 			height: 100%; padding: 5px 10px;
 			display: flex; justify-content: center; align-items: center;
 		}
-		#Ctnr_VoteMain .ProgbarText2 {
+		.ProgbarText2 {
 			left: unset; right: 0;
 		}
 		#ProgbarFg_VoteCandidate1 {
@@ -79,34 +79,34 @@ nav .Ctrl {
 			width: 100%; height: 90px; margin: 5px 0 0 0;
 			display: flex; justify-content: space-between;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter1 {
+		#CtrlGroup_VoteFooter1 {
 			width: calc(100% - 295px); height: 100%;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter1 .Ctrl {
+		#CtrlGroup_VoteFooter1 .Ctrl {
 			width: 100%; height: 100%;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 {
+		#CtrlGroup_VoteFooter2 {
 			width: 185px; height: 100%;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl1 {
+		#CtrlGroup_VoteFooter2 .Ctrl1 {
 			position: relative;
 			width: 90px; height: 100%;
 		}
-		#Ctnr_VoteFooter .ProgringFg {
+		#ProgringFg_Vote {
 			stroke-dasharray: 289.03 289.03; stroke-dashoffset: 144.51;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter2 .Ctrl2 {
+		#CtrlGroup_VoteFooter2 .Ctrl2 {
 			width: calc(100% - 105px); height: 100%;
 			display: flex; flex-direction: column; justify-content: center; align-items: center;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter3 {
+		#CtrlGroup_VoteFooter3 {
 			width: 80px; height: 100%;
 			flex-direction: column;
 		}
-		#Ctnr_VoteFooter #CtrlGroup_VoteFooter3 .Ctrl {
+		#CtrlGroup_VoteFooter3 .Ctrl {
 			width: 100%;
 		}
-		#Ctnr_VoteFooter .DropctrlGroup {
+		#DropctrlGroup_VoteUndo {
 			bottom: 100%; right: 0;
 			width: 120px; height: 240px;
 		}
@@ -118,13 +118,13 @@ nav .Ctrl {
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	.Title {
+	#Title {
 		width: 40px;
 	}
 	nav {
 		width: calc(100% - 70px);
 	}
-	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #Ctnr_VoteFooter #CtrlGroup_VoteFooter1 * {
+	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 * {
 		font-size: 16px;
 	}
 	#Ctnr_VoteMain .Ctrl1 {
