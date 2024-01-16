@@ -4,24 +4,25 @@
 
 /* This is a theme variant, so only colors along with few things are configured. */
 
-/* Main */
-	/* Vote */
-		/* VoteMain */
-		#ProgbarFg_VoteCandidate1 {
-			background-color: #E00000;
-		}
-		#ProgbarFg_VoteCandidate2 {
-			background-color: #008000;
-		}
-		#ProgbarFg_VoteCandidate3 {
-			background-color: #E04000;
-		}
-		#ProgbarFg_VoteCandidate4 {
-			background-color: #008080;
-		}
-		#ProgbarFg_VoteCandidate5 {
-			background-color: #E000E0;
-		}
-		#ProgbarFg_VoteCandidate6 {
-			background-color: #808000;
-		}
+/* Area Specific */
+	/* Main */
+		/* Vote */
+			/* VoteMain */
+			#ProgbarFg_VoteCandidate1 {
+				background-color: #E00000;
+			}
+			#ProgbarFg_VoteCandidate2 {
+				background-color: #008000;
+			}
+			#ProgbarFg_VoteCandidate3 {
+				background-color: #E04000;
+			}
+			#ProgbarFg_VoteCandidate4 {
+				background-color: #008080;
+			}
+			#ProgbarFg_VoteCandidate5 {
+				background-color: #E000E0;
+			}
+			#ProgbarFg_VoteCandidate6 {
+				background-color: #808000;
+			}

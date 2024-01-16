@@ -4,9 +4,10 @@
 
 /* This is a theme variant, so only colors along with few things are configured. */
 
-/* Main */
-	/* Vote */
-		/* VoteMain */
-		#Ctnr_VoteMain .ProgbarFg {
-			background-color: #00A000;
-		}
+/* Area Specific */
+	/* Main */
+		/* Vote */
+			/* VoteMain */
+			#Ctnr_VoteMain .ProgbarFg {
+				background-color: #00A000;
+			}
