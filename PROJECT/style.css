@@ -115,13 +115,8 @@
 			}
 			#DropctrlGroup_VoteUndo {
 				bottom: 100%; right: 0;
-				width: 120px; height: 240px;
+				height: 240px;
 			}
-
-		/* Settings */
-		#CtrlGroup_SettingsVote .Textbox {
-			width: 120px;
-		}
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {

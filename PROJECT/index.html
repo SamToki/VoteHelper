@@ -32,7 +32,7 @@
 				<ul class="CtrlGroup">
 					<li class="Ctrl">
 						<a class="TopbarLinkbtn" id="TopbarLinkbtn_Vote" href="#Vote">
-							<svg class="Icon-Large" viewBox="0 0 512 512">
+							<svg class="Icon Larger" viewBox="0 0 512 512">
 								<path d="M131.474,442.606H512l-45.828-70.447h-51.578l-29.121-211.834l-40.481,5.548 c-5.555-4.704-16.389-13.154-35.466-25.048c-17.858-11.208-38.472-17.02-55.07-17.02c-48.364,0-102.796,0-102.796,0l-14.907-8.88 l-61.359,91.172l28.165,17.172l36.852,52.382c4.115,5.861,9.67,10.62,16.112,13.736c0,0,24.951,11.79,44.873,21.723 c7.19,3.596,15.642,6.768,24.729,9.622l7.08,51.426h-55.971L131.474,442.606z M275.97,334.309 c27.694,7.405,50.997-20.767,28.221-39.74c-29.606-24.681-30.548-24.792-30.548-24.792c-9.836-7.98-15.544-19.922-15.641-32.606 c-0.055-12.628,5.487-24.632,15.212-32.771l10.529-8.714l83.65-11.527l25.852,187.998l3.851,28.165H258.417l-3.851-28.165 l-6.193-45.032C257.725,329.613,267.188,331.934,275.97,334.309z"/>
 								<polygon points="75.878,69.394 0,183.038 54.252,218.005 130.892,104.375"></polygon>
 							</svg>
@@ -229,17 +229,17 @@
 					<li class="Item">
 						<fieldset>
 							<legend>投票</legend>
-							<ul class="CtrlGroup" id="CtrlGroup_SettingsVote">
+							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Textbox_SettingsCandidateQuantity">
 										<span>选项个数：</span>
-										<input class="Textbox" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsCandidateQuantity').select()" onchange="SetCandidateQuantity()" />
+										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsCandidateQuantity').select()" onchange="SetCandidateQuantity()" />
 									</label>
 								</li>
 								<li class="Ctrl">
 									<label for="Textbox_SettingsTotalVotes">
 										<span>总票数：</span>
-										<input class="Textbox" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsTotalVotes').select()" onchange="SetTotalVotes()" />
+										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsTotalVotes').select()" onchange="SetTotalVotes()" />
 									</label>
 								</li>
 							</ul>
@@ -423,19 +423,19 @@
 						<path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconQuestion">
+				<li class="Ctrl HiddenHorizontally" id="Ctrl_PopupDialogIconQuestion">
 					<svg class="PopupDialogIcon" id="PopupDialogIcon_Question" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconCaution">
+				<li class="Ctrl HiddenHorizontally" id="Ctrl_PopupDialogIconCaution">
 					<svg class="PopupDialogIcon" id="PopupDialogIcon_Caution" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 					</svg>
 				</li>
-				<li class="Ctrl Hidden-Horizontal" id="Ctrl_PopupDialogIconTermination">
+				<li class="Ctrl HiddenHorizontally" id="Ctrl_PopupDialogIconTermination">
 					<svg class="PopupDialogIcon" id="PopupDialogIcon_Termination" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
