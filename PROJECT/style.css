@@ -19,7 +19,7 @@
 
 	/* Main */
 		/* Vote */
-			/* VoteHeader */
+			/* Vote Header */
 			#Ctnr_VoteHeader {
 				height: 50px; margin: 0 0 15px 0;
 			}
@@ -30,7 +30,7 @@
 				width: 100%; height: 100%;
 			}
 
-			/* VoteMain */
+			/* Vote Main */
 			#Ctnr_VoteMain {
 				height: calc(100% - 160px);
 				display: flex; flex-direction: column;
@@ -81,7 +81,7 @@
 				left: unset; right: 0;
 			}
 
-			/* VoteFooter */
+			/* Vote Footer */
 			#Ctnr_VoteFooter {
 				width: 100%; height: 90px; margin: 5px 0 0 0;
 				display: flex; justify-content: space-between;
@@ -120,22 +120,28 @@
 
 /* Responsive Web Design */
 @media (max-width: 1060px) {
-	#Ctrl_Title {
-		width: 40px;
-	}
-	#Ctrl_Navbar {
-		width: calc(100% - 50px);
-	}
-	#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 * {
-		font-size: 16px;
-	}
-	#Ctnr_VoteMain .Ctrl1 {
-		width: 40px;
-	}
-	#Ctnr_VoteMain .Ctrl2 {
-		width: 100px;
-	}
-	#Ctnr_VoteMain .Ctrl3 {
-		width: calc(100% - 160px);
-	}
+	/* Area Specific */
+		/* Header */
+		#Ctrl_Title {
+			width: 40px;
+		}
+		#Ctrl_Navbar {
+			width: calc(100% - 50px);
+		}
+
+		/* Main */
+			/* Vote */
+			#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 * {
+				font-size: 16px;
+			}
+				/* Vote Main */
+				#Ctnr_VoteMain .Ctrl1 {
+					width: 40px;
+				}
+				#Ctnr_VoteMain .Ctrl2 {
+					width: 100px;
+				}
+				#Ctnr_VoteMain .Ctrl3 {
+					width: calc(100% - 160px);
+				}
 }
