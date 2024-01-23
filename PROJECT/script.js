@@ -364,8 +364,6 @@
 						break;
 				}
 				break;
-			case "":
-				break;
 			default:
 				alert("Error: The value of Interaction.PopupDialogEvent in function AnswerPopupDialog is out of expectation.");
 				break;
