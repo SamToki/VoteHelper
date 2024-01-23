@@ -23,7 +23,7 @@
 			#Ctnr_VoteHeader {
 				height: 50px; margin: 0 0 15px 0;
 			}
-			#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 *, #ProgringText_Vote, #Label_VoteElapsed {
+			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1, #ProgringText_Vote, #Label_VoteElapsed {
 				font-size: 1.50em;
 			}
 			#Ctnr_VoteHeader .CtrlGroup, #Ctnr_VoteHeader .Ctrl {
@@ -131,7 +131,7 @@
 
 		/* Main */
 			/* Vote */
-			#Ctnr_VoteHeader *, #Ctnr_VoteMain *, #CtrlGroup_VoteFooter1 * {
+			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1 {
 				font-size: 1.00em;
 			}
 				/* Vote Main */
