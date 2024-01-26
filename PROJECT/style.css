@@ -114,7 +114,7 @@
 				width: 100%;
 			}
 			#DropctrlGroup_VoteUndo {
-				bottom: 100%; right: 0;
+				bottom: 0; right: 0;
 				height: 240px;
 			}
 
