@@ -79,6 +79,7 @@
 			}
 			.ProgbarText2 {
 				left: unset; right: 0;
+				text-align: end;
 			}
 
 			/* Vote Footer */
@@ -104,6 +105,7 @@
 			}
 			#CtrlGroup_VoteFooter2 .Ctrl2 {
 				width: 80px; height: 100%;
+				text-align: center;
 				display: flex; flex-direction: column; justify-content: center; align-items: center;
 			}
 			#CtrlGroup_VoteFooter3 {
