@@ -63,7 +63,7 @@
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
 		RefreshVote();
-		HideToastMessage();
+		setTimeout(HideToastMessage, 20);
 	}
 
 // Refresh
@@ -144,6 +144,21 @@
 				Elements[0].style.padding = "0 0 15px 0";
 				ChangeHeightByClass("SectionWithViewport", "100vh");
 			}
+			ChangeValue("Combobox_SettingsHotkeyIndicator", System.Display.HotkeyIndicator);
+			switch(System.Display.HotkeyIndicator) {
+				case "Disabled":
+					FadeHotkeyIndicator();
+					break;
+				case "ShowOnWrongKeyPress":
+				case "ShowOnAnyKeyPress":
+					break;
+				case "AlwaysShow":
+					ShowHotkeyIndicator();
+					break;
+				default:
+					alert("Error: The value of System.Display.HotkeyIndicator in function RefreshSystem is out of expectation.");
+					break;
+			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
@@ -171,21 +186,19 @@
 	function RefreshVote() {
 		// Main
 		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
-			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
 			Show("CtrlGroup_VoteCandidate" + Looper);
 			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
+			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
+			Show("Dropctrl_VoteUndo" + Looper);
 			if(Vote.Elapsed[Looper] > 0) {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
 			} else {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			}
-			Show("Dropctrl_VoteUndo" + Looper);
 		}
 		for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
 			Vote.Elapsed[Looper] = 0;
-			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			Hide("CtrlGroup_VoteCandidate" + Looper);
-			ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			Hide("Dropctrl_VoteUndo" + Looper);
 		}
 		Vote0.ElapsedSum = 0;
@@ -200,9 +213,9 @@
 				Vote0.Percentage = Vote.Elapsed[Looper] / Vote0.ElapsedSum * 100;
 				Vote0.Percentage2 = Vote.Elapsed[Looper] / Math.max(...Vote.Elapsed) * 100;
 			}
+			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Percentage2 / 100) + ")");
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Percentage.toFixed(2) + "%");
-			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Percentage2 / 100) + ")");
 		}
 		if(Vote0.ElapsedSum == 0) {
 			Vote0.Percentage = 0;
@@ -218,7 +231,7 @@
 		// Finish Voting
 		if(Vote0.ElapsedSum >= Vote.Total) {
 			Vote0.ElapsedSum = Vote.Total;
-			for(Looper = 1; Looper <= 6; Looper++) {
+			for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
 				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			}
 			ChangeText("ProgringText_Vote", "完成");
@@ -370,3 +383,36 @@
 		}
 		HidePopupDialog();
 	}
+
+// Listeners
+	// On Keyboard
+	document.addEventListener("keydown", function(Hotkey) {
+		if(document.activeElement.tagName.toLowerCase() != "input") { // Prevent hotkey activation when inputing text etc.
+			switch(Hotkey.key.toUpperCase()) {
+				case "1":
+				case "2":
+				case "3":
+				case "4":
+				case "5":
+				case "6":
+					if(Hotkey.key <= Vote.CandidateQuantity) {
+						Click("Cmdbtn_VoteCandidate" + Hotkey.key);
+					}
+					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress") {
+						ShowHotkeyIndicator();
+					}
+					break;
+				case "R":
+					Click("Cmdbtn_VoteReset");
+					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress") {
+						ShowHotkeyIndicator();
+					}
+					break;
+				default:
+					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicator == "ShowOnWrongKeyPress") {
+						ShowHotkeyIndicator();
+					}
+					break;
+			}
+		}
+	});

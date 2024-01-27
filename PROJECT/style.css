@@ -36,6 +36,7 @@
 				height: calc((100% - 60px) / 6); margin: 0 0 10px 0;
 			}
 			#Ctnr_VoteMain .Ctrl1 {
+				position: relative;
 				width: 80px; height: 100%;
 			}
 			#Ctnr_VoteMain .Ctrl2 {
