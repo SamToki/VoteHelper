@@ -131,14 +131,8 @@
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
-				document.getElementById("Html").style.scrollPaddingTop = "";
-				ChangePadding("Main", "");
-				ChangeHeightByClass("SectionWithViewport", "");
 			} else {
 				Hide("Topbar");
-				document.getElementById("Html").style.scrollPaddingTop = "0";
-				ChangePadding("Main", "0 0 15px 0");
-				ChangeHeightByClass("SectionWithViewport", "100vh");
 			}
 			ChangeValue("Combobox_SettingsHotkeyIndicator", System.Display.HotkeyIndicator);
 			switch(System.Display.HotkeyIndicator) {
