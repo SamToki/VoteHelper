@@ -131,17 +131,13 @@
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
 			if(System.Display.ShowTopbar == true) {
 				Show("Topbar");
-				Elements = document.getElementsByTagName("html");
-				Elements[0].style.scrollPaddingTop = "";
-				Elements = document.getElementsByTagName("main");
-				Elements[0].style.padding = "";
+				document.getElementById("Html").style.scrollPaddingTop = "";
+				ChangePadding("Main", "");
 				ChangeHeightByClass("SectionWithViewport", "");
 			} else {
 				Hide("Topbar");
-				Elements = document.getElementsByTagName("html");
-				Elements[0].style.scrollPaddingTop = "0";
-				Elements = document.getElementsByTagName("main");
-				Elements[0].style.padding = "0 0 15px 0";
+				document.getElementById("Html").style.scrollPaddingTop = "0";
+				ChangePadding("Main", "0 0 15px 0");
 				ChangeHeightByClass("SectionWithViewport", "100vh");
 			}
 			ChangeValue("Combobox_SettingsHotkeyIndicator", System.Display.HotkeyIndicator);
@@ -166,14 +162,13 @@
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			ChangeShowDebugOutlines(System.Dev.ShowDebugOutlines);
 			ChangeChecked("Checkbox_SettingsUseOldTypeface", System.Dev.UseOldTypeface);
-			Elements = document.getElementsByTagName("html");
 			if(System.Dev.UseOldTypeface == true) {
-				Elements[0].lang = "ja-JP";
+				ChangeLanguage("Html", "ja-JP");
 			} else {
-				Elements[0].lang = "zh-CN";
+				ChangeLanguage("Html", "zh-CN");
 			}
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFontOverall(System.Dev.Font);
+			ChangeFont("Html", System.Dev.Font);
 
 			// User Data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
