@@ -33,13 +33,13 @@
 		}
 		switch(System.I18n.Language) {
 			case "en-US":
-				ShowPopupDialog("System_LanguageUnsupported",
+				ShowDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"", "", "<span lang='en-US'>OK</span>");
 				break;
 			case "ja-JP":
-				ShowPopupDialog("System_LanguageUnsupported",
+				ShowDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
@@ -49,7 +49,7 @@
 				window.location.replace("index.html"); */
 				break;
 			case "zh-TW":
-				ShowPopupDialog("System_LanguageUnsupported",
+				ShowDialog("System_LanguageUnsupported",
 					"Termination",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"", "", "<span lang='zh-TW'>確定</span>");
@@ -63,7 +63,7 @@
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
 		RefreshVote();
-		setTimeout(HideToastMessage, 0);
+		setTimeout(HideToast, 0);
 	}
 
 // Refresh
@@ -134,19 +134,19 @@
 			} else {
 				Hide("Topbar");
 			}
-			ChangeValue("Combobox_SettingsHotkeyIndicator", System.Display.HotkeyIndicator);
-			switch(System.Display.HotkeyIndicator) {
+			ChangeValue("Combobox_SettingsHotkeyIndicators", System.Display.HotkeyIndicators);
+			switch(System.Display.HotkeyIndicators) {
 				case "Disabled":
-					FadeHotkeyIndicator();
+					FadeHotkeyIndicators();
 					break;
 				case "ShowOnWrongKeyPress":
 				case "ShowOnAnyKeyPress":
 					break;
 				case "AlwaysShow":
-					ShowHotkeyIndicator();
+					ShowHotkeyIndicators();
 					break;
 				default:
-					alert("Error: The value of System.Display.HotkeyIndicator in function RefreshSystem is out of expectation.");
+					alert("Error: The value of System.Display.HotkeyIndicators in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
@@ -224,7 +224,7 @@
 				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			}
 			ChangeText("ProgringText_Vote", "完成");
-			ShowToastMessage("投票完成");
+			ShowToast("投票完成");
 		}
 
 		// Text
@@ -313,7 +313,7 @@
 					});
 					window.location.reload();
 				} else {
-					ShowPopupDialog("System_JSONStringFormatMismatch",
+					ShowDialog("System_JSONStringFormatMismatch",
 						"Termination",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
 						"", "", "确定");
@@ -326,21 +326,21 @@
 				"\"System\":" + JSON.stringify(System) + "," +
 				"\"VoteHelper_Vote\":" + JSON.stringify(Vote) +
 				"}");
-			ShowPopupDialog("System_UserDataExported",
+			ShowDialog("System_UserDataExported",
 				"Completion",
 				"已将用户数据导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
 		}
 		function ConfirmClearUserData() {
-			ShowPopupDialog("System_ConfirmClearUserData",
+			ShowDialog("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
 				"", "清空", "取消");
 		}
 	
-	// Popup Dialog
-	function AnswerPopupDialog(Selector) {
-		switch(Interaction.PopupDialogEvent) {
+	// Dialog
+	function AnswerDialog(Selector) {
+		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_JSONStringFormatMismatch":
 			case "System_UserDataExported":
@@ -348,7 +348,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
+						alert("Error: The value of Selector in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -362,15 +362,15 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function AnswerPopupDialog is out of expectation.");
+						alert("Error: The value of Selector in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
 			default:
-				alert("Error: The value of Interaction.PopupDialogEvent in function AnswerPopupDialog is out of expectation.");
+				alert("Error: The value of Interaction.DialogEvent in function AnswerDialog is out of expectation.");
 				break;
 		}
-		HidePopupDialog();
+		HideDialog();
 	}
 
 // Listeners
@@ -387,19 +387,19 @@
 					if(Hotkey.key <= Vote.CandidateQuantity) {
 						Click("Cmdbtn_VoteCandidate" + Hotkey.key);
 					}
-					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress") {
-						ShowHotkeyIndicator();
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress") {
+						ShowHotkeyIndicators();
 					}
 					break;
 				case "R":
 					Click("Cmdbtn_VoteReset");
-					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress") {
-						ShowHotkeyIndicator();
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress") {
+						ShowHotkeyIndicators();
 					}
 					break;
 				default:
-					if(System.Display.HotkeyIndicator == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicator == "ShowOnWrongKeyPress") {
-						ShowHotkeyIndicator();
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "ShowOnWrongKeyPress") {
+						ShowHotkeyIndicators();
 					}
 					break;
 			}
