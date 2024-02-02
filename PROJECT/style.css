@@ -76,7 +76,7 @@
 				display: flex; justify-content: center; align-items: center;
 			}
 			.ProgbarText2 {
-				left: unset; right: 0;
+				right: 0; left: unset;
 				text-align: end;
 			}
 
