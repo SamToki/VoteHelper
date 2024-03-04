@@ -55,7 +55,7 @@
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
 			default:
-				alert("Error: The value of System.I18n.Language in function Load is out of expectation.");
+				AlertError("The value of System.I18n.Language in function Load is out of expectation.");
 				break;
 		}
 		RefreshSystem();
@@ -104,7 +104,7 @@
 					document.getElementById("ThemeVariant_Style").media = "";
 					break;
 				default:
-					alert("Error: The value of System.Display.Theme in function RefreshSystem is out of expectation.");
+					AlertError("The value of System.Display.Theme in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
@@ -125,7 +125,7 @@
 					ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
 					break;
 				default:
-					alert("Error: The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
+					AlertError("The value of System.Display.Cursor in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsShowTopbar", System.Display.ShowTopbar);
@@ -146,7 +146,7 @@
 					ShowHotkeyIndicators();
 					break;
 				default:
-					alert("Error: The value of System.Display.HotkeyIndicators in function RefreshSystem is out of expectation.");
+					AlertError("The value of System.Display.HotkeyIndicators in function RefreshSystem is out of expectation.");
 					break;
 			}
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
@@ -348,7 +348,7 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
@@ -362,12 +362,24 @@
 					case 3:
 						break;
 					default:
-						alert("Error: The value of Selector in function AnswerDialog is out of expectation.");
+						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
+						break;
+				}
+				break;
+			case "System_Error":
+				switch(Selector) {
+					case 2:
+						window.location.replace("index.html#Item_SettingsUserData");
+						break;
+					case 3:
+						break;
+					default:
+						AlertError("The value of Selector in function AnswerDialog is out of expectation.");
 						break;
 				}
 				break;
 			default:
-				alert("Error: The value of Interaction.DialogEvent in function AnswerDialog is out of expectation.");
+				AlertError("The value of Interaction.DialogEvent in function AnswerDialog is out of expectation.");
 				break;
 		}
 		HideDialog();
@@ -405,3 +417,12 @@
 			}
 		}
 	});
+
+// Error Handling
+function AlertError(Message) {
+	LogCon(Message);
+	ShowDialog("System_Error",
+		"Termination",
+		"抱歉，发生了程序错误。您可尝试清空用户数据以解决问题。是否前往用户数据？",
+		"", "前往", "取消");
+}
