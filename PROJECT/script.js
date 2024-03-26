@@ -416,7 +416,7 @@
 					}
 					break;
 				default:
-					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "ShowOnWrongKeyPress") {
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || (System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && Hotkey.key != "Escape" && Hotkey.key != "Tab" && Hotkey.key != "Enter" && Hotkey.key != " ")) {
 						ShowHotkeyIndicators();
 					}
 					break;
