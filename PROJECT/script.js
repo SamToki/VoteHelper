@@ -34,13 +34,13 @@
 		switch(System.I18n.Language) {
 			case "en-US":
 				ShowDialog("System_LanguageUnsupported",
-					"Termination",
+					"Error",
 					"<span lang='en-US'>Sorry, this page currently does not support English (US).</span>",
 					"", "", "<span lang='en-US'>OK</span>");
 				break;
 			case "ja-JP":
 				ShowDialog("System_LanguageUnsupported",
-					"Termination",
+					"Error",
 					"<span lang='ja-JP'>すみません。このページは日本語にまだサポートしていません。</span>",
 					"", "", "<span lang='ja-JP'>OK</span>");
 				break;
@@ -50,7 +50,7 @@
 				break;
 			case "zh-TW":
 				ShowDialog("System_LanguageUnsupported",
-					"Termination",
+					"Error",
 					"<span lang='zh-TW'>抱歉，本頁面暫不支援繁體中文。</span>",
 					"", "", "<span lang='zh-TW'>確定</span>");
 				break;
@@ -320,8 +320,8 @@
 					window.location.reload();
 				} else {
 					ShowDialog("System_JSONStringFormatMismatch",
-						"Termination",
-						"JSON 字符串格式不匹配。请检查您粘贴的文本的来源。",
+						"Error",
+						"JSON 字符串格式不匹配。请检查您粘贴的文本。",
 						"", "", "确定");
 					RefreshSystem();
 				}
@@ -333,7 +333,7 @@
 				"\"VoteHelper_Vote\":" + JSON.stringify(Vote) +
 				"}");
 			ShowDialog("System_UserDataExported",
-				"Completion",
+				"Info",
 				"已将用户数据导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
 				"", "", "确定");
 		}
@@ -428,7 +428,7 @@
 function AlertError(Message) {
 	LogConsole(Message);
 	ShowDialog("System_Error",
-		"Termination",
+		"Error",
 		"抱歉，发生了程序错误。您可尝试清空用户数据以解决问题。是否前往用户数据？",
 		"", "前往", "取消");
 }
