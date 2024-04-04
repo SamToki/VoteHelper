@@ -7,15 +7,21 @@
 	"use strict";
 		// Unsaved
 		var Vote0 = {
-			ElapsedSum: 0,
-			Percentage: 0, Percentage2: 0
+			Stats: {
+				ElapsedSum: 0,
+				Percentage: 0, Percentage2: 0
+			}
 		};
 
 		// Saved
 		var Vote = {
-			CandidateQuantity: 6,
-			Total: 50,
-			Elapsed: [0, 0, 0, 0, 0, 0, 0],
+			Options: {
+				CandidateQuantity: 6,
+				TotalVotes: 50
+			},
+			Stats: {
+				Elapsed: [0, 0, 0, 0, 0, 0, 0]
+			},
 			Text: {
 				Title: "",
 				Candidate1: "", Candidate2: "", Candidate3: "", Candidate4: "", Candidate5: "", Candidate6: "",
@@ -180,53 +186,53 @@
 	// Vote
 	function RefreshVote() {
 		// Main
-		for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
+		for(Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			Show("CtrlGroup_VoteCandidate" + Looper);
-			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.CandidateQuantity + "px) / " + Vote.CandidateQuantity + ")");
+			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.Options.CandidateQuantity + "px) / " + Vote.Options.CandidateQuantity + ")");
 			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
 			Show("Dropctrl_VoteUndo" + Looper);
-			if(Vote.Elapsed[Looper] > 0) {
+			if(Vote.Stats.Elapsed[Looper] > 0) {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
 			} else {
 				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
 			}
 		}
-		for(Looper = 6; Looper > Vote.CandidateQuantity; Looper--) {
-			Vote.Elapsed[Looper] = 0;
+		for(Looper = 6; Looper > Vote.Options.CandidateQuantity; Looper--) {
+			Vote.Stats.Elapsed[Looper] = 0;
 			Hide("CtrlGroup_VoteCandidate" + Looper);
 			Hide("Dropctrl_VoteUndo" + Looper);
 		}
-		Vote0.ElapsedSum = 0;
+		Vote0.Stats.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
-			Vote0.ElapsedSum = Vote0.ElapsedSum + Vote.Elapsed[Looper];
+			Vote0.Stats.ElapsedSum = Vote0.Stats.ElapsedSum + Vote.Stats.Elapsed[Looper];
 		}
 		for(Looper = 1; Looper <= 6; Looper++) {
-			if(Vote0.ElapsedSum == 0) {
-				Vote0.Percentage = 0;
-				Vote0.Percentage2 = 0;
+			if(Vote0.Stats.ElapsedSum == 0) {
+				Vote0.Stats.Percentage = 0;
+				Vote0.Stats.Percentage2 = 0;
 			} else {
-				Vote0.Percentage = Vote.Elapsed[Looper] / Vote0.ElapsedSum * 100;
-				Vote0.Percentage2 = Vote.Elapsed[Looper] / Math.max(...Vote.Elapsed) * 100;
+				Vote0.Stats.Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
+				Vote0.Stats.Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
 			}
-			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Percentage2 / 100) + ")");
-			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Elapsed[Looper]);
-			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Percentage.toFixed(2) + "%");
+			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Stats.Percentage2 / 100) + ")");
+			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
+			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Stats.Percentage.toFixed(2) + "%");
 		}
-		if(Vote0.ElapsedSum == 0) {
-			Vote0.Percentage = 0;
+		if(Vote0.Stats.ElapsedSum == 0) {
+			Vote0.Stats.Percentage = 0;
 		} else {
-			Vote0.Percentage = Vote0.ElapsedSum / Vote.Total * 100;
+			Vote0.Stats.Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
 		}
-		ChangeProgring("ProgringFg_Vote", 289.03 * (1 - Vote0.Percentage / 100));
-		ChangeText("ProgringText_Vote", Vote0.Percentage.toFixed(0) + "%");
-		ChangeText("Label_VoteElapsed", Vote0.ElapsedSum);
-		ChangeText("Label_VoteTotal", "/" + Vote.Total);
-		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.CandidateQuantity + "px");
+		ChangeProgring("ProgringFg_Vote", 289.03 * (1 - Vote0.Stats.Percentage / 100));
+		ChangeText("ProgringText_Vote", Vote0.Stats.Percentage.toFixed(0) + "%");
+		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
+		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
+		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + "px");
 
 		// Finish Voting
-		if(Vote0.ElapsedSum >= Vote.Total) {
-			Vote0.ElapsedSum = Vote.Total;
-			for(Looper = 1; Looper <= Vote.CandidateQuantity; Looper++) {
+		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {
+			Vote0.Stats.ElapsedSum = Vote.Options.TotalVotes;
+			for(Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
 			}
 			ChangeText("ProgringText_Vote", "完成");
@@ -245,8 +251,8 @@
 
 		// Settings
 			// Vote
-			ChangeValue("Textbox_SettingsCandidateQuantity", Vote.CandidateQuantity);
-			ChangeValue("Textbox_SettingsTotalVotes", Vote.Total);
+			ChangeValue("Textbox_SettingsCandidateQuantity", Vote.Options.CandidateQuantity);
+			ChangeValue("Textbox_SettingsTotalVotes", Vote.Options.TotalVotes);
 		
 		// Save User Data
 		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
@@ -255,19 +261,19 @@
 // Cmds
 	// Vote
 	function CountVote(Selector) {
-		if(Vote.CandidateQuantity >= Selector && Vote0.ElapsedSum < Vote.Total) {
-			Vote.Elapsed[Selector]++;
+		if(Vote.Options.CandidateQuantity >= Selector && Vote0.Stats.ElapsedSum < Vote.Options.TotalVotes) {
+			Vote.Stats.Elapsed[Selector]++;
 		}
 		RefreshVote();
 	}
 	function UndoVote(Selector) {
-		if(Vote.CandidateQuantity >= Selector && Vote.Elapsed[Selector] >= 1) {
-			Vote.Elapsed[Selector]--;
+		if(Vote.Options.CandidateQuantity >= Selector && Vote.Stats.Elapsed[Selector] >= 1) {
+			Vote.Stats.Elapsed[Selector]--;
 		}
 		RefreshVote();
 	}
 	function ResetVote() {
-		Vote.Elapsed = [0, 0, 0, 0, 0, 0, 0];
+		Vote.Stats.Elapsed = [0, 0, 0, 0, 0, 0, 0];
 		RefreshVote();
 	}
 	function SaveVoteText() {
@@ -285,25 +291,25 @@
 	// Settings
 		// Vote
 		function SetCandidateQuantity() {
-			Vote.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
-			if(Vote.CandidateQuantity < 1) {
-				Vote.CandidateQuantity = 1;
+			Vote.Options.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
+			if(Vote.Options.CandidateQuantity < 1) {
+				Vote.Options.CandidateQuantity = 1;
 			}
-			if(Vote.CandidateQuantity > 6) {
-				Vote.CandidateQuantity = 6;
+			if(Vote.Options.CandidateQuantity > 6) {
+				Vote.Options.CandidateQuantity = 6;
 			}
 			RefreshVote();
 		}
 		function SetTotalVotes() {
-			Vote.Total = parseInt(Number(ReadValue("Textbox_SettingsTotalVotes")));
-			if(Vote.Total < 5) {
-				Vote.Total = 5;
+			Vote.Options.TotalVotes = parseInt(Number(ReadValue("Textbox_SettingsTotalVotes")));
+			if(Vote.Options.TotalVotes < 5) {
+				Vote.Options.TotalVotes = 5;
 			}
-			if(Vote.Total > 9999) {
-				Vote.Total = 9999;
+			if(Vote.Options.TotalVotes > 9999) {
+				Vote.Options.TotalVotes = 9999;
 			}
-			if(Vote0.ElapsedSum > Vote.Total) {
-				Vote.Total = Vote0.ElapsedSum;
+			if(Vote0.Stats.ElapsedSum > Vote.Options.TotalVotes) {
+				Vote.Options.TotalVotes = Vote0.Stats.ElapsedSum;
 			}
 			RefreshVote();
 		}
@@ -402,7 +408,7 @@
 				case "4":
 				case "5":
 				case "6":
-					if(Hotkey.key <= Vote.CandidateQuantity) {
+					if(Hotkey.key <= Vote.Options.CandidateQuantity) {
 						Click("Cmdbtn_VoteCandidate" + Hotkey.key);
 					}
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress") {
@@ -426,7 +432,7 @@
 
 // Error Handling
 function AlertError(Message) {
-	LogConsole("● Error\n" +
+	LogConsole("● 错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",
