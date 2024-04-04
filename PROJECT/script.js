@@ -204,7 +204,7 @@
 		}
 		Vote0.Stats.ElapsedSum = 0;
 		for(Looper = 1; Looper <= 6; Looper++) {
-			Vote0.Stats.ElapsedSum = Vote0.Stats.ElapsedSum + Vote.Stats.Elapsed[Looper];
+			Vote0.Stats.ElapsedSum += Vote.Stats.Elapsed[Looper];
 		}
 		for(Looper = 1; Looper <= 6; Looper++) {
 			if(Vote0.Stats.ElapsedSum == 0) {
