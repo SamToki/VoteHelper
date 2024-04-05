@@ -214,7 +214,7 @@
 				Vote0.Stats.Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
 				Vote0.Stats.Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
 			}
-			ChangeWidth("ProgbarFg_VoteCandidate" + Looper, "calc(20px + (100% - 20px) * " + (Vote0.Stats.Percentage2 / 100) + ")");
+			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 20, Vote0.Stats.Percentage2);
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Stats.Percentage.toFixed(2) + "%");
 		}
@@ -223,7 +223,7 @@
 		} else {
 			Vote0.Stats.Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
 		}
-		ChangeProgring("ProgringFg_Vote", 289.03 * (1 - Vote0.Stats.Percentage / 100));
+		ChangeProgring("ProgringFg_Vote", 289.03, Vote0.Stats.Percentage);
 		ChangeText("ProgringText_Vote", Vote0.Stats.Percentage.toFixed(0) + "%");
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
