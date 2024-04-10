@@ -66,7 +66,7 @@
 				break;
 		}
 		if(typeof(System.Version.VoteHelper) != "undefined") {
-			if(RoundDown(CurrentVersion) - RoundDown(System.Version.VoteHelper) >= 1) {
+			if(Math.floor(CurrentVersion) - Math.floor(System.Version.VoteHelper) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
 					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
@@ -445,7 +445,7 @@
 
 // Error Handling
 function AlertError(Message) {
-	LogConsole("● 错误\n" +
+	console.log("● 错误\n" +
 		Message);
 	ShowDialog("System_Error",
 		"Error",
