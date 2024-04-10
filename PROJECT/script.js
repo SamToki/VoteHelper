@@ -6,6 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
+		const CurrentVersion = 2.00;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0,
@@ -63,6 +64,17 @@
 			default:
 				AlertError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
+		}
+		if(typeof(System.Version.VoteHelper) != "undefined") {
+			if(RoundDown(CurrentVersion) - RoundDown(System.Version.VoteHelper) >= 1) {
+				ShowDialog("System_MajorUpdateDetected",
+					"Info",
+					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
+					"", "", "确定");
+				System.Version.VoteHelper = CurrentVersion;
+			}
+		} else {
+			System.Version.VoteHelper = CurrentVersion;
 		}
 		RefreshSystem();
 		if(typeof(localStorage.VoteHelper_Vote) != "undefined") {
@@ -354,6 +366,7 @@
 	function AnswerDialog(Selector) {
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
+			case "System_MajorUpdateDetected":
 			case "System_JSONStringFormatMismatch":
 			case "System_UserDataExported":
 				switch(Selector) {
