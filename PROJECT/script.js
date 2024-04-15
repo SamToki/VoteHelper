@@ -328,13 +328,13 @@
 
 		// User Data
 		function ImportUserData() {
-			if(ReadValue("Textbox_SettingsUserDataImport") != null) {
+			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
-					ChangeCursorOverall("wait");
 					Elements = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
 					Object.keys(Elements).forEach(function(Looper) {
 						localStorage.setItem(Looper, JSON.stringify(Elements[Looper]));
 					});
+					ChangeCursorOverall("wait");
 					window.location.reload();
 				} else {
 					ShowDialog("System_JSONStringFormatMismatch",
@@ -380,8 +380,8 @@
 			case "System_ConfirmClearUserData":
 				switch(Selector) {
 					case 2:
-						ChangeCursorOverall("wait");
 						localStorage.clear();
+						ChangeCursorOverall("wait");
 						window.location.reload();
 						break;
 					case 3:
