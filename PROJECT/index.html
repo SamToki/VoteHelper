@@ -251,13 +251,13 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsCandidateQuantity">
 										<span>选项个数：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="document.getElementById('Textbox_SettingsCandidateQuantity').select()" onchange="SetCandidateQuantity()" />
+										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="SelectText('Textbox_SettingsCandidateQuantity')" onchange="SetCandidateQuantity()" />
 									</label>
 								</li>
 								<li class="Ctrl">
 									<label for="Textbox_SettingsTotalVotes">
 										<span>总票数：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="document.getElementById('Textbox_SettingsTotalVotes').select()" onchange="SetTotalVotes()" />
+										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="SelectText('Textbox_SettingsTotalVotes')" onchange="SetTotalVotes()" />
 									</label>
 								</li>
 							</ul>
@@ -361,7 +361,7 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
-										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="document.getElementById('Textbox_SettingsUserDataImport').select()" onchange="ImportUserData()" />
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="SelectText('Textbox_SettingsUserDataImport')" onchange="ImportUserData()" />
 									</label>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
