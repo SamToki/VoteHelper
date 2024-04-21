@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.01;
+		const CurrentVersion = 3.00;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -24,7 +24,7 @@
 			},
 			Text: {
 				Title: "",
-				Candidate1: "", Candidate2: "", Candidate3: "", Candidate4: "", Candidate5: "", Candidate6: "",
+				Candidate: [0, "", "", "", "", "", ""],
 				Note: ""
 			}
 		};
@@ -253,12 +253,9 @@
 
 		// Text
 		ChangeValue("Textbox_VoteTitle", Vote.Text.Title);
-		ChangeValue("Textbox_VoteCandidate1", Vote.Text.Candidate1);
-		ChangeValue("Textbox_VoteCandidate2", Vote.Text.Candidate2);
-		ChangeValue("Textbox_VoteCandidate3", Vote.Text.Candidate3);
-		ChangeValue("Textbox_VoteCandidate4", Vote.Text.Candidate4);
-		ChangeValue("Textbox_VoteCandidate5", Vote.Text.Candidate5);
-		ChangeValue("Textbox_VoteCandidate6", Vote.Text.Candidate6);
+		for(let Looper = 1; Looper <= 6; Looper++) {
+			ChangeValue("Textbox_VoteCandidate" + Looper, Vote.Text.Candidate[Looper]);
+		}
 		ChangeValue("Textbox_VoteNote", Vote.Text.Note);
 
 		// Settings
@@ -290,12 +287,9 @@
 	}
 	function SaveVoteText() {
 		Vote.Text.Title = ReadValue("Textbox_VoteTitle");
-		Vote.Text.Candidate1 = ReadValue("Textbox_VoteCandidate1");
-		Vote.Text.Candidate2 = ReadValue("Textbox_VoteCandidate2");
-		Vote.Text.Candidate3 = ReadValue("Textbox_VoteCandidate3");
-		Vote.Text.Candidate4 = ReadValue("Textbox_VoteCandidate4");
-		Vote.Text.Candidate5 = ReadValue("Textbox_VoteCandidate5");
-		Vote.Text.Candidate6 = ReadValue("Textbox_VoteCandidate6");
+		for(let Looper = 1; Looper <= 6; Looper++) {
+			Vote.Text.Candidate[Looper] = ReadValue("Textbox_VoteCandidate" + Looper);
+		}
 		Vote.Text.Note = ReadValue("Textbox_VoteNote");
 		RefreshVote();
 	}
@@ -331,8 +325,8 @@
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
 					let Objects = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
-					Object.keys(Objects).forEach(function(Looper) {
-						localStorage.setItem(Looper, JSON.stringify(Objects[Looper]));
+					Object.keys(Objects).forEach(function(ObjectName) {
+						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
 					ChangeCursorOverall("wait");
 					window.location.reload();
