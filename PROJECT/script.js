@@ -6,11 +6,10 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 2.00;
+		const CurrentVersion = 2.01;
 		var Vote0 = {
 			Stats: {
-				ElapsedSum: 0,
-				Percentage: 0, Percentage2: 0
+				ElapsedSum: 0
 			}
 		};
 
@@ -218,25 +217,26 @@
 		for(let Looper = 1; Looper <= 6; Looper++) {
 			Vote0.Stats.ElapsedSum += Vote.Stats.Elapsed[Looper];
 		}
+		let Percentage = 0, Percentage2 = 0;
 		for(let Looper = 1; Looper <= 6; Looper++) {
 			if(Vote0.Stats.ElapsedSum == 0) {
-				Vote0.Stats.Percentage = 0;
-				Vote0.Stats.Percentage2 = 0;
+				Percentage = 0;
+				Percentage2 = 0;
 			} else {
-				Vote0.Stats.Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
-				Vote0.Stats.Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
+				Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
+				Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
 			}
-			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 20, Vote0.Stats.Percentage2);
+			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 20, Percentage2);
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
-			ChangeText("ProgbarText2_VoteCandidate" + Looper, Vote0.Stats.Percentage.toFixed(2) + "%");
+			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}
 		if(Vote0.Stats.ElapsedSum == 0) {
-			Vote0.Stats.Percentage = 0;
+			Percentage = 0;
 		} else {
-			Vote0.Stats.Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
+			Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
 		}
-		ChangeProgring("ProgringFg_Vote", 289.03, Vote0.Stats.Percentage);
-		ChangeText("ProgringText_Vote", Vote0.Stats.Percentage.toFixed(0) + "%");
+		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
+		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
 		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + "px");
@@ -320,7 +320,7 @@
 			if(Vote.Options.TotalVotes > 9999) {
 				Vote.Options.TotalVotes = 9999;
 			}
-			if(Vote0.Stats.ElapsedSum > Vote.Options.TotalVotes) {
+			if(Vote.Options.TotalVotes < Vote0.Stats.ElapsedSum) {
 				Vote.Options.TotalVotes = Vote0.Stats.ElapsedSum;
 			}
 			RefreshVote();
@@ -329,7 +329,7 @@
 		// User Data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
-				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\"") == true) {
+				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
 					let Objects = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
 					Object.keys(Objects).forEach(function(Looper) {
 						localStorage.setItem(Looper, JSON.stringify(Objects[Looper]));
