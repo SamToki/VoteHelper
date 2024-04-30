@@ -42,13 +42,13 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
 					"<span lang=\"en-US\">Sorry, this page currently does not support English (US).</span>",
-					"", "", "<span lang=\"en-US\">OK</span>");
+					"", "", "", "<span lang=\"en-US\">OK</span>");
 				break;
 			case "ja-JP":
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
 					"<span lang=\"ja-JP\">すみません。このページは日本語にまだサポートしていません。</span>",
-					"", "", "<span lang=\"ja-JP\">OK</span>");
+					"", "", "", "<span lang=\"ja-JP\">OK</span>");
 				break;
 			case "zh-CN":
 				/* ChangeCursorOverall("wait");
@@ -58,7 +58,7 @@
 				ShowDialog("System_LanguageUnsupported",
 					"Error",
 					"<span lang=\"zh-TW\">抱歉，本頁面暫不支援繁體中文。</span>",
-					"", "", "<span lang=\"zh-TW\">確定</span>");
+					"", "", "", "<span lang=\"zh-TW\">確定</span>");
 				break;
 			default:
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
@@ -69,7 +69,7 @@
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
 					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
-					"", "", "确定");
+					"", "", "", "确定");
 				System.Version.VoteHelper = CurrentVersion;
 			}
 		} else {
@@ -334,7 +334,7 @@
 					ShowDialog("System_JSONStringFormatMismatch",
 						"Error",
 						"JSON 字符串格式不匹配。请检查您粘贴的文本。",
-						"", "", "确定");
+						"", "", "", "确定");
 					RefreshSystem();
 				}
 			}
@@ -347,13 +347,13 @@
 			ShowDialog("System_UserDataExported",
 				"Info",
 				"已将用户数据导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
-				"", "", "确定");
+				"", "", "", "确定");
 		}
 		function ConfirmClearUserData() {
 			ShowDialog("System_ConfirmClearUserData",
 				"Caution",
 				"您确认要清空用户数据？",
-				"", "清空", "取消");
+				"", "", "清空", "取消");
 		}
 	
 	// Dialog
@@ -399,7 +399,7 @@
 				break;
 			default:
 				AlertSystemError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is out of expectation.");
-				break;
+				return;
 		}
 		HideDialog();
 	}
@@ -444,5 +444,5 @@ function AlertSystemError(Message) {
 	ShowDialog("System_Error",
 		"Error",
 		"抱歉，发生了系统错误。您可在浏览器控制台查看错误信息，或尝试清空用户数据以解决问题。是否前往用户数据？",
-		"", "前往", "取消");
+		"", "", "前往", "取消");
 }
