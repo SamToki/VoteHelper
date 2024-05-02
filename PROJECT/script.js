@@ -346,7 +346,7 @@
 				"}");
 			ShowDialog("System_UserDataExported",
 				"Info",
-				"已将用户数据导出至剪贴板。若要分享，请注意其中是否包含个人信息。",
+				"已将用户数据导出至剪贴板。",
 				"", "", "", "确定");
 		}
 		function ConfirmClearUserData() {
