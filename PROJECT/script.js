@@ -233,9 +233,11 @@
 		if(Vote0.Stats.ElapsedSum > 0) {
 			Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
 			ChangeDisabled("Cmdbtn_VoteUndo", false);
+			ChangeDisabled("Cmdbtn_VoteReset", false);
 		} else {
 			Percentage = 0;
 			ChangeDisabled("Cmdbtn_VoteUndo", true);
+			ChangeDisabled("Cmdbtn_VoteReset", true);
 		}
 		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
