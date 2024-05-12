@@ -32,7 +32,7 @@
 	// Load User Data
 	window.onload = Load();
 	function Load() {
-		if(typeof(localStorage.System) != "undefined") {
+		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		} else {
 			System.I18n.Language = "zh-CN";
@@ -64,7 +64,7 @@
 				AlertSystemError("The value of System.I18n.Language \"" + System.I18n.Language + "\" in function Load is out of expectation.");
 				break;
 		}
-		if(typeof(System.Version.VoteHelper) != "undefined") {
+		if(System.Version.VoteHelper != undefined) {
 			if(Math.floor(CurrentVersion) - Math.floor(System.Version.VoteHelper) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
@@ -76,7 +76,7 @@
 			System.Version.VoteHelper = CurrentVersion;
 		}
 		RefreshSystem();
-		if(typeof(localStorage.VoteHelper_Vote) != "undefined") {
+		if(localStorage.VoteHelper_Vote != undefined) {
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
 		RefreshVote();
