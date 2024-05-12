@@ -6,7 +6,7 @@
 	// Declare Variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.00;
+		const CurrentVersion = 3.01;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -219,21 +219,23 @@
 		}
 		let Percentage = 0, Percentage2 = 0;
 		for(let Looper = 1; Looper <= 6; Looper++) {
-			if(Vote0.Stats.ElapsedSum == 0) {
-				Percentage = 0;
-				Percentage2 = 0;
-			} else {
+			if(Vote0.Stats.ElapsedSum > 0) {
 				Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
 				Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
+			} else {
+				Percentage = 0;
+				Percentage2 = 0;
 			}
 			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 20, Percentage2);
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}
-		if(Vote0.Stats.ElapsedSum == 0) {
-			Percentage = 0;
-		} else {
+		if(Vote0.Stats.ElapsedSum > 0) {
 			Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
+			ChangeDisabled("Cmdbtn_VoteUndo", false);
+		} else {
+			Percentage = 0;
+			ChangeDisabled("Cmdbtn_VoteUndo", true);
 		}
 		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
@@ -262,7 +264,7 @@
 			// Vote
 			ChangeValue("Textbox_SettingsCandidateQuantity", Vote.Options.CandidateQuantity);
 			ChangeValue("Textbox_SettingsTotalVotes", Vote.Options.TotalVotes);
-		
+
 		// Save User Data
 		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
 	}
