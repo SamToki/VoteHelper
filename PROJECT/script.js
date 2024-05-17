@@ -422,18 +422,18 @@
 					if(Hotkey.key <= Vote.Options.CandidateQuantity) {
 						Click("Cmdbtn_VoteCandidate" + Hotkey.key);
 					}
-					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress") {
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
 					break;
 				case "R":
 					Click("Cmdbtn_VoteReset");
-					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress") {
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
 					break;
 				default:
-					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || (System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && Hotkey.key != "Escape" && Hotkey.key != "Tab" && Hotkey.key != "Enter" && Hotkey.key != " ")) {
+					if((System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && Hotkey.key != "Escape" && Hotkey.key != "Tab" && Hotkey.key != "Enter" && Hotkey.key != " ") || System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
 					break;
