@@ -226,7 +226,7 @@
 				Percentage = 0;
 				Percentage2 = 0;
 			}
-			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 20, Percentage2);
+			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", 10, Percentage2);
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}

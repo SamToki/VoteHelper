@@ -50,7 +50,7 @@
 				border-radius: 10px;
 			}
 			.ProgbarFg {
-				width: calc(20px + (100% - 20px) * 0.50); border-radius: 10px;
+				width: 20px; border-radius: 10px;
 			}
 			#ProgbarFg_VoteCandidate1 {
 				background-color: #FFA0A0;
@@ -99,7 +99,7 @@
 				width: 90px; height: 100%;
 			}
 			#ProgringFg_Vote {
-				stroke-dasharray: 289.03 289.03; stroke-dashoffset: 144.51;
+				stroke-dasharray: 289.03 289.03; stroke-dashoffset: 289.03;
 			}
 			#CtrlGroup_VoteFooter2 .Ctrl2 {
 				width: 80px; height: 100%;
