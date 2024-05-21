@@ -73,11 +73,12 @@
 			.ProgbarText1, .ProgbarText2 {
 				position: absolute; top: 0; left: 0;
 				height: 100%; padding: 5px 10px;
-				display: flex; justify-content: center; align-items: center;
+				display: flex; align-items: center;
 			}
 			.ProgbarText2 {
 				right: 0; left: unset;
 				text-align: end;
+				justify-content: end;
 			}
 
 			/* Vote Footer */
