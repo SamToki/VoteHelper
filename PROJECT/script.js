@@ -441,7 +441,8 @@
 					}
 					break;
 				default:
-					if((System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && Hotkey.key != "Escape" && Hotkey.key != "Tab" && Hotkey.key != "Enter" && Hotkey.key != " ") || System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+					if((System.Display.HotkeyIndicators == "ShowOnWrongKeyPress" && IsWrongKeyNegligible(Hotkey.key) == false) ||
+					System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
 					break;
