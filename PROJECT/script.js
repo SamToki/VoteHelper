@@ -427,9 +427,7 @@
 				case "4":
 				case "5":
 				case "6":
-					if(Hotkey.key <= Vote.Options.CandidateQuantity) {
-						Click("Cmdbtn_VoteCandidate" + Hotkey.key);
-					}
+					Click("Cmdbtn_VoteCandidate" + Hotkey.key);
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
