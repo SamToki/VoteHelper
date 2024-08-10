@@ -46,12 +46,6 @@
 				position: relative;
 				width: calc(100% - 500px); height: 100%;
 			}
-			.Progbar {
-				border-radius: 10px;
-			}
-			.ProgbarFg {
-				width: 20px; border-radius: 10px;
-			}
 			#ProgbarFg_VoteCandidate1 {
 				background-color: #FFA0A0;
 			}
