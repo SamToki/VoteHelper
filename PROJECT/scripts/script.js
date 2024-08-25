@@ -415,6 +415,7 @@
 				switch(Selector) {
 					case 2:
 						window.location.replace("#Item_SettingsUserData");
+						ShowIAmHere("Item_SettingsUserData");
 						break;
 					case 3:
 						break;
