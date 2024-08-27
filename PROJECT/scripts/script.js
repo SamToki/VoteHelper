@@ -3,10 +3,10 @@
 // (C) 2023 SAM TOKI STUDIO
 
 // Initialization
-	// Declare Variables
+	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.01;
+		const CurrentVersion = 3.02;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -29,7 +29,7 @@
 			}
 		};
 
-	// Load User Data
+	// Load user data
 	window.onload = Load();
 	function Load() {
 		if(localStorage.System != undefined) {
@@ -205,10 +205,10 @@
 			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
 			ChangeFont("Html", System.Dev.Font);
 
-			// User Data
+			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
 
@@ -263,7 +263,7 @@
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
 		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + "px");
 
-		// Finish Voting
+		// Finish voting
 		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {
 			Vote0.Stats.ElapsedSum = Vote.Options.TotalVotes;
 			for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
@@ -285,23 +285,27 @@
 			ChangeValue("Textbox_SettingsCandidateQuantity", Vote.Options.CandidateQuantity);
 			ChangeValue("Textbox_SettingsTotalVotes", Vote.Options.TotalVotes);
 
-		// Save User Data
+		// Save user data
 		localStorage.setItem("VoteHelper_Vote", JSON.stringify(Vote));
 	}
 
 // Cmds
 	// Vote
 	function CountVote(Selector) {
-		if(Vote.Options.CandidateQuantity >= Selector && Vote0.Stats.ElapsedSum < Vote.Options.TotalVotes) {
+		if(Selector <= Vote.Options.CandidateQuantity && Vote0.Stats.ElapsedSum < Vote.Options.TotalVotes) {
 			Vote.Stats.Elapsed[Selector]++;
+			RefreshVote();
+		} else {
+			AlertSystemError("Function CountVote was called under invalid condition.");
 		}
-		RefreshVote();
 	}
 	function UndoVote(Selector) {
-		if(Vote.Options.CandidateQuantity >= Selector && Vote.Stats.Elapsed[Selector] >= 1) {
+		if(Selector <= Vote.Options.CandidateQuantity && Vote.Stats.Elapsed[Selector] >= 1) {
 			Vote.Stats.Elapsed[Selector]--;
+			RefreshVote();
+		} else {
+			AlertSystemError("Function UndoVote was called under invalid condition.");
 		}
-		RefreshVote();
 	}
 	function ResetVote() {
 		Vote.Stats.Elapsed = [0, 0, 0, 0, 0, 0, 0];
@@ -342,7 +346,7 @@
 			RefreshVote();
 		}
 
-		// User Data
+		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
 				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
@@ -436,7 +440,7 @@
 	}
 
 // Listeners
-	// On Keyboard
+	// On keyboard
 	document.addEventListener("keydown", function(Hotkey) {
 		if(document.activeElement.tagName.toLowerCase() != "input" && document.activeElement.tagName.toLowerCase() != "textarea") { // Prevent hotkey activation when inputing text etc.
 			switch(Hotkey.key.toUpperCase()) {
@@ -467,7 +471,7 @@
 		}
 	});
 
-// Error Handling
+// Error handling
 function AlertSystemError(Message) {
 	console.error("● 系统错误\n" +
 		Message);
