@@ -213,7 +213,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter3">
 							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteUndo" onclick="Show('DropctrlGroup_VoteUndo')">撤销...</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteUndo" disabled="true" onclick="Show('DropctrlGroup_VoteUndo')">撤销...</button>
 								<ul class="DropctrlGroup HiddenToCorner" id="DropctrlGroup_VoteUndo" inert="true">
 									<li class="Dropctrl" id="Dropctrl_VoteUndo1">
 										<button class="Dropbtn" id="Dropbtn_VoteUndo1" disabled="true" onclick="UndoVote(1)">A 减少一票</button>
@@ -236,7 +236,7 @@
 								</ul>
 							</li>
 							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteReset" onclick="ResetVote()">重置</button>
+								<button class="Cmdbtn" id="Cmdbtn_VoteReset" disabled="true" onclick="ResetVote()">重置</button>
 								<span class="HotkeyIndicator Faded" inert="true">R</span>
 							</li>
 						</ul>
