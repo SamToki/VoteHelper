@@ -20,9 +20,6 @@
 			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1, #ProgringText_Vote, #Label_VoteElapsed {
 				font-size: 1.50em;
 			}
-			#Ctnr_VoteHeader .CtrlGroup, #Ctnr_VoteHeader .Ctrl {
-				width: 100%; height: 100%;
-			}
 
 			/* VoteMain */
 			#Ctnr_VoteMain {
