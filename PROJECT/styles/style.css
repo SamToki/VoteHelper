@@ -15,7 +15,7 @@
 		/* Vote */
 			/* VoteHeader */
 			#Ctnr_VoteHeader {
-				height: 50px; margin: 0 0 15px 0;
+				width: 100%; height: 50px; margin: 0 0 15px 0;
 			}
 			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1, #ProgringText_Vote, #Label_VoteElapsed {
 				font-size: 1.50em;
@@ -23,11 +23,11 @@
 
 			/* VoteMain */
 			#Ctnr_VoteMain {
-				height: calc(100% - 160px);
+				width: 100%; height: calc(100% - 160px);
 				display: flex; flex-direction: column;
 			}
 			#Ctnr_VoteMain .CtrlGroup {
-				height: calc((100% - 60px) / 6); margin: 0 0 10px 0;
+				width: 100%; height: calc((100% - 60px) / 6); margin: 0 0 10px 0;
 			}
 			#Ctnr_VoteMain .Ctrl1 {
 				position: relative;
