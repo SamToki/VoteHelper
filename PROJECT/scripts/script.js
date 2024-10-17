@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.02;
+		const CurrentVersion = 3.03;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -257,10 +257,10 @@
 			ChangeDisabled("Cmdbtn_VoteUndo", true);
 			ChangeDisabled("Cmdbtn_VoteReset", true);
 		}
-		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
-		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
+		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
+		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + "px");
 
 		// Finish voting

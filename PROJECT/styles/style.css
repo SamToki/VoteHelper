@@ -84,16 +84,16 @@
 				width: 185px; height: 100%;
 			}
 			#CtrlGroup_VoteFooter2 .Ctrl1 {
+				width: 80px; height: 100%;
+				text-align: center;
+				display: flex; flex-direction: column; justify-content: center; align-items: center;
+			}
+			#CtrlGroup_VoteFooter2 .Ctrl2 {
 				position: relative;
 				width: 90px; height: 100%;
 			}
 			#ProgringFg_Vote {
 				stroke-dasharray: 289.03 289.03; stroke-dashoffset: 289.03;
-			}
-			#CtrlGroup_VoteFooter2 .Ctrl2 {
-				width: 80px; height: 100%;
-				text-align: center;
-				display: flex; flex-direction: column; justify-content: center; align-items: center;
 			}
 			#CtrlGroup_VoteFooter3 {
 				width: 80px; height: 100%;
