@@ -418,7 +418,7 @@
 			case "System_Error":
 				switch(Selector) {
 					case 2:
-						window.location.replace("#Item_SettingsUserData");
+						ScrollIntoView("Item_SettingsUserData");
 						ShowIAmHere("Item_SettingsUserData");
 						break;
 					case 3:
