@@ -136,16 +136,10 @@
 					ChangeCursorOverall("");
 					break;
 				case "BTRAhoge":
-					ChangeCursorOverall("url(../cursors/BTRAhoge.cur), auto");
-					break;
 				case "Genshin":
-					ChangeCursorOverall("url(../cursors/Genshin.cur), auto");
-					break;
-				case "GenshinNahida":
-					ChangeCursorOverall("url(../cursors/GenshinNahida.cur), auto");
-					break;
 				case "GenshinFurina":
-					ChangeCursorOverall("url(../cursors/GenshinFurina.cur), auto");
+				case "GenshinNahida":
+					ChangeCursorOverall("url(../cursors/" + System.Display.Cursor + ".cur), auto");
 					break;
 				default:
 					AlertSystemError("The value of System.Display.Cursor \"" + System.Display.Cursor + "\" in function RefreshSystem is invalid.");
