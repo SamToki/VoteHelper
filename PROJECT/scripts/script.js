@@ -75,10 +75,10 @@
 		} else {
 			System.Version.VoteHelper = CurrentVersion;
 		}
-		RefreshSystem();
 		if(localStorage.VoteHelper_Vote != undefined) {
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
+		RefreshSystem();
 		RefreshVote();
 		setTimeout(HideToast, 0);
 	}
