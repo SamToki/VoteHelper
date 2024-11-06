@@ -249,7 +249,7 @@
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
 		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
-		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + "px");
+		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + 2 + "px");
 
 		// Finish voting
 		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {

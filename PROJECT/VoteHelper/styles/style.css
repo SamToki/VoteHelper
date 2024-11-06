@@ -102,15 +102,15 @@
 			}
 			#DropctrlGroup_VoteUndo {
 				bottom: 0; right: 0;
-				height: 240px;
+				height: 242px;
 			}
 
 /* Responsive web design */
-@media (max-width: 900px) {
+@media (max-width: 880px) {
 	/* Area specific */
 		/* Header */
 		#CtrlGroup_Nav {
-			height: 120px;
+			height: 122px;
 		}
 
 		/* Main */
