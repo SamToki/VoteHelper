@@ -4,11 +4,9 @@
 
 /* Area specific */
 	/* Header */
-	#Ctrl_Title {
-		width: 184px;
-	}
 	#Ctrl_Nav {
-		width: calc(100% - 194px);
+		left: calc(50% - 180px);
+		width: 360px;
 	}
 
 	/* Main */
@@ -41,22 +39,22 @@
 				width: calc(100% - 500px); height: 100%;
 			}
 			#ProgbarFg_VoteCandidate1 {
-				background-color: #FFA0A0;
+				background-color: #E08080;
 			}
 			#ProgbarFg_VoteCandidate2 {
-				background-color: #A0FFA0;
+				background-color: #80C080;
 			}
 			#ProgbarFg_VoteCandidate3 {
-				background-color: #FFC0A0;
+				background-color: #E0A080;
 			}
 			#ProgbarFg_VoteCandidate4 {
-				background-color: #A0FFFF;
+				background-color: #80C0C0;
 			}
 			#ProgbarFg_VoteCandidate5 {
-				background-color: #FFA0FF;
+				background-color: #E090E0;
 			}
 			#ProgbarFg_VoteCandidate6 {
-				background-color: #FFFFA0;
+				background-color: #D0D060;
 			}
 			.ProgbarText1, .ProgbarText2 {
 				position: absolute; top: 0; left: 0;
@@ -108,21 +106,11 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 1070px) {
+@media (max-width: 900px) {
 	/* Area specific */
 		/* Header */
-		#Ctrl_Title {
-			width: 40px;
-		}
-		#Ctrl_Nav {
-			width: calc(100% - 50px);
-		}
-}
-@media (max-width: 830px) {
-	/* Area specific */
-		/* Header */
-		#Ctrl_Nav .Nav {
-			width: calc(100% / 4);
+		#CtrlGroup_Nav {
+			height: 120px;
 		}
 
 		/* Main */

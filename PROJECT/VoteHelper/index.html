@@ -28,19 +28,24 @@
 
 	<body>
 		<div id="Ctnr_BgImage"></div>
-		
+
 		<header id="Topbar">
 			<ul class="CtrlGroup">
 				<li class="Ctrl" id="Ctrl_Title">
 					<a href="https://SamToki.github.io/VoteHelper" aria-label="VoteHelper">
-						<img src="images/Title.png" alt="标题图像" />
+						<img src="images/Title.png" alt="网页图标" />
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
+					<button class="Cmdbtn" id="Cmdbtn_Nav" onclick="Show('CtrlGroup_Nav')">
+						<svg class="Icon Larger" viewBox="0 0 16 16">
+							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+						</svg>
+					</button>
 					<nav>
-						<ul class="CtrlGroup">
+						<ul class="CtrlGroup HiddenOnMobileView" id="CtrlGroup_Nav">
 							<li class="Ctrl Nav" id="Nav_Vote">
-								<a class="NavLinkbtn" id="NavLinkbtn_Vote" href="#Vote">
+								<a class="Linkbtn" id="Linkbtn_Vote" href="#Vote">
 									<svg class="Icon Larger" viewBox="0 0 512 512">
 										<path d="M131.474,442.606H512l-45.828-70.447h-51.578l-29.121-211.834l-40.481,5.548 c-5.555-4.704-16.389-13.154-35.466-25.048c-17.858-11.208-38.472-17.02-55.07-17.02c-48.364,0-102.796,0-102.796,0l-14.907-8.88 l-61.359,91.172l28.165,17.172l36.852,52.382c4.115,5.861,9.67,10.62,16.112,13.736c0,0,24.951,11.79,44.873,21.723 c7.19,3.596,15.642,6.768,24.729,9.622l7.08,51.426h-55.971L131.474,442.606z M275.97,334.309 c27.694,7.405,50.997-20.767,28.221-39.74c-29.606-24.681-30.548-24.792-30.548-24.792c-9.836-7.98-15.544-19.922-15.641-32.606 c-0.055-12.628,5.487-24.632,15.212-32.771l10.529-8.714l83.65-11.527l25.852,187.998l3.851,28.165H258.417l-3.851-28.165 l-6.193-45.032C257.725,329.613,267.188,331.934,275.97,334.309z"/>
 										<polygon points="75.878,69.394 0,183.038 54.252,218.005 130.892,104.375"></polygon>
@@ -49,7 +54,7 @@
 								</a>
 							</li>
 							<li class="Ctrl Nav" id="Nav_Settings">
-								<a class="NavLinkbtn" id="NavLinkbtn_Settings" href="#Settings">
+								<a class="Linkbtn" id="Linkbtn_Settings" href="#Settings">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
 										<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
@@ -58,7 +63,7 @@
 								</a>
 							</li>
 							<li class="Ctrl Nav" id="Nav_Help">
-								<a class="NavLinkbtn" id="NavLinkbtn_Help" href="#Help">
+								<a class="Linkbtn" id="Linkbtn_Help" href="#Help">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 										<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
@@ -66,17 +71,16 @@
 									<span class="LabelAfterIcon">帮助</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_BackToMainPage">
-								<a class="NavLinkbtn" id="NavLinkbtn_BackToMainPage" href="../#ToyStore">
-									<svg class="Icon" viewBox="0 0 16 16">
-										<path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-									</svg>
-									<span class="LabelAfterIcon">返回主页</span>
-								</a>
-							</li>
 							<li class="Ctrl" id="Ctrl_NavUnderline" inert="true"></li>
 						</ul>
 					</nav>
+				</li>
+				<li class="Ctrl" id="Ctrl_BackToMainPage">
+					<a class="Linkbtn" id="Linkbtn_BackToMainPage" href="../#ToyStore">
+						<svg class="Icon" viewBox="0 0 16 16">
+							<path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</a>
 				</li>
 			</ul>
 		</header>
@@ -292,12 +296,6 @@
 									<label for="Checkbox_SettingsBlurBgImage">
 										<input class="Checkbox" id="Checkbox_SettingsBlurBgImage" type="checkbox" checked="false" onchange="SetBlurBgImage()" />
 										<span>模糊背景图像</span>
-									</label>
-								</li>
-								<li class="Ctrl">
-									<label for="Checkbox_SettingsShowTopbar">
-										<input class="Checkbox" id="Checkbox_SettingsShowTopbar" type="checkbox" checked="true" onchange="SetShowTopbar()" />
-										<span>显示顶栏</span>
 									</label>
 								</li>
 								<li class="Ctrl">
