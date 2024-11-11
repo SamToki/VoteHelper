@@ -13,7 +13,7 @@
 		/* Vote */
 			/* VoteHeader */
 			#Ctnr_VoteHeader {
-				width: 100%; height: 50px; margin: 0 0 15px 0;
+				width: 100%; height: 40px; margin: 0 0 15px 0;
 			}
 			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1, #ProgringText_Vote, #Label_VoteElapsed {
 				font-size: 1.50em;
@@ -21,7 +21,7 @@
 
 			/* VoteMain */
 			#Ctnr_VoteMain {
-				width: 100%; height: calc(100% - 160px);
+				width: 100%; height: calc(100% - 140px);
 				display: flex; flex-direction: column;
 			}
 			#Ctnr_VoteMain .CtrlGroup {
@@ -69,17 +69,17 @@
 
 			/* VoteFooter */
 			#Ctnr_VoteFooter {
-				width: 100%; height: 90px; margin: 5px 0 0 0;
+				width: 100%; height: 80px; margin: 5px 0 0 0;
 				display: flex; justify-content: space-between;
 			}
 			#CtrlGroup_VoteFooter1 {
-				width: calc(100% - 290px); height: 100%;
+				width: calc(100% - 280px); height: 100%;
 			}
 			#CtrlGroup_VoteFooter1 .Ctrl {
 				width: 100%; height: 100%;
 			}
 			#CtrlGroup_VoteFooter2 {
-				width: 180px; height: 100%;
+				width: 170px; height: 100%;
 			}
 			#CtrlGroup_VoteFooter2 .Ctrl1 {
 				width: 80px; height: 100%;
@@ -88,10 +88,10 @@
 			}
 			#CtrlGroup_VoteFooter2 .Ctrl2 {
 				position: relative;
-				width: 90px; height: 100%;
+				width: 80px; height: 100%;
 			}
 			#ProgringFg_Vote {
-				stroke-dasharray: 289.03 289.03; stroke-dashoffset: 289.03;
+				stroke-dasharray: 235.62 235.62; stroke-dashoffset: 235.62;
 			}
 			#CtrlGroup_VoteFooter3 {
 				width: 80px; height: 100%;
@@ -102,7 +102,7 @@
 			}
 			#DropctrlGroup_VoteUndo {
 				bottom: 0; right: 0;
-				height: 242px;
+				height: 212px;
 			}
 
 /* Responsive web design */
@@ -110,7 +110,7 @@
 	/* Area specific */
 		/* Header */
 		#CtrlGroup_Nav {
-			height: 122px;
+			height: 107px;
 		}
 
 		/* Main */

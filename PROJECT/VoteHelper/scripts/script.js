@@ -148,9 +148,9 @@
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
 			if(System.Display.BlurBgImage == true) {
-				ChangeFilter("Ctnr_BgImage", "blur(10px)");
+				AddClass("Ctnr_BgImage", "Blur");
 			} else {
-				ChangeFilter("Ctnr_BgImage", "");
+				RemoveClass("Ctnr_BgImage", "Blur");
 			}
 			ChangeValue("Combobox_SettingsHotkeyIndicators", System.Display.HotkeyIndicators);
 			switch(System.Display.HotkeyIndicators) {
@@ -248,9 +248,9 @@
 		}
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
-		ChangeProgring("ProgringFg_Vote", 289.03, Percentage);
+		ChangeProgring("ProgringFg_Vote", 235.62, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
-		ChangeHeight("DropctrlGroup_VoteUndo", 40 * Vote.Options.CandidateQuantity + 2 + "px");
+		ChangeHeight("DropctrlGroup_VoteUndo", 35 * Vote.Options.CandidateQuantity + 2 + "px");
 
 		// Finish voting
 		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {

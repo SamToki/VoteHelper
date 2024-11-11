@@ -1,0 +1,27 @@
+{
+	"name": "VoteHelper",
+	"short_name": "VoteHelper",
+	"icons": [
+		{
+			"src": "../images/Title.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "../images/Title_512px.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+
+	"description": "投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。",
+	"screenshots": [
+		{
+			"src": "../images/Preview.jpg",
+			"type": "image/jpg",
+			"sizes": "1280x720"
+		}
+	],
+
+	"display": "standalone"
+}
