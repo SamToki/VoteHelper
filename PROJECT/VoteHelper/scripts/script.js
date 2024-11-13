@@ -532,8 +532,21 @@
 						ShowHotkeyIndicators();
 					}
 					break;
+				case "U":
+					Click("Button_VoteUndo");
+					Focus("Button_VoteUndo");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
 				case "R":
 					Click("Button_VoteReset");
+					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
+						ShowHotkeyIndicators();
+					}
+					break;
+				case "F":
+					Click("Button_VoteToggleFullscreen");
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
