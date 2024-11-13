@@ -95,10 +95,9 @@
 			}
 			#CtrlGroup_VoteFooter3 {
 				width: 80px; height: 100%;
-				flex-direction: column;
 			}
 			#CtrlGroup_VoteFooter3 .Ctrl {
-				width: 100%;
+				width: 100%; margin: 0 0 10px 0;
 			}
 			#DropctrlGroup_VoteUndo {
 				bottom: 0; right: 0;
@@ -109,7 +108,7 @@
 @media (max-width: 880px) {
 	/* Area specific */
 		/* Header */
-		#CtrlGroup_Nav {
+		#DropctrlGroup_Nav {
 			height: 107px;
 		}
 

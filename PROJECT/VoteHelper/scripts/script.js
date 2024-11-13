@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.03;
+		const CurrentVersion = 3.04;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -29,9 +29,10 @@
 			}
 		};
 
-	// Load user data
+	// Load
 	window.onload = Load();
 	function Load() {
+		// User data
 		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		}
@@ -79,14 +80,94 @@
 		if(localStorage.VoteHelper_Vote != undefined) {
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
+
+		// Refresh
 		RefreshSystem();
 		RefreshVote();
+
+		// PWA
+		navigator.serviceWorker.register("script_ServiceWorker.js").then(function(ServiceWorkerRegistration) {
+			// Detect update (https://stackoverflow.com/a/41896649)
+			ServiceWorkerRegistration.addEventListener("updatefound", function() {
+				const ServiceWorkerInstallation = ServiceWorkerRegistration.installing;
+				ServiceWorkerInstallation.addEventListener("statechange", function() {
+					if(ServiceWorkerInstallation.state == "installed" && navigator.serviceWorker.controller != null) {
+						Show("Label_HelpPWAUpdateReady");
+						ShowDialog("System_PWAUpdateReady",
+							"Info",
+							"新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。",
+							"", "", "", "确定");
+					}
+				});
+			});
+
+			// Read service worker status (https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html)
+			switch(true) {
+				case ServiceWorkerRegistration.installing != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待生效");
+					break;
+				case ServiceWorkerRegistration.waiting != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待更新");
+					Show("Label_HelpPWAUpdateReady");
+					ShowDialog("System_PWAUpdateReady",
+						"Info",
+						"新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。",
+						"", "", "", "确定");
+					break;
+				case ServiceWorkerRegistration.active != null:
+					ChangeText("Label_SettingsPWAServiceWorkerRegistration", "已生效");
+					break;
+				default:
+					break;
+			}
+			if(navigator.serviceWorker.controller != null) {
+				ChangeText("Label_SettingsPWAServiceWorkerController", "已生效");
+			} else {
+				ChangeText("Label_SettingsPWAServiceWorkerController", "未生效");
+			}
+		});
+
+		// Ready
 		setTimeout(HideToast, 0);
 	}
 
 // Refresh
+	// Webpage
+	function RefreshWebpage() {
+		ShowDialog("System_RefreshingWebpage",
+			"Info",
+			"正在刷新网页...",
+			"", "", "", "确定");
+		ChangeCursorOverall("wait");
+		window.location.reload();
+	}
+
 	// System
 	function RefreshSystem() {
+		// Topbar
+		if(IsMobileLayout() == false) {
+			HideHorizontally("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", false);
+		} else {
+			Show("Button_Nav");
+			ChangeInert("DropctrlGroup_Nav", true);
+		}
+
+		// Fullscreen
+		if(IsFullscreen() == false) {
+			Show("Topbar");
+			ChangeText("Button_VoteToggleFullscreen",
+				"<svg class=\"Icon\" viewBox=\"0 0 16 16\">" +
+				"	<path d=\"M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707\"/>" +
+				"</svg>");
+		} else {
+			Hide("Topbar");
+			ChangeText("Button_VoteToggleFullscreen",
+				"<svg class=\"Icon\" viewBox=\"0 0 16 16\">" +
+				"	<path d=\"M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z\"/>" +
+				"</svg>");
+		}
+
 		// Settings
 			// Display
 			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
@@ -176,6 +257,13 @@
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
+			// PWA
+			if(window.matchMedia("(display-mode: standalone)").matches == true) {
+				ChangeText("Label_SettingsPWAMode", "是");
+			} else {
+				ChangeText("Label_SettingsPWAMode", "否");
+			}
+
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
 			if(System.Dev.TryToOptimizePerformance == true) {
@@ -207,12 +295,12 @@
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			Show("CtrlGroup_VoteCandidate" + Looper);
 			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.Options.CandidateQuantity + "px) / " + Vote.Options.CandidateQuantity + ")");
-			ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, false);
+			ChangeDisabled("Button_VoteCandidate" + Looper, false);
 			Show("Dropctrl_VoteUndo" + Looper);
 			if(Vote.Stats.Elapsed[Looper] > 0) {
-				ChangeDisabled("Dropbtn_VoteUndo" + Looper, false);
+				ChangeDisabled("Button_VoteUndo" + Looper, false);
 			} else {
-				ChangeDisabled("Dropbtn_VoteUndo" + Looper, true);
+				ChangeDisabled("Button_VoteUndo" + Looper, true);
 			}
 		}
 		for(let Looper = 6; Looper > Vote.Options.CandidateQuantity; Looper--) {
@@ -239,12 +327,12 @@
 		}
 		if(Vote0.Stats.ElapsedSum > 0) {
 			Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
-			ChangeDisabled("Cmdbtn_VoteUndo", false);
-			ChangeDisabled("Cmdbtn_VoteReset", false);
+			ChangeDisabled("Button_VoteUndo", false);
+			ChangeDisabled("Button_VoteReset", false);
 		} else {
 			Percentage = 0;
-			ChangeDisabled("Cmdbtn_VoteUndo", true);
-			ChangeDisabled("Cmdbtn_VoteReset", true);
+			ChangeDisabled("Button_VoteUndo", true);
+			ChangeDisabled("Button_VoteReset", true);
 		}
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
@@ -256,7 +344,7 @@
 		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {
 			Vote0.Stats.ElapsedSum = Vote.Options.TotalVotes;
 			for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
-				ChangeDisabled("Cmdbtn_VoteCandidate" + Looper, true);
+				ChangeDisabled("Button_VoteCandidate" + Looper, true);
 			}
 			ChangeText("ProgringText_Vote", "完成");
 			ShowToast("投票完成");
@@ -343,8 +431,7 @@
 					Object.keys(Objects).forEach(function(ObjectName) {
 						localStorage.setItem(ObjectName, JSON.stringify(Objects[ObjectName]));
 					});
-					ChangeCursorOverall("wait");
-					window.location.reload();
+					RefreshWebpage();
 				} else {
 					ShowDialog("System_JSONStringInvalid",
 						"Error",
@@ -376,6 +463,8 @@
 		switch(Interaction.DialogEvent) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
+			case "System_PWAUpdateReady":
+			case "System_RefreshingWebpage":
 			case "System_JSONStringInvalid":
 			case "System_UserDataExported":
 				switch(Selector) {
@@ -392,8 +481,7 @@
 				switch(Selector) {
 					case 2:
 						localStorage.clear();
-						ChangeCursorOverall("wait");
-						window.location.reload();
+						RefreshWebpage();
 						break;
 					case 3:
 						break;
@@ -439,13 +527,13 @@
 				case "4":
 				case "5":
 				case "6":
-					Click("Cmdbtn_VoteCandidate" + Hotkey.key);
+					Click("Button_VoteCandidate" + Hotkey.key);
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}
 					break;
 				case "R":
-					Click("Cmdbtn_VoteReset");
+					Click("Button_VoteReset");
 					if(System.Display.HotkeyIndicators == "ShowOnAnyKeyPress" || System.Display.HotkeyIndicators == "AlwaysShow") {
 						ShowHotkeyIndicators();
 					}

@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
 		<title>VoteHelper</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.03 (2024/10/17). Since 2023/09/16." />
+		<meta name="version" content="v3.04 (2024/11/13). Since 2023/09/16." />
 		<meta name="description" content="投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。" />
 		<meta name="keywords" content="Sam Toki, SAM TOKI STUDIO, VoteHelper, 计数器, 计票器, Counter" />
 		<meta name="copyright" content="(C) 2023 SAM TOKI STUDIO" />
@@ -42,15 +42,15 @@
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Cmdbtn" id="Cmdbtn_Nav" onclick="Show('CtrlGroup_Nav')">
+					<button class="Button" id="Button_Nav" onclick="Show('DropctrlGroup_Nav')">
 						<svg class="Icon Larger" viewBox="0 0 16 16">
 							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
 					</button>
 					<nav>
-						<ul class="CtrlGroup HiddenOnMobileView" id="CtrlGroup_Nav">
-							<li class="Ctrl Nav" id="Nav_Vote">
-								<a class="Linkbtn" id="Linkbtn_Vote" href="#Vote">
+						<ul class="DropctrlGroup HiddenInMobileLayout" id="DropctrlGroup_Nav">
+							<li class="Dropctrl Nav" id="Nav_Vote">
+								<a class="Button" id="Button_Vote" href="#Vote">
 									<svg class="Icon Larger" viewBox="0 0 512 512">
 										<path d="M131.474,442.606H512l-45.828-70.447h-51.578l-29.121-211.834l-40.481,5.548 c-5.555-4.704-16.389-13.154-35.466-25.048c-17.858-11.208-38.472-17.02-55.07-17.02c-48.364,0-102.796,0-102.796,0l-14.907-8.88 l-61.359,91.172l28.165,17.172l36.852,52.382c4.115,5.861,9.67,10.62,16.112,13.736c0,0,24.951,11.79,44.873,21.723 c7.19,3.596,15.642,6.768,24.729,9.622l7.08,51.426h-55.971L131.474,442.606z M275.97,334.309 c27.694,7.405,50.997-20.767,28.221-39.74c-29.606-24.681-30.548-24.792-30.548-24.792c-9.836-7.98-15.544-19.922-15.641-32.606 c-0.055-12.628,5.487-24.632,15.212-32.771l10.529-8.714l83.65-11.527l25.852,187.998l3.851,28.165H258.417l-3.851-28.165 l-6.193-45.032C257.725,329.613,267.188,331.934,275.97,334.309z"/>
 										<polygon points="75.878,69.394 0,183.038 54.252,218.005 130.892,104.375"></polygon>
@@ -58,8 +58,8 @@
 									<span class="LabelAfterIcon">投票</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_Settings">
-								<a class="Linkbtn" id="Linkbtn_Settings" href="#Settings">
+							<li class="Dropctrl Nav" id="Nav_Settings">
+								<a class="Button" id="Button_Settings" href="#Settings">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
 										<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
@@ -67,8 +67,8 @@
 									<span class="LabelAfterIcon">设定</span>
 								</a>
 							</li>
-							<li class="Ctrl Nav" id="Nav_Help">
-								<a class="Linkbtn" id="Linkbtn_Help" href="#Help">
+							<li class="Dropctrl Nav" id="Nav_Help">
+								<a class="Button" id="Button_Help" href="#Help">
 									<svg class="Icon" viewBox="0 0 16 16">
 										<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 										<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
@@ -81,7 +81,7 @@
 					</nav>
 				</li>
 				<li class="Ctrl" id="Ctrl_BackToMainPage">
-					<a class="Linkbtn" id="Linkbtn_BackToMainPage" href="..">
+					<a class="Button" id="Button_BackToMainPage" href="..">
 						<svg class="Icon" viewBox="0 0 16 16">
 							<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 						</svg>
@@ -100,7 +100,7 @@
 					<div id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate1" onclick="CountVote(1)">A</button>
+								<button class="Button" id="Button_VoteCandidate1" onclick="CountVote(1)">A</button>
 								<span class="HotkeyIndicator Faded" inert="true">1</span>
 							</li>
 							<li class="Ctrl2">
@@ -116,7 +116,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate2" onclick="CountVote(2)">B</button>
+								<button class="Button" id="Button_VoteCandidate2" onclick="CountVote(2)">B</button>
 								<span class="HotkeyIndicator Faded" inert="true">2</span>
 							</li>
 							<li class="Ctrl2">
@@ -132,7 +132,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate3" onclick="CountVote(3)">C</button>
+								<button class="Button" id="Button_VoteCandidate3" onclick="CountVote(3)">C</button>
 								<span class="HotkeyIndicator Faded" inert="true">3</span>
 							</li>
 							<li class="Ctrl2">
@@ -148,7 +148,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate4" onclick="CountVote(4)">D</button>
+								<button class="Button" id="Button_VoteCandidate4" onclick="CountVote(4)">D</button>
 								<span class="HotkeyIndicator Faded" inert="true">4</span>
 							</li>
 							<li class="Ctrl2">
@@ -164,7 +164,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate5" onclick="CountVote(5)">E</button>
+								<button class="Button" id="Button_VoteCandidate5" onclick="CountVote(5)">E</button>
 								<span class="HotkeyIndicator Faded" inert="true">5</span>
 							</li>
 							<li class="Ctrl2">
@@ -180,7 +180,7 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
 							<li class="Ctrl1">
-								<button class="Cmdbtn" id="Cmdbtn_VoteCandidate6" onclick="CountVote(6)">F</button>
+								<button class="Button" id="Button_VoteCandidate6" onclick="CountVote(6)">F</button>
 								<span class="HotkeyIndicator Faded" inert="true">6</span>
 							</li>
 							<li class="Ctrl2">
@@ -216,31 +216,43 @@
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter3">
 							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteUndo" disabled="true" onclick="Show('DropctrlGroup_VoteUndo')">撤销...</button>
+								<button class="Button" id="Button_VoteUndo" disabled="true" onclick="Show('DropctrlGroup_VoteUndo')">撤销...</button>
 								<ul class="DropctrlGroup HiddenToCorner" id="DropctrlGroup_VoteUndo" inert="true">
 									<li class="Dropctrl" id="Dropctrl_VoteUndo1">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo1" disabled="true" onclick="UndoVote(1)">A 减少一票</button>
+										<button class="Button" id="Button_VoteUndo1" disabled="true" onclick="UndoVote(1)">A 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo2">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo2" disabled="true" onclick="UndoVote(2)">B 减少一票</button>
+										<button class="Button" id="Button_VoteUndo2" disabled="true" onclick="UndoVote(2)">B 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo3">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo3" disabled="true" onclick="UndoVote(3)">C 减少一票</button>
+										<button class="Button" id="Button_VoteUndo3" disabled="true" onclick="UndoVote(3)">C 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo4">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo4" disabled="true" onclick="UndoVote(4)">D 减少一票</button>
+										<button class="Button" id="Button_VoteUndo4" disabled="true" onclick="UndoVote(4)">D 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo5">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo5" disabled="true" onclick="UndoVote(5)">E 减少一票</button>
+										<button class="Button" id="Button_VoteUndo5" disabled="true" onclick="UndoVote(5)">E 减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo6">
-										<button class="Dropbtn" id="Dropbtn_VoteUndo6" disabled="true" onclick="UndoVote(6)">F 减少一票</button>
+										<button class="Button" id="Button_VoteUndo6" disabled="true" onclick="UndoVote(6)">F 减少一票</button>
 									</li>
 								</ul>
 							</li>
-							<li class="Ctrl">
-								<button class="Cmdbtn" id="Cmdbtn_VoteReset" disabled="true" onclick="ResetVote()">重置</button>
+							<li class="Ctrl WidthDividedBy2">
+								<button class="Button" id="Button_VoteReset" disabled="true" onclick="ResetVote()">
+									<svg class="Icon Larger" viewBox="0 0 16 16">
+										<path d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+										<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+									</svg>
+								</button>
 								<span class="HotkeyIndicator Faded" inert="true">R</span>
+							</li>
+							<li class="Ctrl WidthDividedBy2">
+								<button class="Button" id="Button_VoteToggleFullscreen" onclick="ToggleFullscreen()">
+									<svg class="Icon" viewBox="0 0 16 16">
+										<path d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/>
+									</svg>
+								</button>
 							</li>
 						</ul>
 					</div>
@@ -330,13 +342,17 @@
 					</li>
 					<li class="Item">
 						<fieldset>
-							<legend>其他</legend>
-							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">progressive web app</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
+							<legend>PWA</legend>
+							<p>您可将本网页安装至桌面，以 <a href="https://zh.wikipedia.org/wiki/progressive_web_app">PWA</a> (俗称小程序) 的形式更方便地使用。若下面的按钮不可用，请尝试前往浏览器的菜单来安装。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装至桌面</button>
+									<button class="Button" id="Button_SettingsInstallPWA" disabled="true" onclick="InstallPWA()">安装</button>
 								</li>
 							</ul>
+							<h4>状态</h4>
+							<p>PWA 模式：<span id="Label_SettingsPWAMode">未知</span><br />
+								PWA service worker registration：<span id="Label_SettingsPWAServiceWorkerRegistration">未知</span><br />
+								PWA service worker controller：<span id="Label_SettingsPWAServiceWorkerController">未知</span></p>
 						</fieldset>
 					</li>
 					<li class="Item">
@@ -382,10 +398,10 @@
 									</label>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
+									<button class="Button" id="Button_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Cmdbtn" id="Cmdbtn_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
+									<button class="Button" id="Button_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -405,18 +421,20 @@
 					<li class="Item" id="Item_HelpGetInvolved">
 						<fieldset>
 							<legend>参与进来</legend>
+							<h4>反馈</h4>
 							<p>您可通过以下渠道向我提供反馈：</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="https://github.com/SamToki/VoteHelper/issues">GitHub Issues</a>
+									<a class="Button" href="https://github.com/SamToki/VoteHelper/issues">GitHub Issues</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" href="mailto:SamTokiFeedback@outlook.com">电子邮件</a>
+									<a class="Button" href="mailto:SamTokiFeedback@outlook.com">电子邮件</a>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<a class="Linkbtn" href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>
+									<a class="Button" href="https://message.bilibili.com/#whisper/mid1557377413">哔哩哔哩 (B站) 私信</a>
 								</li>
 							</ul>
+							<h4>翻译</h4>
 							<p>Help me translate the webpage into your language! Please contact me if you are interested.</p>
 						</fieldset>
 					</li>
@@ -449,11 +467,12 @@
 							<legend>关于</legend>
 							<p>VoteHelper</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v3.03 (<time datetime="2024-10-17" pubdate="pubdate">2024/10/17</time>)<br />
+							<p>版本 v3.04 (<time datetime="2024-11-13" pubdate="pubdate">2024/11/13</time>)<br />
 								始于 2023/09/16</p>
+							<p class="EmphasizedText Hidden" id="Label_HelpPWAUpdateReady">新版本已就绪。请重新打开本网页来应用更新 (不要使用刷新按钮)。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
-									<a class="Linkbtn" href="https://github.com/SamToki/VoteHelper">查看 GitHub 项目</a>
+									<a class="Button" href="https://github.com/SamToki/VoteHelper">查看 GitHub 项目</a>
 								</li>
 							</ul>
 						</fieldset>
@@ -511,13 +530,13 @@
 			</ul>
 			<ul class="CtrlGroup" id="CtrlGroup_DialogOptions">
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogOption1" inert="true">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption1" onclick="AnswerDialog(1)">选项</button>
+					<button class="Button" id="Button_DialogOption1" onclick="AnswerDialog(1)">选项</button>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogOption2" inert="true">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption2" onclick="AnswerDialog(2)">选项</button>
+					<button class="Button" id="Button_DialogOption2" onclick="AnswerDialog(2)">选项</button>
 				</li>
 				<li class="Ctrl" id="Ctrl_DialogOption3">
-					<button class="Cmdbtn" id="Cmdbtn_DialogOption3" onclick="AnswerDialog(3)">选项</button>
+					<button class="Button" id="Button_DialogOption3" onclick="AnswerDialog(3)">选项</button>
 				</li>
 			</ul>
 		</div>
