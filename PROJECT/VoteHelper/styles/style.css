@@ -91,7 +91,7 @@
 				width: 80px; height: 100%;
 			}
 			#ProgringFg_Vote {
-				stroke-dasharray: 235.62 235.62; stroke-dashoffset: 235.62;
+				stroke-dasharray: 0, calc((80px - 5px) * 3.1415926);
 			}
 			#CtrlGroup_VoteFooter3 {
 				width: 80px; height: 100%;

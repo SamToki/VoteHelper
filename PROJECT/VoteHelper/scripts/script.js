@@ -336,7 +336,7 @@
 		}
 		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
 		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
-		ChangeProgring("ProgringFg_Vote", 235.62, Percentage);
+		ChangeProgring("ProgringFg_Vote", 80, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeHeight("DropctrlGroup_VoteUndo", 35 * Vote.Options.CandidateQuantity + 2 + "px");
 
