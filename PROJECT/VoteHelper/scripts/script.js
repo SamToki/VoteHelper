@@ -462,7 +462,7 @@
 
 	// Dialog
 	function AnswerDialog(Selector) {
-		switch(Interaction.DialogEvent) {
+		switch(Interaction.Dialog[Interaction.Dialog.length - 1].Event) {
 			case "System_LanguageUnsupported":
 			case "System_MajorUpdateDetected":
 			case "System_PWANewVersionReady":
@@ -473,10 +473,8 @@
 					case 3:
 						break;
 					default:
-						setTimeout(function() {
-							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						}, 0);
-						break;
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						return;
 				}
 				break;
 			case "System_ConfirmClearUserData":
@@ -488,10 +486,8 @@
 					case 3:
 						break;
 					default:
-						setTimeout(function() {
-							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						}, 0);
-						break;
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						return;
 				}
 				break;
 			case "System_Error":
@@ -503,19 +499,16 @@
 					case 3:
 						break;
 					default:
-						setTimeout(function() {
-							AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
-						}, 0);
-						break;
+						AlertSystemError("The value of Selector \"" + Selector + "\" in function AnswerDialog is invalid.");
+						return;
 				}
 				break;
 			default:
-				setTimeout(function() {
-					AlertSystemError("The value of Interaction.DialogEvent \"" + Interaction.DialogEvent + "\" in function AnswerDialog is invalid.");
-				}, 0);
+				AlertSystemError("The value of Interaction.Dialog[Interaction.Dialog.length - 1].Event \"" + Interaction.Dialog[Interaction.Dialog.length - 1].Event + "\" in function AnswerDialog is invalid.");
 				return;
 		}
-		HideDialog();
+		Interaction.Dialog.splice(Interaction.Dialog.length - 1, 1);
+		ShowDialog("Previous");
 	}
 
 // Listeners
