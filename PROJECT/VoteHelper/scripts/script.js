@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.05;
+		const CurrentVersion = 3.06;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
