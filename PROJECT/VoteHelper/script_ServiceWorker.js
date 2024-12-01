@@ -1,6 +1,6 @@
 // For SamToki.github.io/VoteHelper
 // Released under GNU GPL v3 open source license.
-// © 2024 SAM TOKI STUDIO
+// © 2023 SAM TOKI STUDIO
 
 // Initialization
 	// Declare variables
