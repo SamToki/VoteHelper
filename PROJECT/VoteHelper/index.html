@@ -106,7 +106,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate1">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate1"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate1">票数</span>
@@ -122,7 +122,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate2">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate2"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate2">票数</span>
@@ -138,7 +138,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate3">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate3"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate3">票数</span>
@@ -154,7 +154,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate4">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate4"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate4">票数</span>
@@ -170,7 +170,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate5">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate5"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate5">票数</span>
@@ -186,7 +186,7 @@
 								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
 							</li>
 							<li class="Ctrl3">
-								<div class="Progbar" id="Progbar_VoteCandidate6">
+								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate6"></div>
 								</div>
 								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate6">票数</span>
@@ -206,8 +206,8 @@
 								<span id="Label_VoteTotal">/总数</span>
 							</li>
 							<li class="Ctrl2">
-								<svg class="Progring" id="Progring_Vote" viewBox="0 0 80 80" aria-label="进度">
-									<circle class="ProgringBg" id="ProgringBg_Vote" cx="40" cy="40" r="37.5" />
+								<svg class="Progring" viewBox="0 0 80 80" aria-label="进度">
+									<circle class="ProgringBg" cx="40" cy="40" r="37.5" />
 									<circle class="ProgringFg" id="ProgringFg_Vote" cx="40" cy="40" r="37.5" />
 								</svg>
 								<span class="ProgringText" id="ProgringText_Vote">进度</span>
@@ -399,10 +399,10 @@
 									</label>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Button" id="Button_SettingsUserDataExport" onclick="ExportUserData()">导出</button>
+									<button class="Button" onclick="ExportUserData()">导出</button>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
-									<button class="Button" id="Button_SettingsUserDataClear" onclick="ConfirmClearUserData()">清空...</button>
+									<button class="Button" onclick="ConfirmClearUserData()">清空...</button>
 								</li>
 							</ul>
 						</fieldset>
@@ -470,7 +470,7 @@
 							<p>by SAM TOKI STUDIO</p>
 							<p>版本 v3.06 (<time datetime="2024-11-25" pubdate="pubdate">2024/11/25</time>)<br />
 								始于 2023/09/16</p>
-							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady">新版本已就绪，将在下次启动时生效。</p>
+							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
 								<li class="Ctrl">
 									<a class="Button" href="https://github.com/SamToki/VoteHelper">查看 GitHub 项目</a>
