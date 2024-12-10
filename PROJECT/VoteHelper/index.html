@@ -10,12 +10,12 @@
 		<link rel="icon" type="image/png" href="images/Favicon.png" />
 		<title>VoteHelper</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.07 (2024/12/06). Since 2023/09/16." />
+		<meta name="version" content="v3.08 (2024/12/10). Since 2023/09/16." />
 		<meta name="description" content="投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-		<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#303030">
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#303030">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../styles/common.css" />
 		<link id="ThemeVariant_Common" rel="stylesheet" href="../styles/common_Dark.css" media="(prefers-color-scheme: dark)" />
@@ -36,12 +36,12 @@
 		<header id="Topbar">
 			<ul class="CtrlGroup">
 				<li class="Ctrl" id="Ctrl_Title">
-					<a href="https://SamToki.github.io/VoteHelper" aria-label="VoteHelper">
+					<a href="https://SamToki.github.io/VoteHelper" title="VoteHelper" aria-label="VoteHelper">
 						<img src="images/Icon.png" alt="网页图标" />
 					</a>
 				</li>
 				<li class="Ctrl" id="Ctrl_Nav">
-					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" aria-label="导航菜单">
+					<button class="Button HiddenHorizontally" id="Button_Nav" inert="true" onclick="Show('DropctrlGroup_Nav')" title="导航菜单" aria-label="导航菜单">
 						<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
 							<path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
@@ -80,7 +80,7 @@
 					</nav>
 				</li>
 				<li class="Ctrl" id="Ctrl_HomePage">
-					<a class="Button" href=".." aria-label="主页">
+					<a class="Button" href=".." title="主页" aria-label="主页">
 						<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 							<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
 						</svg>
@@ -94,119 +94,119 @@
 				<h1 class="SectionTitle Hidden" inert="true">投票</h1>
 				<div class="Viewport">
 					<div class="Ctnr" id="Ctnr_VoteHeader">
-						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="SaveVoteText()" />
+						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="SaveVoteText()" title="投票主题" />
 					</div>
 					<div class="Ctnr" id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate1" onclick="CountVote(1)">A</button>
+								<button class="Button" id="Button_VoteCandidate1" onclick="CountVote(1)" title="给A增加一票" aria-label="给A增加一票">A</button>
 								<span class="HotkeyIndicator Faded" inert="true">1</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate1"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate1">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate1">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate1" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate1" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate2">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate2" onclick="CountVote(2)">B</button>
+								<button class="Button" id="Button_VoteCandidate2" onclick="CountVote(2)" title="给B增加一票" aria-label="给B增加一票">B</button>
 								<span class="HotkeyIndicator Faded" inert="true">2</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate2"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate2">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate2">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate2" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate2" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate3">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate3" onclick="CountVote(3)">C</button>
+								<button class="Button" id="Button_VoteCandidate3" onclick="CountVote(3)" title="给C增加一票" aria-label="给C增加一票">C</button>
 								<span class="HotkeyIndicator Faded" inert="true">3</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate3"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate3">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate3">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate3" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate3" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate4">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate4" onclick="CountVote(4)">D</button>
+								<button class="Button" id="Button_VoteCandidate4" onclick="CountVote(4)" title="给D增加一票" aria-label="给D增加一票">D</button>
 								<span class="HotkeyIndicator Faded" inert="true">4</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate4"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate4">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate4">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate4" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate4" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate5">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate5" onclick="CountVote(5)">E</button>
+								<button class="Button" id="Button_VoteCandidate5" onclick="CountVote(5)" title="给E增加一票" aria-label="给E增加一票">E</button>
 								<span class="HotkeyIndicator Faded" inert="true">5</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate5"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate5">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate5">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate5" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate5" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate6">
 							<li class="Ctrl1">
-								<button class="Button" id="Button_VoteCandidate6" onclick="CountVote(6)">F</button>
+								<button class="Button" id="Button_VoteCandidate6" onclick="CountVote(6)" title="给F增加一票" aria-label="给F增加一票">F</button>
 								<span class="HotkeyIndicator Faded" inert="true">6</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" placeholder="选项名称" onchange="SaveVoteText()" />
+								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
 									<div class="ProgbarFg" id="ProgbarFg_VoteCandidate6"></div>
 								</div>
-								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate6">票数</span>
-								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate6">占比</span>
+								<span class="ProgbarText1" id="ProgbarText1_VoteCandidate6" title="票数" aria-label="票数">票数</span>
+								<span class="ProgbarText2" id="ProgbarText2_VoteCandidate6" title="占比" aria-label="占比">占比</span>
 							</li>
 						</ul>
 					</div>
 					<div class="Ctnr" id="Ctnr_VoteFooter">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter1">
 							<li class="Ctrl">
-								<textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="SaveVoteText()"></textarea>
+								<textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="SaveVoteText()" title="备注"></textarea>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter2">
 							<li class="Ctrl1">
-								<span id="Label_VoteElapsed">已投</span>
-								<span id="Label_VoteTotal">/总数</span>
+								<span id="Label_VoteElapsed" title="已投票数" aria-label="已投票数">已投</span>
+								<span id="Label_VoteTotal" title="总票数" aria-label="总票数">/总票数</span>
 							</li>
-							<li class="Ctrl2">
-								<svg class="Progring" viewBox="0 0 80 80" aria-label="进度">
+							<li class="Ctrl2" title="进度" aria-label="进度">
+								<svg class="Progring" viewBox="0 0 80 80" aria-hidden="true">
 									<circle class="ProgringBg" cx="40" cy="40" r="37.5" />
 									<circle class="ProgringFg" id="ProgringFg_Vote" cx="40" cy="40" r="37.5" />
 								</svg>
@@ -219,27 +219,27 @@
 								<span class="HotkeyIndicator Faded" inert="true">U</span>
 								<ul class="DropctrlGroup HiddenToCorner" id="DropctrlGroup_VoteUndo" inert="true">
 									<li class="Dropctrl" id="Dropctrl_VoteUndo1">
-										<button class="Button" id="Button_VoteUndo1" disabled="true" onclick="UndoVote(1)">A 减少一票</button>
+										<button class="Button" id="Button_VoteUndo1" disabled="true" onclick="UndoVote(1)">给A减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo2">
-										<button class="Button" id="Button_VoteUndo2" disabled="true" onclick="UndoVote(2)">B 减少一票</button>
+										<button class="Button" id="Button_VoteUndo2" disabled="true" onclick="UndoVote(2)">给B减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo3">
-										<button class="Button" id="Button_VoteUndo3" disabled="true" onclick="UndoVote(3)">C 减少一票</button>
+										<button class="Button" id="Button_VoteUndo3" disabled="true" onclick="UndoVote(3)">给C减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo4">
-										<button class="Button" id="Button_VoteUndo4" disabled="true" onclick="UndoVote(4)">D 减少一票</button>
+										<button class="Button" id="Button_VoteUndo4" disabled="true" onclick="UndoVote(4)">给D减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo5">
-										<button class="Button" id="Button_VoteUndo5" disabled="true" onclick="UndoVote(5)">E 减少一票</button>
+										<button class="Button" id="Button_VoteUndo5" disabled="true" onclick="UndoVote(5)">给E减少一票</button>
 									</li>
 									<li class="Dropctrl" id="Dropctrl_VoteUndo6">
-										<button class="Button" id="Button_VoteUndo6" disabled="true" onclick="UndoVote(6)">F 减少一票</button>
+										<button class="Button" id="Button_VoteUndo6" disabled="true" onclick="UndoVote(6)">给F减少一票</button>
 									</li>
 								</ul>
 							</li>
 							<li class="Ctrl WidthDividedBy2">
-								<button class="Button" id="Button_VoteReset" disabled="true" onclick="ResetVote()" aria-label="重置">
+								<button class="Button" id="Button_VoteReset" disabled="true" onclick="ResetVote()" title="重置" aria-label="重置">
 									<svg class="Icon Larger" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
 										<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
@@ -248,7 +248,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">R</span>
 							</li>
 							<li class="Ctrl WidthDividedBy2">
-								<button class="Button" id="Button_VoteToggleFullscreen" onclick="ToggleFullscreen()" aria-label="全屏">
+								<button class="Button" id="Button_VoteToggleFullscreen" onclick="ToggleFullscreen()" title="全屏" aria-label="全屏">
 									<svg class="Icon" viewBox="0 0 16 16" aria-hidden="true">
 										<path d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/>
 									</svg>
@@ -276,7 +276,7 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsTotalVotes">
 										<span>总票数：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" title="" min="5" max="9999" step="5" value="50" placeholder="5~9999" onclick="SelectText('Textbox_SettingsTotalVotes')" onchange="SetTotalVotes()" />
+										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" title="" placeholder="5~9999" onclick="SelectText('Textbox_SettingsTotalVotes')" onchange="SetTotalVotes()" />
 									</label>
 								</li>
 							</ul>
@@ -468,7 +468,7 @@
 							<legend>关于</legend>
 							<p>VoteHelper</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v3.07 (<time datetime="2024-12-06" pubdate="pubdate">2024/12/06</time>)<br />
+							<p>版本 v3.08 (<time datetime="2024-12-10" pubdate="pubdate">2024/12/10</time>)<br />
 								始于 2023/09/16</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
@@ -494,25 +494,25 @@
 		<div class="Window Hidden" id="Window_Dialog" inert="true">
 			<ul class="CtrlGroup" id="CtrlGroup_DialogPrompt">
 				<li class="Ctrl" id="Ctrl_DialogIconInfo">
-					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Info" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 						<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconQuestion" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Question" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconCaution" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Caution" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 					</svg>
 				</li>
 				<li class="Ctrl HiddenHorizontally" id="Ctrl_DialogIconError" inert="true">
-					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16">
+					<svg class="DialogIcon" id="DialogIcon_Error" viewBox="0 0 16 16" aria-hidden="true">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 					</svg>
