@@ -94,7 +94,7 @@
 				<h1 class="SectionTitle Hidden" inert="true">投票</h1>
 				<div class="Viewport">
 					<div class="Ctnr" id="Ctnr_VoteHeader">
-						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" placeholder="投票主题" onchange="SaveVoteText()" title="投票主题" />
+						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" onchange="SaveVoteText()" placeholder="投票主题" title="投票主题" />
 					</div>
 					<div class="Ctnr" id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
@@ -103,7 +103,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">1</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -119,7 +119,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">2</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -135,7 +135,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">3</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -151,7 +151,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">4</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -167,7 +167,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">5</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -183,7 +183,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">6</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" placeholder="选项名称" onchange="SaveVoteText()" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -197,7 +197,7 @@
 					<div class="Ctnr" id="Ctnr_VoteFooter">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter1">
 							<li class="Ctrl">
-								<textarea class="Textbox" id="Textbox_VoteNote" placeholder="备注" onchange="SaveVoteText()" title="备注"></textarea>
+								<textarea class="Textbox" id="Textbox_VoteNote" onchange="SaveVoteText()" placeholder="备注" title="备注"></textarea>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter2">
@@ -270,13 +270,13 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsCandidateQuantity">
 										<span>选项个数：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" placeholder="1~6" onclick="SelectText('Textbox_SettingsCandidateQuantity')" onchange="SetCandidateQuantity()" />
+										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" onclick="SelectText('Textbox_SettingsCandidateQuantity')" onchange="SetCandidateQuantity()" placeholder="1~6" title="1~6" />
 									</label>
 								</li>
 								<li class="Ctrl">
 									<label for="Textbox_SettingsTotalVotes">
 										<span>总票数：</span>
-										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" title="" placeholder="5~9999" onclick="SelectText('Textbox_SettingsTotalVotes')" onchange="SetTotalVotes()" />
+										<input class="Textbox Width120" id="Textbox_SettingsTotalVotes" type="number" min="5" max="9999" step="5" value="50" onclick="SelectText('Textbox_SettingsTotalVotes')" onchange="SetTotalVotes()" placeholder="5~9999" title="5~9999" />
 									</label>
 								</li>
 							</ul>
@@ -395,7 +395,7 @@
 								<li class="Ctrl">
 									<label for="Textbox_SettingsUserDataImport">
 										<span>导入：</span>
-										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" placeholder="粘贴 JSON 字符串" onclick="SelectText('Textbox_SettingsUserDataImport')" onchange="ImportUserData()" />
+										<input class="Textbox" id="Textbox_SettingsUserDataImport" type="text" onclick="SelectText('Textbox_SettingsUserDataImport')" onchange="ImportUserData()" placeholder="粘贴 JSON 字符串" title="粘贴 JSON 字符串" />
 									</label>
 								</li>
 								<li class="Ctrl WidthDividedBy2">
