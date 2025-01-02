@@ -67,7 +67,7 @@
 				break;
 		}
 		if(System.Version.VoteHelper != undefined) {
-			if(Math.floor(CurrentVersion) - Math.floor(System.Version.VoteHelper) >= 1) {
+			if(Math.trunc(CurrentVersion) - Math.trunc(System.Version.VoteHelper) >= 1) {
 				ShowDialog("System_MajorUpdateDetected",
 					"Info",
 					"检测到大版本更新。若您继续使用旧版本的用户数据，则有可能发生兼容性问题。敬请留意。",
@@ -408,7 +408,7 @@
 	// Settings
 		// Vote
 		function SetCandidateQuantity() {
-			Vote.Options.CandidateQuantity = parseInt(Number(ReadValue("Textbox_SettingsCandidateQuantity"))); // Use parseInt(Number()) to force convert value to integer.
+			Vote.Options.CandidateQuantity = Math.trunc(ReadValue("Textbox_SettingsCandidateQuantity"));
 			if(Vote.Options.CandidateQuantity < 1) {
 				Vote.Options.CandidateQuantity = 1;
 			}
@@ -418,7 +418,7 @@
 			RefreshVote();
 		}
 		function SetTotalVotes() {
-			Vote.Options.TotalVotes = parseInt(Number(ReadValue("Textbox_SettingsTotalVotes")));
+			Vote.Options.TotalVotes = Math.trunc(ReadValue("Textbox_SettingsTotalVotes"));
 			if(Vote.Options.TotalVotes < 5) {
 				Vote.Options.TotalVotes = 5;
 			}
