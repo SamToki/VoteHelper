@@ -299,6 +299,10 @@
 
 	// Vote
 	function RefreshVote() {
+		// Initialization
+		Vote0.Stats.ElapsedSum = 0;
+		let Percentage = 0, Percentage2 = 0;
+
 		// Main
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			Show("CtrlGroup_VoteCandidate" + Looper);
@@ -310,18 +314,14 @@
 			} else {
 				ChangeDisabled("Button_VoteUndo" + Looper, true);
 			}
-		}
-		for(let Looper = 6; Looper > Vote.Options.CandidateQuantity; Looper--) {
-			Vote.Stats.Elapsed[Looper] = 0;
-			Hide("CtrlGroup_VoteCandidate" + Looper);
-			Hide("Dropctrl_VoteUndo" + Looper);
-		}
-		Vote0.Stats.ElapsedSum = 0;
-		for(let Looper = 1; Looper <= 6; Looper++) {
 			Vote0.Stats.ElapsedSum += Vote.Stats.Elapsed[Looper];
 		}
-		let Percentage = 0, Percentage2 = 0;
-		for(let Looper = 1; Looper <= 6; Looper++) {
+		for(let Looper = 6; Looper > Vote.Options.CandidateQuantity; Looper--) {
+			Hide("CtrlGroup_VoteCandidate" + Looper);
+			Hide("Dropctrl_VoteUndo" + Looper);
+			Vote.Stats.Elapsed[Looper] = 0;
+		}
+		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			if(Vote0.Stats.ElapsedSum > 0) {
 				Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
 				Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
@@ -333,19 +333,18 @@
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}
+		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
+		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
+		Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
+		ChangeProgring("ProgringFg_Vote", 80, Percentage);
+		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		if(Vote0.Stats.ElapsedSum > 0) {
-			Percentage = Vote0.Stats.ElapsedSum / Vote.Options.TotalVotes * 100;
 			ChangeDisabled("Button_VoteUndo", false);
 			ChangeDisabled("Button_VoteReset", false);
 		} else {
-			Percentage = 0;
 			ChangeDisabled("Button_VoteUndo", true);
 			ChangeDisabled("Button_VoteReset", true);
 		}
-		ChangeText("Label_VoteElapsed", Vote0.Stats.ElapsedSum);
-		ChangeText("Label_VoteTotal", "/" + Vote.Options.TotalVotes);
-		ChangeProgring("ProgringFg_Vote", 80, Percentage);
-		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		ChangeHeight("DropctrlGroup_VoteUndo", 35 * Vote.Options.CandidateQuantity + 2 + "px");
 
 		// Finish voting
