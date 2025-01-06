@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.08;
+		const CurrentVersion = 3.09;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -395,7 +395,7 @@
 		Vote.Stats.Elapsed = [0, 0, 0, 0, 0, 0, 0];
 		RefreshVote();
 	}
-	function SaveVoteText() {
+	function SetVoteText() {
 		Vote.Text.Title = ReadValue("Textbox_VoteTitle");
 		for(let Looper = 1; Looper <= 6; Looper++) {
 			Vote.Text.Candidate[Looper] = ReadValue("Textbox_VoteCandidate" + Looper);

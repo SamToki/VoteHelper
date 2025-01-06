@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon.png" />
 		<title>VoteHelper</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.08 (2024/12/10). Since 2023/09/16." />
+		<meta name="version" content="v3.09 (2025/01/06). Since 2023/09/16." />
 		<meta name="description" content="投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -94,7 +94,7 @@
 				<h1 class="SectionTitle Hidden" inert="true">投票</h1>
 				<div class="Viewport">
 					<div class="Ctnr" id="Ctnr_VoteHeader">
-						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" onchange="SaveVoteText()" placeholder="投票主题" title="投票主题" />
+						<input class="Textbox CenteredText" id="Textbox_VoteTitle" type="text" onchange="SetVoteText()" placeholder="投票主题" title="投票主题" />
 					</div>
 					<div class="Ctnr" id="Ctnr_VoteMain">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteCandidate1">
@@ -103,7 +103,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">1</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -119,7 +119,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">2</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -135,7 +135,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">3</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -151,7 +151,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">4</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -167,7 +167,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">5</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -183,7 +183,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">6</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" onchange="SaveVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -197,7 +197,7 @@
 					<div class="Ctnr" id="Ctnr_VoteFooter">
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter1">
 							<li class="Ctrl">
-								<textarea class="Textbox" id="Textbox_VoteNote" onchange="SaveVoteText()" placeholder="备注" title="备注"></textarea>
+								<textarea class="Textbox" id="Textbox_VoteNote" onchange="SetVoteText()" placeholder="备注" title="备注"></textarea>
 							</li>
 						</ul>
 						<ul class="CtrlGroup" id="CtrlGroup_VoteFooter2">
@@ -468,7 +468,7 @@
 							<legend>关于</legend>
 							<p>VoteHelper</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>版本 v3.08 (<time datetime="2024-12-10" pubdate="pubdate">2024/12/10</time>)<br />
+							<p>版本 v3.09 (<time datetime="2025-01-06" pubdate="pubdate">2025/01/06</time>)<br />
 								始于 2023/09/16</p>
 							<p class="GreenText Hidden" id="Label_HelpPWANewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
