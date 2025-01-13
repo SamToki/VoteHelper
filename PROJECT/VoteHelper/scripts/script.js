@@ -38,7 +38,7 @@
 		}
 		switch(System.I18n.Language) {
 			case "Auto":
-				/* navigator.language ... */
+				// navigator.language ...
 				break;
 			case "en-US":
 				/* ChangeCursorOverall("wait");
