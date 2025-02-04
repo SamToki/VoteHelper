@@ -82,6 +82,7 @@
 		}
 
 		// Refresh
+		HighlightActiveSectionInNav();
 		RefreshSystem();
 		RefreshVote();
 
@@ -505,7 +506,7 @@
 						break;
 					case 2:
 						Object.keys(Automation).forEach(function(AutomationName) {
-							clearInterval(Automation[AutomationName]);
+							clearTimeout(Automation[AutomationName]);
 						});
 						break;
 					case 3:
