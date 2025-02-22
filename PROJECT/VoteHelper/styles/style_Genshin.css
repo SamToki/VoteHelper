@@ -9,20 +9,20 @@
 		/* Vote */
 			/* VoteMain */
 			#ProgbarFg_VoteCandidate1 {
-				background-color: #C00000;
-			}
-			#ProgbarFg_VoteCandidate2 {
 				background-color: #008000;
 			}
+			#ProgbarFg_VoteCandidate2 {
+				background-color: #C00000;
+			}
 			#ProgbarFg_VoteCandidate3 {
-				background-color: #D03000;
+				background-color: #808000;
 			}
 			#ProgbarFg_VoteCandidate4 {
 				background-color: #008080;
 			}
 			#ProgbarFg_VoteCandidate5 {
-				background-color: #C000C0;
+				background-color: #D03000;
 			}
 			#ProgbarFg_VoteCandidate6 {
-				background-color: #808000;
+				background-color: #C000C0;
 			}

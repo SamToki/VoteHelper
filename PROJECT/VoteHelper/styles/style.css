@@ -39,22 +39,22 @@
 				width: calc(100% - 500px); height: 100%;
 			}
 			#ProgbarFg_VoteCandidate1 {
-				background-color: #E08080;
-			}
-			#ProgbarFg_VoteCandidate2 {
 				background-color: #80C080;
 			}
+			#ProgbarFg_VoteCandidate2 {
+				background-color: #E08080;
+			}
 			#ProgbarFg_VoteCandidate3 {
-				background-color: #E0A080;
+				background-color: #D0D060;
 			}
 			#ProgbarFg_VoteCandidate4 {
 				background-color: #80C0C0;
 			}
 			#ProgbarFg_VoteCandidate5 {
-				background-color: #E090E0;
+				background-color: #E0A080;
 			}
 			#ProgbarFg_VoteCandidate6 {
-				background-color: #D0D060;
+				background-color: #E090E0;
 			}
 			.ProgbarText1, .ProgbarText2 {
 				position: absolute; top: 0; left: 0;

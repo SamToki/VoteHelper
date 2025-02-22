@@ -6,7 +6,7 @@
 	// Declare variables
 	"use strict";
 		// Unsaved
-		const CurrentVersion = 3.09;
+		const CurrentVersion = 3.10;
 		var Vote0 = {
 			Stats: {
 				ElapsedSum: 0
@@ -302,7 +302,7 @@
 	function RefreshVote() {
 		// Initialization
 		Vote0.Stats.ElapsedSum = 0;
-		let Percentage = 0, Percentage2 = 0;
+		let Percentage = 0;
 
 		// Main
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
@@ -325,12 +325,10 @@
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			if(Vote0.Stats.ElapsedSum > 0) {
 				Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
-				Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
 			} else {
 				Percentage = 0;
-				Percentage2 = 0;
 			}
-			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", Percentage2);
+			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", Percentage);
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}
