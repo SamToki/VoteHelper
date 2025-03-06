@@ -411,26 +411,12 @@
 	// Settings
 		// Vote
 		function SetCandidateQuantity() {
-			Vote.Options.CandidateQuantity = Math.trunc(ReadValue("Textbox_SettingsCandidateQuantity"));
-			if(Vote.Options.CandidateQuantity < 1) {
-				Vote.Options.CandidateQuantity = 1;
-			}
-			if(Vote.Options.CandidateQuantity > 6) {
-				Vote.Options.CandidateQuantity = 6;
-			}
+			Vote.Options.CandidateQuantity = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_SettingsCandidateQuantity")), 1, 6);
 			RefreshVote();
 		}
 		function SetTotalVotes() {
-			Vote.Options.TotalVotes = Math.trunc(ReadValue("Textbox_SettingsTotalVotes"));
-			if(Vote.Options.TotalVotes < 5) {
-				Vote.Options.TotalVotes = 5;
-			}
-			if(Vote.Options.TotalVotes > 9999) {
-				Vote.Options.TotalVotes = 9999;
-			}
-			if(Vote.Options.TotalVotes < Vote0.Stats.ElapsedSum) {
-				Vote.Options.TotalVotes = Vote0.Stats.ElapsedSum;
-			}
+			Vote.Options.TotalVotes = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_SettingsTotalVotes")), 5, 9999);
+			Vote.Options.TotalVotes = CheckRangeAndCorrect(Vote.Options.TotalVotes, Vote0.Stats.ElapsedSum, 9999);
 			RefreshVote();
 		}
 
