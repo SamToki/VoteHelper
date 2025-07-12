@@ -1,0 +1,28 @@
+/* For SamToki.github.io/VoteHelper */
+/* Released under GNU GPL v3 open source license. */
+/* © 2023 SAM TOKI STUDIO */
+
+/* This is a theme variant, so only colors along with few things are configured. */
+
+/* Area specific */
+	/* Main */
+		/* Vote */
+			/* VoteMain */
+			#ProgbarFg_VoteCandidate1 {
+				background-color: #80C080;
+			}
+			#ProgbarFg_VoteCandidate2 {
+				background-color: #E08080;
+			}
+			#ProgbarFg_VoteCandidate3 {
+				background-color: #D0D060;
+			}
+			#ProgbarFg_VoteCandidate4 {
+				background-color: #80C0C0;
+			}
+			#ProgbarFg_VoteCandidate5 {
+				background-color: #E0A080;
+			}
+			#ProgbarFg_VoteCandidate6 {
+				background-color: #E090E0;
+			}
