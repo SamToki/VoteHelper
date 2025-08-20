@@ -237,6 +237,7 @@
 				case "Genshin":
 				case "GenshinFurina":
 				case "GenshinNahida":
+				case "SilentWitch":
 					ChangeCursorOverall("url(../cursors/" + System.Display.Cursor + ".cur), auto");
 					break;
 				default:
