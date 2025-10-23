@@ -285,8 +285,10 @@
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
 			if(System.Dev.TryToOptimizePerformance == true) {
 				AddClass("Html", "TryToOptimizePerformance");
+				Automation.ClockRate = 40;
 			} else {
 				RemoveClass("Html", "TryToOptimizePerformance");
+				Automation.ClockRate = 20;
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines == true) {
@@ -501,9 +503,7 @@
 						ShowIAmHere("Item_SettingsUserData");
 						break;
 					case 2:
-						Object.keys(Automation).forEach(function(SubobjectName) {
-							clearTimeout(Automation[SubobjectName]);
-						});
+						ForceStop();
 						break;
 					case 3:
 						break;
