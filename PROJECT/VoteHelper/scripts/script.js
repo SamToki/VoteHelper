@@ -107,9 +107,11 @@
 				switch(true) {
 					case ServiceWorkerRegistration.installing != null:
 						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待生效");
+						AddClass("Label_SettingsPWAServiceWorkerRegistration", "GreenText");
 						break;
 					case ServiceWorkerRegistration.waiting != null:
 						ChangeText("Label_SettingsPWAServiceWorkerRegistration", "等待更新");
+						AddClass("Label_SettingsPWAServiceWorkerRegistration", "GreenText");
 						Show("Label_HelpPWANewVersionReady");
 						ShowDialog("System_PWANewVersionReady",
 							"Info",
@@ -499,8 +501,8 @@
 			case "System_Error":
 				switch(Selector) {
 					case 1:
-						ScrollIntoView("Item_SettingsUserData");
-						ShowIAmHere("Item_SettingsUserData");
+						ScrollIntoView("Item_HelpGetInvolved");
+						ShowIAmHere("Item_HelpGetInvolved");
 						break;
 					case 2:
 						ForceStop();
@@ -569,8 +571,8 @@ function AlertSystemError(Message) {
 		Message);
 	ShowDialog("System_Error",
 		"Error",
-		"抱歉，发生了系统错误。您可尝试清空用户数据来修复错误，或向我提供反馈。若无法关闭对话框，请点击「强制停止」。<br />" +
+		"抱歉，发生了系统错误。若错误持续发生，请前往提供反馈。若无法关闭对话框，请点击「强制停止」。<br />" +
 		"<br />" +
 		"错误信息：" + Message,
-		"", "了解更多", "强制停止", "关闭");
+		"", "前往", "强制停止", "关闭");
 }
