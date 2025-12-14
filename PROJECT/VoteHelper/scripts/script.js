@@ -232,7 +232,7 @@
 			}
 			ChangeValue("Combobox_SettingsCursor", System.Display.Cursor);
 			switch(System.Display.Cursor) {
-				case "Default":
+				case "None":
 					ChangeCursorOverall("");
 					break;
 				case "BTRAhoge":
@@ -298,14 +298,6 @@
 			} else {
 				RemoveClass("Html", "ShowDebugOutlines");
 			}
-			ChangeChecked("Checkbox_SettingsUseJapaneseOrthography", System.Dev.UseJapaneseOrthography);
-			if(System.Dev.UseJapaneseOrthography == true) {
-				ChangeLanguage("Html", "ja-JP");
-			} else {
-				ChangeLanguage("Html", "zh-CN");
-			}
-			ChangeValue("Textbox_SettingsFont", System.Dev.Font);
-			ChangeFontOverall(System.Dev.Font);
 
 			// User data
 			ChangeValue("Textbox_SettingsUserDataImport", "");
