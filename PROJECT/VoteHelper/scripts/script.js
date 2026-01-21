@@ -247,7 +247,7 @@
 					break;
 			}
 			ChangeChecked("Checkbox_SettingsBlurBgImage", System.Display.BlurBgImage);
-			if(System.Display.BlurBgImage == true) {
+			if(System.Display.BlurBgImage) {
 				AddClass("BgImage", "Blur");
 			} else {
 				RemoveClass("BgImage", "Blur");
@@ -277,7 +277,7 @@
 			ChangeAnimOverall(System.Display.Anim);
 
 			// PWA
-			if(window.matchMedia("(display-mode: standalone)").matches == true) {
+			if(window.matchMedia("(display-mode: standalone)").matches) {
 				ChangeText("Label_SettingsPWAStandaloneDisplay", "是");
 			} else {
 				ChangeText("Label_SettingsPWAStandaloneDisplay", "否");
@@ -285,7 +285,7 @@
 
 			// Dev
 			ChangeChecked("Checkbox_SettingsTryToOptimizePerformance", System.Dev.TryToOptimizePerformance);
-			if(System.Dev.TryToOptimizePerformance == true) {
+			if(System.Dev.TryToOptimizePerformance) {
 				AddClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 40;
 			} else {
@@ -293,7 +293,7 @@
 				Automation.ClockRate = 20;
 			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
-			if(System.Dev.ShowDebugOutlines == true) {
+			if(System.Dev.ShowDebugOutlines) {
 				AddClass("Html", "ShowDebugOutlines");
 			} else {
 				RemoveClass("Html", "ShowDebugOutlines");
@@ -426,7 +426,7 @@
 		// User data
 		function ImportUserData() {
 			if(ReadValue("Textbox_SettingsUserDataImport") != "") {
-				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":") == true) {
+				if(ReadValue("Textbox_SettingsUserDataImport").startsWith("{\"System\":{\"Display\":{\"Theme\":")) {
 					let UserData = JSON.parse(ReadValue("Textbox_SettingsUserDataImport"));
 					Object.keys(UserData).forEach(function(SubobjectName) {
 						localStorage.setItem(SubobjectName, JSON.stringify(UserData[SubobjectName]));
