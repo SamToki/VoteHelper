@@ -32,7 +32,6 @@
 	window.onload = Load();
 	function Load() {
 		// User data
-		RepairUserData();
 		if(localStorage.System != undefined) {
 			System = JSON.parse(localStorage.getItem("System"));
 		}

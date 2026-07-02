@@ -27,7 +27,6 @@
 				"styles/style_Genshin.css",
 				"styles/style_HighContrast.css",
 				"../scripts/common.js",
-				"../scripts/common_UserDataRepairer.js",
 				"scripts/script.js",
 				"manifests/manifest.json",
 				"images/Icon_Large.png",
