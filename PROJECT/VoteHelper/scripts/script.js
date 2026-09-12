@@ -13,7 +13,12 @@
 		};
 
 		// Saved
-		var Vote = {
+		var Subsystem = {
+			Display: {
+				CandidateBar: "OnlyMonopolistFillFully"
+			}
+		},
+		Vote = {
 			Options: {
 				CandidateQuantity: 6,
 				TotalVotes: 50
@@ -68,10 +73,14 @@
 		if(localStorage.VoteHelper_Vote != undefined) {
 			Vote = JSON.parse(localStorage.getItem("VoteHelper_Vote"));
 		}
+		if(localStorage.VoteHelper_Subsystem != undefined) {
+			Subsystem = JSON.parse(localStorage.getItem("VoteHelper_Subsystem"));
+		}
 
 		// Refresh
 		HighlightActiveSectionInNav();
 		RefreshSystem();
+		RefreshSubsystem();
 		RefreshVote();
 
 		// PWA
@@ -182,12 +191,7 @@
 
 		// Settings
 			// Display
-			if(window.matchMedia("(prefers-contrast: more)").matches == false) {
-				ChangeDisabled("Combobox_SettingsTheme", false);
-			} else {
-				System.Display.Theme = "HighContrast";
-				ChangeDisabled("Combobox_SettingsTheme", true);
-			}
+			ChangeEnabled("Combobox_SettingsTheme", !IsOSHighContrast());
 			ChangeValue("Combobox_SettingsTheme", System.Display.Theme);
 			switch(System.Display.Theme) {
 				case "Auto":
@@ -267,12 +271,7 @@
 					AlertSystemError("The value of System.Display.HotkeyIndicators \"" + System.Display.HotkeyIndicators + "\" in function RefreshSystem is invalid.");
 					break;
 			}
-			if(window.matchMedia("(prefers-reduced-motion: reduce)").matches == false) {
-				ChangeDisabled("Combobox_SettingsAnim", false);
-			} else {
-				System.Display.Anim = 0;
-				ChangeDisabled("Combobox_SettingsAnim", true);
-			}
+			ChangeEnabled("Combobox_SettingsAnim", IsOSAnimEnabled());
 			ChangeValue("Combobox_SettingsAnim", System.Display.Anim);
 			ChangeAnimOverall(System.Display.Anim);
 
@@ -292,6 +291,11 @@
 				RemoveClass("Html", "TryToOptimizePerformance");
 				Automation.ClockRate = 20;
 			}
+			if(IsOSHighContrast() == false && System.Display.Theme != "HighContrast") {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", true);
+			} else {
+				ChangeEnabled("Checkbox_SettingsShowDebugOutlines", false);
+			}
 			ChangeChecked("Checkbox_SettingsShowDebugOutlines", System.Dev.ShowDebugOutlines);
 			if(System.Dev.ShowDebugOutlines) {
 				AddClass("Html", "ShowDebugOutlines");
@@ -305,23 +309,32 @@
 		// Save user data
 		localStorage.setItem("System", JSON.stringify(System));
 	}
+	function RefreshSubsystem() {
+		// Settings
+			// Display
+			ChangeValue("Combobox_SettingsCandidateBar", Subsystem.Display.CandidateBar);
+			RefreshVote();
+
+		// Save user data
+		localStorage.setItem("VoteHelper_Subsystem", JSON.stringify(Subsystem));
+	}
 
 	// Vote
 	function RefreshVote() {
 		// Initialization
 		Vote0.Stats.ElapsedSum = 0;
-		let Percentage = 0;
+		let Percentage = 0, Percentage2 = 0;
 
 		// Main
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			Show("CtrlGroup_VoteCandidate" + Looper);
 			ChangeHeight("CtrlGroup_VoteCandidate" + Looper, "calc((100% - " + 10 * Vote.Options.CandidateQuantity + "px) / " + Vote.Options.CandidateQuantity + ")");
-			ChangeDisabled("Button_VoteCandidate" + Looper, false);
+			ChangeEnabled("Button_VoteCandidate" + Looper, true);
 			Show("Dropctrl_VoteUndo" + Looper);
 			if(Vote.Stats.Elapsed[Looper] > 0) {
-				ChangeDisabled("Button_VoteUndo" + Looper, false);
+				ChangeEnabled("Button_VoteUndo" + Looper, true);
 			} else {
-				ChangeDisabled("Button_VoteUndo" + Looper, true);
+				ChangeEnabled("Button_VoteUndo" + Looper, false);
 			}
 			Vote0.Stats.ElapsedSum += Vote.Stats.Elapsed[Looper];
 		}
@@ -333,10 +346,22 @@
 		for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
 			if(Vote0.Stats.ElapsedSum > 0) {
 				Percentage = Vote.Stats.Elapsed[Looper] / Vote0.Stats.ElapsedSum * 100;
+				Percentage2 = Vote.Stats.Elapsed[Looper] / Math.max(...Vote.Stats.Elapsed) * 100;
 			} else {
 				Percentage = 0;
+				Percentage2 = 0;
 			}
-			ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", Percentage);
+			switch(Subsystem.Display.CandidateBar) {
+				case "OnlyMonopolistFillFully":
+					ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", Percentage);
+					break;
+				case "LeaderFillFully":
+					ChangeProgbar("ProgbarFg_VoteCandidate" + Looper, "Horizontal", Percentage2);
+					break;
+				default:
+					AlertSystemError("The value of Subsystem.Display.CandidateBar \"" + Subsystem.Display.CandidateBar + "\" in function RefreshVote is invalid.");
+					break;
+			}
 			ChangeText("ProgbarText1_VoteCandidate" + Looper, Vote.Stats.Elapsed[Looper]);
 			ChangeText("ProgbarText2_VoteCandidate" + Looper, Percentage.toFixed(2) + "%");
 		}
@@ -346,11 +371,11 @@
 		ChangeProgring("ProgringFg_Vote", 80, Percentage);
 		ChangeText("ProgringText_Vote", Percentage.toFixed(0) + "%");
 		if(Vote0.Stats.ElapsedSum > 0) {
-			ChangeDisabled("Button_VoteUndo", false);
-			ChangeDisabled("Button_VoteReset", false);
+			ChangeEnabled("Button_VoteUndo", true);
+			ChangeEnabled("Button_VoteReset", true);
 		} else {
-			ChangeDisabled("Button_VoteUndo", true);
-			ChangeDisabled("Button_VoteReset", true);
+			ChangeEnabled("Button_VoteUndo", false);
+			ChangeEnabled("Button_VoteReset", false);
 		}
 		ChangeHeight("DropctrlGroup_VoteUndo", 35 * Vote.Options.CandidateQuantity + 2 + "px");
 
@@ -358,7 +383,7 @@
 		if(Vote0.Stats.ElapsedSum >= Vote.Options.TotalVotes) {
 			Vote0.Stats.ElapsedSum = Vote.Options.TotalVotes;
 			for(let Looper = 1; Looper <= Vote.Options.CandidateQuantity; Looper++) {
-				ChangeDisabled("Button_VoteCandidate" + Looper, true);
+				ChangeEnabled("Button_VoteCandidate" + Looper, false);
 			}
 			ChangeText("ProgringText_Vote", "完成");
 			ShowToast("投票完成");
@@ -421,6 +446,12 @@
 			Vote.Options.TotalVotes = CheckRangeAndCorrect(Math.trunc(ReadValue("Textbox_SettingsTotalVotes")), 5, 9999);
 			Vote.Options.TotalVotes = CheckRangeAndCorrect(Vote.Options.TotalVotes, Vote0.Stats.ElapsedSum, 9999);
 			RefreshVote();
+		}
+
+		// Display
+		function SetCandidateBar() {
+			Subsystem.Display.CandidateBar = ReadValue("Combobox_SettingsCandidateBar");
+			RefreshSubsystem();
 		}
 
 		// User data

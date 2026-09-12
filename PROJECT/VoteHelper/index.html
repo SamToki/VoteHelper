@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="images/Icon.png" />
 		<title>VoteHelper</title>
 		<meta name="author" content="SAM TOKI STUDIO" />
-		<meta name="version" content="v3.11 (2025/03/02). Since 2023/09/16." />
+		<meta name="version" content="v3.12 (2026/09/12). Since 2023/09/16." />
 		<meta name="description" content="投票计票辅助工具与看板，实际上就是好几个计数器。纸张与黑板的实用替代品。" />
 		<meta name="copyright" content="© 2023 SAM TOKI STUDIO" />
 
@@ -109,7 +109,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">1</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate1" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -125,7 +125,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">2</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate2" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -141,7 +141,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">3</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate3" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -157,7 +157,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">4</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate4" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -173,7 +173,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">5</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate5" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -189,7 +189,7 @@
 								<span class="HotkeyIndicator Faded" inert="true">6</span>
 							</li>
 							<li class="Ctrl2">
-								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" onchange="SetVoteText()" placeholder="选项名称" title="选项名称" />
+								<input class="Textbox" id="Textbox_VoteCandidate6" type="text" onchange="SetVoteText()" placeholder="候选人名称" title="候选人名称" />
 							</li>
 							<li class="Ctrl3">
 								<div class="Progbar">
@@ -284,7 +284,7 @@
 							<ul class="CtrlGroup">
 								<li class="Ctrl">
 									<label for="Textbox_SettingsCandidateQuantity">
-										<span>选项个数：</span>
+										<span>候选人数量：</span>
 										<input class="Textbox Width120" id="Textbox_SettingsCandidateQuantity" type="number" min="1" max="6" step="1" value="6" onclick="SelectText('Textbox_SettingsCandidateQuantity')" onchange="SetCandidateQuantity()" placeholder="1~6" title="1~6" />
 									</label>
 								</li>
@@ -340,6 +340,16 @@
 									<label for="Checkbox_SettingsBlurBgImage">
 										<input class="Checkbox" id="Checkbox_SettingsBlurBgImage" type="checkbox" checked="true" onchange="SetBlurBgImage()" />
 										<span>模糊背景图像</span>
+									</label>
+								</li>
+								<li class="Ctrl">
+									<label for="Combobox_SettingsCandidateBar">
+										<span>候选人横条：</span>
+										<select class="Combobox" id="Combobox_SettingsCandidateBar" onchange="SetCandidateBar()">
+											<option value="OnlyMonopolistFillFully" selected>仅垄断者能填满</option>
+											<option value="LeaderFillFully">占比最高就能填满</option>
+										</select>
+										<span class="NewFeatureLabel">新</span>
 									</label>
 								</li>
 								<li class="Ctrl">
@@ -583,7 +593,7 @@
 						<fieldset id="Fieldset_HelpAbout">
 							<p>VoteHelper</p>
 							<p>by SAM TOKI STUDIO</p>
-							<p>v3.11 (<time datetime="2025-03-02" pubdate="pubdate">2025/03/02</time>)<br />
+							<p>v3.12 (<time datetime="2026-09-12" pubdate="pubdate">2026/09/12</time>)<br />
 								始于 2023/09/16</p>
 							<p class="GreenText Hidden" id="Label_HelpNewVersionReady" inert="true">新版本已就绪，将在下次启动时生效。</p>
 							<ul class="CtrlGroup BelowParagraph">
