@@ -8,6 +8,9 @@
 		left: calc(50% - 180px);
 		width: 360px;
 	}
+	.Nav {
+		width: calc(100% / 3);
+	}
 
 	/* Main */
 		/* Vote */
@@ -105,13 +108,8 @@
 			}
 
 /* Responsive web design */
-@media (max-width: 920px) {
+@media (max-width: 910px) {
 	/* Area specific */
-		/* Header */
-		#DropctrlGroup_Nav {
-			height: 107px;
-		}
-
 		/* Main */
 			/* Vote */
 			#Ctnr_VoteHeader, #Ctnr_VoteMain, #CtrlGroup_VoteFooter1 {
